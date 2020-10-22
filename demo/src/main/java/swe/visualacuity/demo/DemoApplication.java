@@ -34,12 +34,6 @@ public class DemoApplication {
 	}
 
 	@Bean
-	public RestTemplate getRestTemplate(){
-		RestTemplate restTemplate=new RestTemplate();
-		return restTemplate;
-	}
-
-	@Bean
 	public SpringLiquibase liquibase(DataSource dataSource){
 		SpringLiquibase liquibase = new SpringLiquibase();
 		liquibase.setDataSource(dataSource);
