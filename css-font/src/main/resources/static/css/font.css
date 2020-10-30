@@ -1,0 +1,23 @@
+@font-face {
+    font-family: 'Conv_Optician-Sans';
+    src: url('fonts/Optician-Sans.eot');
+    src: url('fonts/Optician-Sans.woff') format('woff'),
+    url('fonts/Optician-Sans.ttf') format('truetype'),
+    url('fonts/Optician-Sans.svg') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+.optic {
+    font-family: Conv_Optician-Sans,Sans-Serif;
+    font-size: 250%;
+    width: 1000px;
+    margin: 10px auto;
+    text-align: left;
+    border: 1px solid #666;
+    padding: 20px;
+    color: red;
+}
+h1{
+    color: #00b3ff;
+}

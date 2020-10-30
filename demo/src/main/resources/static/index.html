@@ -117,42 +117,42 @@
     }
 
     function random(buttonTag) {
-       var result           = '';
-       var characters       = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
-       var r = ''
-       var r2 = ''
-       var r3 = ''
-       var r4 = ''
-       var r5 = ''
-       var charactersLength = characters.length;
-       for ( var i = 0; i < 5; i++ ) {
+      var result           = '';
+      var characters       = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
+      var r = ''
+      var r2 = ''
+      var r3 = ''
+      var r4 = ''
+      var r5 = ''
+      var charactersLength = characters.length;
+      for ( var i = 0; i < 5; i++ ) {
 
-            var randomNumber = Math.floor(Math.random() *(10-1) + 1);
-            result = characters.charAt(randomNumber);
-            r = r + result + " ";
+        var randomNumber = Math.floor(Math.random() *(10-1) + 1);
+        result = characters.charAt(randomNumber);
+        r = r + result + " ";
 
-            var randomNumber2 = Math.floor(Math.random() *(10-1) + 1);
-            result = characters.charAt(randomNumber2);
-            r2 = r2 + result + " ";
+        var randomNumber2 = Math.floor(Math.random() *(10-1) + 1);
+        result = characters.charAt(randomNumber2);
+        r2 = r2 + result + " ";
 
-            var randomNumber3 = Math.floor(Math.random() *(10-1) + 1);
-            result = characters.charAt(randomNumber3);
-            r3 = r3 + result + " ";
+        var randomNumber3 = Math.floor(Math.random() *(10-1) + 1);
+        result = characters.charAt(randomNumber3);
+        r3 = r3 + result + " ";
 
-            var randomNumber4 = Math.floor(Math.random() *(10-1) + 1);
-            result = characters.charAt(randomNumber4);
-            r4 = r4 + result + " ";
+        var randomNumber4 = Math.floor(Math.random() *(10-1) + 1);
+        result = characters.charAt(randomNumber4);
+        r4 = r4 + result + " ";
 
-            var randomNumber5 = Math.floor(Math.random() *(10-1) + 1);
-            result = characters.charAt(randomNumber5);
-            r5 = r5 + result + " ";
-       }
-        document.getElementById('demo').innerHTML = r;
-        document.getElementById('demo2').innerHTML = r2;
-        document.getElementById('demo3').innerHTML = r3;
-        document.getElementById('demo4').innerHTML = r4;
-        document.getElementById('demo5').innerHTML = r5;
-        return r,r2,r3,r4,r5;
+        var randomNumber5 = Math.floor(Math.random() *(10-1) + 1);
+        result = characters.charAt(randomNumber5);
+        r5 = r5 + result + " ";
+      }
+      document.getElementById('demo').innerHTML = r;
+      document.getElementById('demo2').innerHTML = r2;
+      document.getElementById('demo3').innerHTML = r3;
+      document.getElementById('demo4').innerHTML = r4;
+      document.getElementById('demo5').innerHTML = r5;
+      return r,r2,r3,r4,r5;
     }
   </script>
 

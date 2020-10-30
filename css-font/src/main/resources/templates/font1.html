@@ -1,0 +1,44 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <title>Getting Started: Serving Web Content</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" type="text/css" href="css/font.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+
+
+</head>
+
+<body>
+    <h1>Font Optician-Sans </h1>
+    <br>
+    <div class="optic">THE QUICK BROWN FOX JUMPS OVER THE LAZY DOG</div>
+    <div class="optic">The quick brown fox jumps over the lazy dog</div>
+    <div class="optic">1 2 3 4 5 6 7 8 9</div>
+    <div class="optic">A B C D E F G H I J K L M N O P Q R S T U V W X Y Z</div>
+
+<br>
+
+    <div id="font">
+        <h2>Font Size</h2>
+        <input type="text" name="font" value="15" /> px
+        <br /><span id="warning"></span>
+    </div>
+    <br />
+    <div id="testFont">Hello World</div>
+
+
+</body>
+<script>
+    $("input").keyup(function(){
+        if( parseInt($(this).val()) < 10 ) {
+            $("#warning").text("Your font is smaller than 10px");
+        } else {
+            $("#warning").text("");
+            $('#testFont').css('font-size', $(this).val() + 'px');
+        }
+    });
+</script>
+
+</html>
