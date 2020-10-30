@@ -156,3 +156,107 @@ Caused by: java.sql.SQLSyntaxErrorException: You have an error in your SQL synta
 15:05:55.115 [restartedMain] INFO  s.visualacuity.demo.DemoApplication - Started DemoApplication in 4.192 seconds (JVM running for 4.64) 
 15:05:55.167 [task-1] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform] 
 15:05:55.174 [task-1] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default' 
+15:36:59.683 [HikariPool-1 housekeeper] WARN  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=11m6s674ms735µs100ns). 
+15:44:58.855 [http-nio-8080-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet' 
+15:44:58.855 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet' 
+15:44:58.862 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 7 ms 
+15:45:33.769 [restartedMain] INFO  s.visualacuity.demo.DemoApplication - Starting DemoApplication on LAPTOP-LIIHR2B7 with PID 19740 (C:\Visual-Acuity-Measurement-System\demo\target\classes started by ACER in C:\Visual-Acuity-Measurement-System\demo) 
+15:45:33.770 [restartedMain] INFO  s.visualacuity.demo.DemoApplication - No active profile set, falling back to default profiles: default 
+15:45:33.818 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable 
+15:45:33.818 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG' 
+15:45:34.312 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFERRED mode. 
+15:45:34.327 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 9ms. Found 0 JPA repository interfaces. 
+15:45:34.908 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http) 
+15:45:34.916 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"] 
+15:45:34.916 [restartedMain] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat] 
+15:45:34.916 [restartedMain] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.38] 
+15:45:34.993 [restartedMain] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext 
+15:45:34.993 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1175 ms 
+15:45:35.080 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting... 
+15:45:35.198 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed. 
+15:45:35.835 [restartedMain] INFO  liquibase.executor.jvm.JdbcExecutor - Executing with the 'jdbc' executor 
+15:45:35.858 [restartedMain] INFO  liquibase.executor.jvm.JdbcExecutor - SELECT COUNT(*) FROM visual_acuity.DATABASECHANGELOGLOCK 
+15:45:35.877 [restartedMain] INFO  liquibase.executor.jvm.JdbcExecutor - Executing with the 'jdbc' executor 
+15:45:35.878 [restartedMain] INFO  liquibase.executor.jvm.JdbcExecutor - SELECT COUNT(*) FROM visual_acuity.DATABASECHANGELOGLOCK 
+15:45:35.898 [restartedMain] INFO  liquibase.executor.jvm.JdbcExecutor - Executing with the 'jdbc' executor 
+15:45:35.899 [restartedMain] INFO  liquibase.executor.jvm.JdbcExecutor - SELECT `LOCKED` FROM visual_acuity.DATABASECHANGELOGLOCK WHERE ID=1 
+15:45:35.901 [restartedMain] INFO  liquibase.executor.jvm.JdbcExecutor - Executing with the 'jdbc' executor 
+15:45:35.912 [restartedMain] INFO  l.lockservice.StandardLockService - Successfully acquired change log lock 
+15:45:36.787 [restartedMain] INFO  liquibase.executor.jvm.JdbcExecutor - Executing with the 'jdbc' executor 
+15:45:36.788 [restartedMain] INFO  liquibase.executor.jvm.JdbcExecutor - SELECT MD5SUM FROM visual_acuity.DATABASECHANGELOG WHERE MD5SUM IS NOT NULL LIMIT 1 
+15:45:36.789 [restartedMain] INFO  liquibase.executor.jvm.JdbcExecutor - Executing with the 'jdbc' executor 
+15:45:36.790 [restartedMain] INFO  liquibase.executor.jvm.JdbcExecutor - SELECT COUNT(*) FROM visual_acuity.DATABASECHANGELOG 
+15:45:36.810 [restartedMain] INFO  l.c.StandardChangeLogHistoryService - Reading from visual_acuity.DATABASECHANGELOG 
+15:45:36.810 [restartedMain] INFO  liquibase.executor.jvm.JdbcExecutor - Executing with the 'jdbc' executor 
+15:45:36.811 [restartedMain] INFO  liquibase.executor.jvm.JdbcExecutor - SELECT * FROM visual_acuity.DATABASECHANGELOG ORDER BY DATEEXECUTED ASC, ORDEREXECUTED ASC 
+15:45:36.821 [restartedMain] INFO  liquibase.executor.jvm.JdbcExecutor - Executing with the 'jdbc' executor 
+15:45:36.823 [restartedMain] INFO  l.lockservice.StandardLockService - Successfully released change log lock 
+15:45:36.886 [restartedMain] INFO  o.s.s.c.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor' 
+15:45:36.924 [task-1] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default] 
+15:45:36.963 [task-1] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 5.4.21.Final 
+15:45:36.977 [restartedMain] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning 
+15:45:37.074 [task-1] INFO  o.h.annotations.common.Version - HCANN000001: Hibernate Commons Annotations {5.1.0.Final} 
+15:45:37.105 [restartedMain] INFO  o.s.b.a.w.s.WelcomePageHandlerMapping - Adding welcome page: class path resource [static/index.html] 
+15:45:37.161 [restartedMain] WARN  o.t.templatemode.TemplateMode - [THYMELEAF][restartedMain] Template Mode 'LEGACYHTML5' is deprecated. Using Template Mode 'HTML' instead. 
+15:45:37.168 [task-1] INFO  org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.MySQL5InnoDBDialect 
+15:45:37.239 [restartedMain] INFO  o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729 
+15:45:37.248 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"] 
+15:45:37.268 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path '' 
+15:45:37.269 [restartedMain] INFO  o.s.d.r.c.DeferredRepositoryInitializationListener - Triggering deferred initialization of Spring Data repositories… 
+15:45:37.270 [restartedMain] INFO  o.s.d.r.c.DeferredRepositoryInitializationListener - Spring Data repositories initialized! 
+15:45:37.276 [restartedMain] INFO  s.visualacuity.demo.DemoApplication - Started DemoApplication in 3.947 seconds (JVM running for 4.367) 
+15:45:37.312 [task-1] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform] 
+15:45:37.318 [task-1] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default' 
+15:45:40.946 [http-nio-8080-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet' 
+15:45:40.947 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet' 
+15:45:40.952 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 5 ms 
+15:45:55.932 [restartedMain] INFO  s.visualacuity.demo.DemoApplication - Starting DemoApplication on LAPTOP-LIIHR2B7 with PID 12584 (C:\Visual-Acuity-Measurement-System\demo\target\classes started by ACER in C:\Visual-Acuity-Measurement-System\demo) 
+15:45:55.934 [restartedMain] INFO  s.visualacuity.demo.DemoApplication - No active profile set, falling back to default profiles: default 
+15:45:55.977 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable 
+15:45:55.977 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG' 
+15:45:56.448 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFERRED mode. 
+15:45:56.465 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 10ms. Found 0 JPA repository interfaces. 
+15:45:57.035 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http) 
+15:45:57.043 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"] 
+15:45:57.044 [restartedMain] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat] 
+15:45:57.044 [restartedMain] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.38] 
+15:45:57.125 [restartedMain] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext 
+15:45:57.125 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1148 ms 
+15:45:57.213 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting... 
+15:45:57.331 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed. 
+15:45:58.007 [restartedMain] INFO  liquibase.executor.jvm.JdbcExecutor - Executing with the 'jdbc' executor 
+15:45:58.032 [restartedMain] INFO  liquibase.executor.jvm.JdbcExecutor - SELECT COUNT(*) FROM visual_acuity.DATABASECHANGELOGLOCK 
+15:45:58.054 [restartedMain] INFO  liquibase.executor.jvm.JdbcExecutor - Executing with the 'jdbc' executor 
+15:45:58.055 [restartedMain] INFO  liquibase.executor.jvm.JdbcExecutor - SELECT COUNT(*) FROM visual_acuity.DATABASECHANGELOGLOCK 
+15:45:58.074 [restartedMain] INFO  liquibase.executor.jvm.JdbcExecutor - Executing with the 'jdbc' executor 
+15:45:58.075 [restartedMain] INFO  liquibase.executor.jvm.JdbcExecutor - SELECT `LOCKED` FROM visual_acuity.DATABASECHANGELOGLOCK WHERE ID=1 
+15:45:58.077 [restartedMain] INFO  liquibase.executor.jvm.JdbcExecutor - Executing with the 'jdbc' executor 
+15:45:58.089 [restartedMain] INFO  l.lockservice.StandardLockService - Successfully acquired change log lock 
+15:45:58.877 [restartedMain] INFO  liquibase.executor.jvm.JdbcExecutor - Executing with the 'jdbc' executor 
+15:45:58.877 [restartedMain] INFO  liquibase.executor.jvm.JdbcExecutor - SELECT MD5SUM FROM visual_acuity.DATABASECHANGELOG WHERE MD5SUM IS NOT NULL LIMIT 1 
+15:45:58.878 [restartedMain] INFO  liquibase.executor.jvm.JdbcExecutor - Executing with the 'jdbc' executor 
+15:45:58.879 [restartedMain] INFO  liquibase.executor.jvm.JdbcExecutor - SELECT COUNT(*) FROM visual_acuity.DATABASECHANGELOG 
+15:45:58.897 [restartedMain] INFO  l.c.StandardChangeLogHistoryService - Reading from visual_acuity.DATABASECHANGELOG 
+15:45:58.897 [restartedMain] INFO  liquibase.executor.jvm.JdbcExecutor - Executing with the 'jdbc' executor 
+15:45:58.898 [restartedMain] INFO  liquibase.executor.jvm.JdbcExecutor - SELECT * FROM visual_acuity.DATABASECHANGELOG ORDER BY DATEEXECUTED ASC, ORDEREXECUTED ASC 
+15:45:58.908 [restartedMain] INFO  liquibase.executor.jvm.JdbcExecutor - Executing with the 'jdbc' executor 
+15:45:58.911 [restartedMain] INFO  l.lockservice.StandardLockService - Successfully released change log lock 
+15:45:58.977 [restartedMain] INFO  o.s.s.c.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor' 
+15:45:59.016 [task-1] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default] 
+15:45:59.058 [task-1] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 5.4.21.Final 
+15:45:59.066 [restartedMain] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning 
+15:45:59.166 [task-1] INFO  o.h.annotations.common.Version - HCANN000001: Hibernate Commons Annotations {5.1.0.Final} 
+15:45:59.187 [restartedMain] INFO  o.s.b.a.w.s.WelcomePageHandlerMapping - Adding welcome page: class path resource [static/index.html] 
+15:45:59.236 [restartedMain] WARN  o.t.templatemode.TemplateMode - [THYMELEAF][restartedMain] Template Mode 'LEGACYHTML5' is deprecated. Using Template Mode 'HTML' instead. 
+15:45:59.255 [task-1] INFO  org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.MySQL5InnoDBDialect 
+15:45:59.317 [restartedMain] INFO  o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729 
+15:45:59.331 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"] 
+15:45:59.350 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path '' 
+15:45:59.351 [restartedMain] INFO  o.s.d.r.c.DeferredRepositoryInitializationListener - Triggering deferred initialization of Spring Data repositories… 
+15:45:59.352 [restartedMain] INFO  o.s.d.r.c.DeferredRepositoryInitializationListener - Spring Data repositories initialized! 
+15:45:59.359 [restartedMain] INFO  s.visualacuity.demo.DemoApplication - Started DemoApplication in 3.883 seconds (JVM running for 4.298) 
+15:45:59.400 [task-1] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform] 
+15:45:59.407 [task-1] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default' 
+15:59:26.033 [http-nio-8080-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet' 
+15:59:26.033 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet' 
+15:59:26.039 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 6 ms 
