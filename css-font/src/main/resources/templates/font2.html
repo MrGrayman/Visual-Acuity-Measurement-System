@@ -3,7 +3,7 @@
 <head>
     <title>Getting Started: Serving Web Content</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-    <link rel="stylesheet" href="css/font.css">
+    <link rel="stylesheet" type="text/css" href="css/font.css">
     <style type="text/css">
         h1 {
             font-size: 250%;
@@ -30,7 +30,8 @@
         }
 
         div {
-            font-family: "myFirstFont";
+            font-family: Conv_Optician-Sans;
+
         }
     </style>
 
@@ -38,41 +39,43 @@
 </head>
 <body>
 <h1>Font Optician-Sans </h1>
-<select onchange="myFunction(this);" size="13">
-    <option>Georgia</option>
-    <option>Palatino Linotype</option>
-    <option>Book Antiqua</option>
-    <option>Times New Roman</option>
-    <option>Arial</option>
-    <option>Helvetica</option>
-    <option>Arial Black</option>
-    <option>Impact</option>
-    <option>Lucida Sans Unicode</option>
-    <option>Tahoma</option>
-    <option>Verdana</option>
-    <option>Courier New</option>
-    <option>Lucida Console</option>
-    <option>myFirstFont</option>
-</select>
+    <form>
+        <select onchange="myFunction(this);" size="10">
+            <option>Georgia</option>
+            <option>Palatino Linotype</option>
+            <option>Book Antiqua</option>
+            <option>Times New Roman</option>
+            <option>Arial</option>
+            <option>Helvetica</option>
+            <option>Arial Black</option>
+            <option>Impact</option>
+            <option>Lucida Sans Unicode</option>
+            <option>Tahoma</option>
+            <option>Verdana</option>
+            <option>Courier New</option>
+            <option>Lucida Console</option>
+            <option>Conv_Optician-Sans</option>
+        </select>
 
-<select onchange="myPx(this);" size="13">
-    <option>12</option>
-    <option>14</option>
-    <option>16</option>
-    <option>18</option>
-    <option>20</option>
-    <option>22</option>
-    <option>26</option>
-    <option>28</option>
-    <option>30</option>
-    <option>32</option>
-    <option>34</option>
-    <option>36</option>
-    <option>38</option>
-    <option>40</option>
-    <option>42</option>
-</select>
-<br>
+        <select onchange="myPx(this);" size="10">
+            <option>12</option>
+            <option>14</option>
+            <option>16</option>
+            <option>18</option>
+            <option>20</option>
+            <option>22</option>
+            <option>26</option>
+            <option>28</option>
+            <option>30</option>
+            <option>32</option>
+            <option>34</option>
+            <option>36</option>
+            <option>38</option>
+            <option>40</option>
+            <option>42</option>
+        </select>
+    </form>
+<div>CALCULATOR </div>
 
 <button id="button1" onclick ="random()" class="btn btn-primary">Random Character</button>
 

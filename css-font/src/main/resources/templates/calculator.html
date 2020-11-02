@@ -1,28 +1,160 @@
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE HTML>
+<html>
 <head>
-    <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Getting Started: Serving Web Content</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" type="text/css" href="css/font.css">
+    <style type="text/css">
+        h1 {
+            font-size: 250%;
+        }
+
+        h2 {
+            font-size: 200%;
+        }
+
+        p {
+            font-size: 100%;
+        }
+
+        .serif {
+            font-family: "Times New Roman", Times, serif;
+        }
+
+        .sansserif {
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        .monospace {
+            font-family: "Lucida Console", Courier, monospace;
+        }
+
+        div {
+            font-family: Conv_Optician-Sans;
+
+        }
+    </style>
+
+
 </head>
 <body>
-<h1>Calculator...</h1>
-<br>
+<h1>Font Optician-Sans </h1>
+<form>
+    <select onchange="myFunction(this);" size="10">
+        <option>Georgia</option>
+        <option>Palatino Linotype</option>
+        <option>Book Antiqua</option>
+        <option>Times New Roman</option>
+        <option>Arial</option>
+        <option>Helvetica</option>
+        <option>Arial Black</option>
+        <option>Impact</option>
+        <option>Lucida Sans Unicode</option>
+        <option>Tahoma</option>
+        <option>Verdana</option>
+        <option>Courier New</option>
+        <option>Lucida Console</option>
+        <option>Conv_Optician-Sans</option>
+    </select>
+
+    <select onchange="myPx(this);" size="10">
+        <option>12</option>
+        <option>14</option>
+        <option>16</option>
+        <option>18</option>
+        <option>20</option>
+        <option>22</option>
+        <option>26</option>
+        <option>28</option>
+        <option>30</option>
+        <option>32</option>
+        <option>34</option>
+        <option>36</option>
+        <option>38</option>
+        <option>40</option>
+        <option>42</option>
+    </select>
+</form>
+<div>CALCULATOR </div>
 <div>Input your distance</div>
 <input type="number" id="distance">
-<button onclick="myFunction()">Try it</button>
+<button onclick="myPx()">Try it</button>
 <br>
-<br>
-<h2 id="result"></h2>
+<button id="button1" onclick ="random()" class="btn btn-primary">Random Character</button>
+
+<div style="font-size: 250%" id="demo" value="">A B C D F G H I J K L M N O P Q R S T U V W X Y Z</div><br>
+<div style="font-size: 250%" id="demo2" value="">A B C D F G H I J K L M N O P Q R S T U V W X Y Z</div><br>
+<div style="font-size: 250%" id="demo3" value="">A B C D F G H I J K L M N O P Q R S T U V W X Y Z</div><br>
+<div style="font-size: 250%" id="demo4" value="">A B C D F G H I J K L M N O P Q R S T U V W X Y Z</div><br>
+<div style="font-size: 250%" id="demo5" value="">A B C D F G H I J K L M N O P Q R S T U V W X Y Z</div><br>
 <script>
-    function myFunction() {
+    function myFunction(selectTag) {
+        var listValue = selectTag.options[selectTag.selectedIndex].text;
+        document.getElementById("demo").style.fontFamily = listValue;
+        document.getElementById("demo2").style.fontFamily = listValue;
+        document.getElementById("demo3").style.fontFamily = listValue;
+        document.getElementById("demo4").style.fontFamily = listValue;
+        document.getElementById("demo5").style.fontFamily = listValue;
+    }
+
+    function myPx() {
         var x = document.getElementById("distance").value;
         var y = 1/60;
         var z = Math.tan(y * Math.PI/180);
-       var mm = (z * Math.pow(10,3))* x;
-       var result = mm * 5;
-        document.getElementById("result").innerHTML = result.toFixed(1);
+        var mm = (z * Math.pow(10,3))* x;
+        var result = mm * 5;
+        var px = result * 3.7795275590551;
+        var listValue = px;
+        var listSizeNumber = parseInt(listValue);
+        document.getElementById("demo").style.fontSize = listValue + "px";
+        document.getElementById("demo2").style.fontSize = listValue + "px";
+        document.getElementById("demo3").style.fontSize = listSizeNumber + "px";
+        document.getElementById("demo4").style.fontSize = listSizeNumber + "px";
+        document.getElementById("demo5").style.fontSize = listSizeNumber + "px";
+    }
+
+    function random(buttonTag) {
+        var result           = '';
+        var characters       = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
+        var r = ''
+        var r2 = ''
+        var r3 = ''
+        var r4 = ''
+        var r5 = ''
+        var charactersLength = characters.length;
+        for ( var i = 0; i < 5; i++ ) {
+
+            var randomNumber = Math.floor(Math.random() *(10-1) + 1);
+            result = characters.charAt(randomNumber);
+            r = r + result + " ";
+
+            var randomNumber2 = Math.floor(Math.random() *(10-1) + 1);
+            result = characters.charAt(randomNumber2);
+            r2 = r2 + result + " ";
+
+            var randomNumber3 = Math.floor(Math.random() *(10-1) + 1);
+            result = characters.charAt(randomNumber3);
+            r3 = r3 + result + " ";
+
+            var randomNumber4 = Math.floor(Math.random() *(10-1) + 1);
+            result = characters.charAt(randomNumber4);
+            r4 = r4 + result + " ";
+
+            var randomNumber5 = Math.floor(Math.random() *(10-1) + 1);
+            result = characters.charAt(randomNumber5);
+            r5 = r5 + result + " ";
+        }
+        document.getElementById('demo').innerHTML = r;
+        document.getElementById('demo2').innerHTML = r2;
+        document.getElementById('demo3').innerHTML = r3;
+        document.getElementById('demo4').innerHTML = r4;
+        document.getElementById('demo5').innerHTML = r5;
+        return r,r2,r3,r4,r5;
     }
 </script>
-</body>
 
+
+
+</body>
 </html>
+
