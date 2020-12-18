@@ -18,6 +18,11 @@ public class GreetingController {
         model.addAttribute("name", name);
         return "font2";
     }
+    @GetMapping("/font3")
+    public String font3(@RequestParam(name="name", required=false, defaultValue="World") String name, Model model) {
+        model.addAttribute("name", name);
+        return "font3";
+    }
     @GetMapping("/calculator")
     public String calculator(@RequestParam(name="name", required=false, defaultValue="World") String name, Model model) {
         model.addAttribute("name", name);

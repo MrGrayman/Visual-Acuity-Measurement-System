@@ -34,6 +34,37 @@
             font-family: Conv_Optician-Sans;
 
         }
+
+        textarea {
+          width: 150%;
+          height: 200px;
+          padding: 12px 20px;
+          box-sizing: border-box;
+          border: 2px solid #ccc;
+          border-radius: 4px;
+          background-color: #f8f8f8;
+          font-size: 16px;
+          resize: none;
+        }
+
+        .center {
+          text-align: center;
+          border: 1px solid;
+        }
+
+        .center2 {
+          text-align: center;
+        }
+
+        .left {
+          text-align: left;
+        }
+
+        .scrollable-menu {
+            height: auto;
+            max-height: 200px;
+            overflow-x: hidden;
+        }
     </style>
 
 
@@ -73,54 +104,77 @@
 <div class="container-fluid">
     <div class="row">
         <div class="col-sm-4" style="text-align: center">
-
-                <select onchange="myFunction(this);" size="10">
-                    <option>Georgia</option>
-                    <option>Palatino Linotype</option>
-                    <option>Book Antiqua</option>
-                    <option>Times New Roman</option>
-                    <option>Arial</option>
-                    <option>Helvetica</option>
-                    <option>Arial Black</option>
-                    <option>Impact</option>
-                    <option>Lucida Sans Unicode</option>
-                    <option>Tahoma</option>
-                    <option>Verdana</option>
-                    <option>Courier New</option>
-                    <option>Lucida Console</option>
-                    <option>Conv_Optician-Sans</option>
+            <div class="left">
+            <p>Font Type</p>
+                <select onchange="myFunction(this);">
+                    <option value="Georgia">Georgia</option>
+                    <option value="Palatino Linotype">Palatino Linotype</option>
+                    <option value="Book Antiqua">Book Antiqua</option>
+                    <option value="Times New Roman">Times New Roman</option>
+                    <option value="Arial">Arial</option>
+                    <option value="Helvetica">Helvetica</option>
+                    <option value="Arial Black">Arial Black</option>
+                    <option value="Impact">Impact</option>
+                    <option value="Lucida Sans Unicode">Lucida Sans Unicode</option>
+                    <option value="Tahoma">Tahoma</option>
+                    <option value="Verdana">Verdana</option>
+                    <option value="Courier New">Courier New</option>
+                    <option value="Lucida Console">Lucida Console</option>
+                    <option value="Conv_Optician-Sans">Conv_Optician-Sans</option>
                 </select>
-
-                <select onchange="myPx(this);" size="10">
-                    <option>12</option>
-                    <option>14</option>
-                    <option>16</option>
-                    <option>18</option>
-                    <option>20</option>
-                    <option>22</option>
-                    <option>26</option>
-                    <option>28</option>
-                    <option>30</option>
-                    <option>32</option>
-                    <option>34</option>
-                    <option>36</option>
-                    <option>38</option>
-                    <option>40</option>
-                    <option>42</option>
+            <p>Font Size</p>
+                <select onchange="myPx(this);">
+                    <option value="12">12</option>
+                    <option value="14">14</option>
+                    <option value="16">16</option>
+                    <option value="18">18</option>
+                    <option value="20">20</option>
+                    <option value="22">22</option>
+                    <option value="26">26</option>
+                    <option value="28">28</option>
+                    <option value="30">30</option>
+                    <option value="32">32</option>
+                    <option value="34">34</option>
+                    <option value="36">36</option>
+                    <option value="38">38</option>
+                    <option value="40">40</option>
+                    <option value="42">42</option>
                 </select>
+                <p>Distance</p>
+                <select onchange="">
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="4">4</option>
+                    <option value="6">6</option>
+                    <option value="8">8</option>
+                    <option value="10">10</option>
+                </select>
+            </div>
             <br> <br>
+                <div class="row">
+                    <div class="col-sm-8" >
+                    <form>
+                        <textarea id="text" placeholder="Input font for testing...."></textarea>
+                    </form>
+                </div>
+            </div>
+            <button id="button3" onclick ="" class="btn btn-success">Confirm</button>
             <button id="button1" onclick ="random()" class="btn btn-primary">Random Character</button>
-
+            <button id="button2" onclick ="" class="btn btn-default">Set Default</button>
         </div>
-        <div class="col-sm-8" >
-            <div style="font-size: 250%" id="demo" value="">A B C D F G H I J K L M N O P Q R S T U V W X Y Z</div><br>
-            <div style="font-size: 250%" id="demo2" value="">A B C D F G H I J K L M N O P Q R S T U V W X Y Z</div><br>
-            <div style="font-size: 250%" id="demo3" value="">A B C D F G H I J K L M N O P Q R S T U V W X Y Z</div><br>
-            <div style="font-size: 250%" id="demo4" value="">A B C D F G H I J K L M N O P Q R S T U V W X Y Z</div><br>
-            <div style="font-size: 250%" id="demo5" value="">A B C D F G H I J K L M N O P Q R S T U V W X Y Z</div><br>
+        <div class="col-sm-8">
+            <div class="center">
+                <div style="font-size: 250%" id="demo" value="">A B C D F G H I J K L M N O P Q R S T U V W X Y Z</div><br>
+                <div style="font-size: 250%" id="demo2" value="">A B C D F G H I J K L M N O P Q R S T U V W X Y Z</div><br>
+                <div style="font-size: 250%" id="demo3" value="">A B C D F G H I J K L M N O P Q R S T U V W X Y Z</div><br>
+                <div style="font-size: 250%" id="demo4" value="">A B C D F G H I J K L M N O P Q R S T U V W X Y Z</div><br>
+                <div style="font-size: 250%" id="demo5" value="">A B C D F G H I J K L M N O P Q R S T U V W X Y Z</div><br>
+            </div>
+            <div class="center2">
+                <p style="font-size: 150%" id="preview" value="">Preview</p><br>
+            </div>
         </div>
     </div>
-
 </div>
 <script>
     function myFunction(selectTag) {
@@ -153,23 +207,23 @@
         var charactersLength = characters.length;
         for ( var i = 0; i < 5; i++ ) {
 
-            var randomNumber = Math.floor(Math.random() *(10-1) + 1);
+            var randomNumber = Math.floor(Math.random() *(27-1) + 1);
             result = characters.charAt(randomNumber);
             r = r + result + " ";
 
-            var randomNumber2 = Math.floor(Math.random() *(10-1) + 1);
+            var randomNumber2 = Math.floor(Math.random() *(27-1) + 1);
             result = characters.charAt(randomNumber2);
             r2 = r2 + result + " ";
 
-            var randomNumber3 = Math.floor(Math.random() *(10-1) + 1);
+            var randomNumber3 = Math.floor(Math.random() *(27-1) + 1);
             result = characters.charAt(randomNumber3);
             r3 = r3 + result + " ";
 
-            var randomNumber4 = Math.floor(Math.random() *(10-1) + 1);
+            var randomNumber4 = Math.floor(Math.random() *(27-1) + 1);
             result = characters.charAt(randomNumber4);
             r4 = r4 + result + " ";
 
-            var randomNumber5 = Math.floor(Math.random() *(10-1) + 1);
+            var randomNumber5 = Math.floor(Math.random() *(27-1) + 1);
             result = characters.charAt(randomNumber5);
             r5 = r5 + result + " ";
         }
