@@ -7,6 +7,7 @@ import com.microsoft.cognitiveservices.speech.SpeechConfig;
 import com.microsoft.cognitiveservices.speech.SpeechRecognizer;
 import com.microsoft.cognitiveservices.speech.audio.AudioConfig;
 import org.apache.commons.io.IOUtils;
+import org.apache.commons.lang3.StringEscapeUtils;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -128,7 +129,7 @@ public class GreetingController {
         StringWriter writer = new StringWriter();
         IOUtils.copy(response, writer, "UTF-8");
         String results = writer.toString();
-        System.out.println("result = " + results);
+//        System.out.println("result = " + results);
         String str[] = results.split(",");
         List<String> message = new ArrayList<String>();
         message = Arrays.asList(str);
@@ -138,27 +139,32 @@ public class GreetingController {
         message2 = Arrays.asList(str2);
         String thai2 = message2.get(1);
         String test = URLDecoder.decode(thai2, "UTF-8");
-        System.out.println("Thai" + test);
-        try {
-            FileWriter myWriter = new FileWriter("D:/Accessories/SeniorProject/Visual-Acuity-Measurement-System/file.txt");
-            myWriter.write(URLDecoder.decode(test.substring(1, 138), "UTF-8"));
-            myWriter.close();
-            System.out.println("Successfully wrote to the file.");
-        } catch (IOException e) {
-            System.out.println("An error occurred.");
-            e.printStackTrace();
-        }
-        try {
-            BufferedReader br = new BufferedReader(new FileReader("D:/Accessories/SeniorProject/Visual-Acuity-Measurement-System/file.txt"));
-            String line;
-            while ((line = br.readLine()) != null) {
-                System.out.println(line);
-            }
-            br.close();
-        } catch (IOException e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
-        }
+//        System.out.println("Thai" + test);
+        String sJava= test;
+        System.out.println("Result :" + StringEscapeUtils.unescapeJava(sJava));
+
+            //************write text in text file**************
+//        try {
+//            FileWriter myWriter = new FileWriter("D:/Accessories/SeniorProject/Visual-Acuity-Measurement-System/file.txt");
+//            myWriter.write(URLDecoder.decode(test.substring(1, 138), "UTF-8"));
+//            myWriter.close();
+//            System.out.println("Successfully wrote to the file.");
+//        } catch (IOException e) {
+//            System.out.println("An error occurred.");
+//            e.printStackTrace();
+//        }
+//        try {
+//            BufferedReader br = new BufferedReader(new FileReader("D:/Accessories/SeniorProject/Visual-Acuity-Measurement-System/file.txt"));
+//            String line;
+//            while ((line = br.readLine()) != null) {
+//                System.out.println(line);
+//            }
+//            br.close();
+//        } catch (IOException e) {
+//            // TODO Auto-generated catch block
+//            e.printStackTrace();
+//        }
+        // ****************************************************************
         return "showText";
 
     }
