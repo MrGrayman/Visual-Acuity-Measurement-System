@@ -225,8 +225,8 @@ public class GreetingController {
                         RedirectAttributes redirectAttributes) throws IOException, ExecutionException, InterruptedException {
         SpeechConfig speechConfig = SpeechConfig.fromSubscription("fa41670c5d86464a9326c064ebb76e14", "eastus");
         AudioConfig audioConfig = AudioConfig.fromWavFileInput("D:/Accessories/SeniorProject/Visual-Acuity-Measurement-System/Recording.wav");
+        speechConfig.setSpeechRecognitionLanguage("th-TH");
         SpeechRecognizer recognizer = new SpeechRecognizer(speechConfig, audioConfig);
-//        speechConfig.setSpeechRecognitionLanguage("th-TH");
         Future<com.microsoft.cognitiveservices.speech.SpeechRecognitionResult> task = recognizer.recognizeOnceAsync();
         com.microsoft.cognitiveservices.speech.SpeechRecognitionResult result = task.get();
         System.out.println("RECOGNIZED: Text=" + result.getText());

@@ -13,8 +13,8 @@ public class azure {
 
     public static void fromFile(SpeechConfig speechConfig) throws InterruptedException, ExecutionException {
         AudioConfig audioConfig = AudioConfig.fromWavFileInput("D:/Accessories/SeniorProject/Visual-Acuity-Measurement-System/Recording.wav");
+        speechConfig.setSpeechRecognitionLanguage("th-TH");
         SpeechRecognizer recognizer = new SpeechRecognizer(speechConfig, audioConfig);
-//        speechConfig.setSpeechRecognitionLanguage("th-TH");
         Future<SpeechRecognitionResult> task = recognizer.recognizeOnceAsync();
         SpeechRecognitionResult result = task.get();
         System.out.println("RECOGNIZED: Text=" + result.getText());
