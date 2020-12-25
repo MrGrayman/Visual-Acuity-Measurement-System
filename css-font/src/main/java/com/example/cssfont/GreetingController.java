@@ -81,12 +81,19 @@ public class GreetingController {
 
 
 
-        File waveFile = new File("D:/Accessories/SeniorProject/Visual-Acuity-Measurement-System/Recording.wav");
+        File waveFile = new File("D:/Accessories/SeniorProject/Visual-Acuity-Measurement-System/sound_convert/999.wav");
 
         String url = "https://api.aiforthai.in.th/partii-webapi";
         String charset = "UTF-8";
         String boundary = Long.toHexString(System.currentTimeMillis());
         String CRLF = "\r\n"; // Line separator required by multipart/form-data.
+
+        Path path = Paths.get("D:/Accessories/SeniorProject/Visual-Acuity-Measurement-System/sound_convert/999.wav");
+        Path fileName = path.getFileName();
+
+        // print FileName
+        System.out.println("FileName: "
+                + fileName.toString());
 
         URLConnection connection = new URL(url).openConnection();
         connection.setDoOutput(true);
@@ -123,7 +130,7 @@ public class GreetingController {
             // End of multipart/form-data.
             writer.append("--" + boundary + "--").append(CRLF).flush();
         }
-        System.out.println("Waiting for response...");
+//        System.out.println("Waiting for response...");
         // read output
         InputStream response = connection.getInputStream();
         StringWriter writer = new StringWriter();
@@ -141,7 +148,7 @@ public class GreetingController {
         String test = URLDecoder.decode(thai2, "UTF-8");
 //        System.out.println("Thai" + test);
         String sJava= test;
-        System.out.println("Result :" + StringEscapeUtils.unescapeJava(sJava));
+        System.out.println("Result AI For Thai :" + StringEscapeUtils.unescapeJava(sJava));
 
             //************write text in text file**************
 //        try {
@@ -175,7 +182,7 @@ public class GreetingController {
         // Instantiates a client
         try (SpeechClient speech = SpeechClient.create()) {
 
-            Path path = Paths.get("D:/Accessories/SeniorProject/Visual-Acuity-Measurement-System/Recording.wav");
+            Path path = Paths.get("D:/Accessories/SeniorProject/Visual-Acuity-Measurement-System/sound_convert/999.wav");
             // call getFileName() and get FileName path object
             Path fileName = path.getFileName();
 
@@ -199,10 +206,9 @@ public class GreetingController {
             OperationFuture<LongRunningRecognizeResponse, LongRunningRecognizeMetadata> response =
                     speech.longRunningRecognizeAsync(config, audio);
 
-            while (!response.isDone()) {
-                System.out.println("Waiting for response...");
-                Thread.sleep(10000);
-            }
+//            while (!response.isDone()) {
+//                Thread.sleep(1);
+//            }
 
             List<SpeechRecognitionResult> results = response.get().getResultsList();
 
@@ -210,7 +216,7 @@ public class GreetingController {
                 // There can be several alternative transcripts for a given chunk of speech. Just use the
                 // first (most likely) one here.
                 SpeechRecognitionAlternative alternative = result.getAlternativesList().get(0);
-                System.out.printf("Transcription: %s%n", alternative.getTranscript());
+                System.out.printf("Result Google: %s%n", alternative.getTranscript());
             }
         } catch (InterruptedException e) {
             e.printStackTrace();
@@ -223,13 +229,20 @@ public class GreetingController {
     @PostMapping("/azure") // //new annotation since 4.3
     public String azure(@RequestParam(value = "file", required = false) File file,
                         RedirectAttributes redirectAttributes) throws IOException, ExecutionException, InterruptedException {
-        SpeechConfig speechConfig = SpeechConfig.fromSubscription("fa41670c5d86464a9326c064ebb76e14", "eastus");
-        AudioConfig audioConfig = AudioConfig.fromWavFileInput("D:/Accessories/SeniorProject/Visual-Acuity-Measurement-System/Recording.wav");
+        SpeechConfig speechConfig = SpeechConfig.fromSubscription("550233ccdb3040fdb871a7274eb18f66", "eastasia");
+        AudioConfig audioConfig = AudioConfig.fromWavFileInput("D:/Accessories/SeniorProject/Visual-Acuity-Measurement-System/sound_convert/999.wav");
+
+        Path path = Paths.get("D:/Accessories/SeniorProject/Visual-Acuity-Measurement-System/sound_convert/999.wav");
+        Path fileName = path.getFileName();
+
+        // print FileName
+        System.out.println("FileName: "
+                + fileName.toString());
         speechConfig.setSpeechRecognitionLanguage("th-TH");
         SpeechRecognizer recognizer = new SpeechRecognizer(speechConfig, audioConfig);
         Future<com.microsoft.cognitiveservices.speech.SpeechRecognitionResult> task = recognizer.recognizeOnceAsync();
         com.microsoft.cognitiveservices.speech.SpeechRecognitionResult result = task.get();
-        System.out.println("RECOGNIZED: Text=" + result.getText());
+        System.out.println("Result Azure = " + result.getText());
         return "showText";
     }
 }

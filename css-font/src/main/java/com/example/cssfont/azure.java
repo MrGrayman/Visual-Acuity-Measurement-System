@@ -7,7 +7,7 @@ import java.util.concurrent.Future;
 
 public class azure {
     public static void main(String[] args) throws InterruptedException, ExecutionException {
-        SpeechConfig speechConfig = SpeechConfig.fromSubscription("fa41670c5d86464a9326c064ebb76e14", "eastus");
+        SpeechConfig speechConfig = SpeechConfig.fromSubscription("550233ccdb3040fdb871a7274eb18f66", "eastasia");
         fromFile(speechConfig);
     }
 
