@@ -41,6 +41,12 @@ import java.util.concurrent.Future;
 @Controller
 public class GreetingController {
 
+    @GetMapping("/home")
+    public String home(@RequestParam(name = "name", required = false, defaultValue = "World") String name, Model model) {
+        model.addAttribute("name", name);
+        return "home";
+    }
+
     @GetMapping("/font1")
     public String font1(@RequestParam(name = "name", required = false, defaultValue = "World") String name, Model model) {
         model.addAttribute("name", name);

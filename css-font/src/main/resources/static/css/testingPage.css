@@ -1,0 +1,33 @@
+h1 {
+            font-size: 250%;
+        }
+
+        h2 {
+            font-size: 200%;
+        }
+
+        p {
+            font-size: 100%;
+        }
+
+        .serif {
+            font-family: "Times New Roman", Times, serif;
+        }
+
+        .sansserif {
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        .monospace {
+            font-family: "Lucida Console", Courier, monospace;
+        }
+
+        div {
+            font-family: Conv_Optician-Sans;
+
+        }
+
+        .center {
+              padding: 400px 0;
+              text-align: center;
+        }
