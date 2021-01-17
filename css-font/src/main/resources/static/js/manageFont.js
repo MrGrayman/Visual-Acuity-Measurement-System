@@ -28,11 +28,16 @@ function distance(selectTag) {
     for (var i = 1; i <= 7; i++) {
         var sizeDecimal = tan * (5 * Math.pow(10,mar)) * distance;
         console.log("sizedecimal",sizeDecimal);
-        var size = (sizeDecimal * 1000).toFixed( 2 );
+        var size = (sizeDecimal * 1000);
         console.log("size",size);
-        var px = size * 3.7795275590551;
-        var listValue = px;
-        document.getElementById("demo"+i).style.fontSize = listValue + "px";
+        var inch = size * 0.0393701;
+        console.log("inch",inch);
+        var pt = inch * 72;
+        console.log("pt",pt);
+        // var px = size * 3.7795275590551;
+        // console.log("px",px);
+        var listValue = pt;
+        document.getElementById("demo"+i).style.fontSize = listValue + "pt";
         mar = mar - 0.1;
     }
 }
