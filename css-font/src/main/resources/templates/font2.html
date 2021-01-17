@@ -46,39 +46,15 @@
                         <option value="Conv_Optician-Sans" selected="selected">Conv_Optician-Sans</option>
                     </select>
                     <br>
-                    <p style="color:black;">Font Size</p>
-                    <select onchange="myPx(this);">
-                        <option value="12">12</option>
-                        <option value="14">14</option>
-                        <option value="16">16</option>
-                        <option value="18">18</option>
-                        <option value="20">20</option>
-                        <option value="22">22</option>
-                        <option value="26">26</option>
-                        <option value="28">28</option>
-                        <option value="30">30</option>
-                        <option value="32">32</option>
-                        <option value="34">34</option>
-                        <option value="36">36</option>
-                        <option value="38">38</option>
-                        <option value="40">40</option>
-                        <option value="42">42</option>
-                        <option value="46">46</option>
-                        <option value="50">50</option>
-                        <option value="52">52</option>
-                        <option value="56">56</option>
-                        <option value="60">60</option>
-                        <option value="62">62</option>
-                    </select>
-                    <br>
                     <p style="color:black;">Distance</p>
-                    <select onchange="">
+                    <select onchange="distance(this)">
+                        <option value="">Choose Distance</option>
                         <option value="1">1</option>
                         <option value="2">2</option>
+                        <option value="3">3</option>
                         <option value="4">4</option>
+                        <option value="5">5</option>
                         <option value="6">6</option>
-                        <option value="8">8</option>
-                        <option value="10">10</option>
                     </select>
                     <br><br>
                     <p style="color:black;">Input Font</p>
@@ -134,26 +110,12 @@
         <div class="center2">
             <p style="font-size: 100%" id="preview" value="">Preview</p><br>
 
-        <div class="col-sm-8" >
-            <div style="font-size: 100%" id="demo" value="">A B C D F G H I J K L M N O P Q R S T U V W X Y Z</div><br>
-<!--            <div style="font-size: 42px" id="" value="">A B C D F G H I J K L M N O P Q R S T U V W X Y Z</div><br>-->
-<!--            <div style="font-size: 250%" id="demo3" value="">A B C D F G H I J K L M N O P Q R S T U V W X Y Z</div><br>-->
-<!--            <div style="font-size: 250%" id="demo4" value="">A B C D F G H I J K L M N O P Q R S T U V W X Y Z</div><br>-->
-<!--            <div style="font-size: 250%" id="demo5" value="">A B C D F G H I J K L M N O P Q R S T U V W X Y Z</div><br>-->
 
-        </div>
     </div>
 </div>
 
 <br>
 
-<div class="form-control">
-    <label>ระยะห่าง : </label>
-    <input type="text" id="distance" ><br><br>
-    <button id="buttonDistance" onclick ="distance()" class="btn btn-primary">Random Character</button>
-    <button id="next" onclick ="next()" class="btn btn-primary">Next</button>
-    <button id="back" onclick ="back()" class="btn btn-primary">Back</button>
-</div>
 </div>
 </body>
 </html>
