@@ -1,3 +1,4 @@
+var mar = 1.0;
 function myFunction(selectTag) {
         var listValue = selectTag.options[selectTag.selectedIndex].text;
         document.getElementById("demo").style.fontFamily = listValue;
@@ -15,6 +16,65 @@ function myFunction(selectTag) {
         document.getElementById("demo3").style.fontSize = listSizeNumber + "px";
         document.getElementById("demo4").style.fontSize = listSizeNumber + "px";
         document.getElementById("demo5").style.fontSize = listSizeNumber + "px";
+    }
+
+function distance() {
+        var distance = document.getElementById("distance").value;
+        // change tan to radian
+        var y = 1/60;
+        var tan = Math.tan(y * Math.PI/180);
+        //************************************
+        var sizeDecimal = tan * (5 * Math.pow(10,1.0)) * distance;
+        var size = (sizeDecimal * 1000).toFixed( 2 );
+        var px = size * 3.7795275590551;
+        var listValue = px;
+        var listSizeNumber = parseInt(listValue);
+        document.getElementById("demo").style.fontSize = listValue + "px";
+        // document.getElementById("demo2").style.fontSize = listValue + "px";
+        // document.getElementById("demo3").style.fontSize = listSizeNumber + "px";
+        // document.getElementById("demo4").style.fontSize = listSizeNumber + "px";
+        // document.getElementById("demo5").style.fontSize = listSizeNumber + "px";
+
+    }
+    function next() {
+        var distance = document.getElementById("distance").value;
+        var i;
+        // change tan to radian
+        var y = 1/60;
+        var tan = Math.tan(y * Math.PI/180);
+        //************************************
+        for (i = 0; i < cars.length; i++) {
+            text += cars[i] + "<br>";
+        }
+        var sizeDecimal = tan * (5 * Math.pow(10,1.0)) * distance;
+        var size = (sizeDecimal * 1000).toFixed( 2 );
+        var px = size * 3.7795275590551;
+        var listValue = px;
+        var listSizeNumber = parseInt(listValue);
+        document.getElementById("demo").style.fontSize = listValue + "px";
+        // document.getElementById("demo2").style.fontSize = listValue + "px";
+        // document.getElementById("demo3").style.fontSize = listSizeNumber + "px";
+        // document.getElementById("demo4").style.fontSize = listSizeNumber + "px";
+        // document.getElementById("demo5").style.fontSize = listSizeNumber + "px";
+
+    }
+    function back() {
+        var distance = document.getElementById("distance").value;
+        // change tan to radian
+        var y = 1/60;
+        var tan = Math.tan(y * Math.PI/180);
+        //************************************
+        var sizeDecimal = tan * (5 * Math.pow(10,1.0)) * distance;
+        var size = (sizeDecimal * 1000).toFixed( 2 );
+        var px = size * 3.7795275590551;
+        var listValue = px;
+        var listSizeNumber = parseInt(listValue);
+        document.getElementById("demo").style.fontSize = listValue + "px";
+        // document.getElementById("demo2").style.fontSize = listValue + "px";
+        // document.getElementById("demo3").style.fontSize = listSizeNumber + "px";
+        // document.getElementById("demo4").style.fontSize = listSizeNumber + "px";
+        // document.getElementById("demo5").style.fontSize = listSizeNumber + "px";
+
     }
 
     function random(buttonTag) {
