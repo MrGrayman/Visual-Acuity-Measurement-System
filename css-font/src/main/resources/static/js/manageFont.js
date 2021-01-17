@@ -180,21 +180,71 @@ function distance() {
             y.style.display = "none";
     }
 
-    function showTextArea(textareaTag) {
+//    function showTextArea(textareaTag) {
+//        var value = document.getElementById("textarea1").value;
+//        var text = "";
+//        var temp;
+//        for (var i = 0; i < value.length; i++) {
+//            document.getElementById('demo2').innerHTML = "";
+//            document.getElementById('demo3').innerHTML = "";
+//            document.getElementById('demo4').innerHTML = "";
+//            document.getElementById('demo5').innerHTML = "";
+//            temp = i;
+//            if(temp % 5 == 0){
+//                text = text + "<br>";
+//                text = text + value[i] + "\n";
+//            }else{
+//                text = text + value[i] + "\n";
+//            }
+//        }
+//        document.getElementById('demo').innerHTML = text;
+//    }
+
+function showTextArea(textareaTag) {
         var value = document.getElementById("textarea1").value;
         var text = "";
+        var text2 = "";
+        var text3 = "";
+        var text4 = "";
+        var text5 = "";
+        var text6 = "";
+        var text7 = "";
+//        var text8 = "";
+//        var text9 = "";
+//        var text10 = "";
         for (var i = 0; i < value.length; i++) {
-            document.getElementById('demo2').innerHTML = "";
-            document.getElementById('demo3').innerHTML = "";
-            document.getElementById('demo4').innerHTML = "";
-            document.getElementById('demo5').innerHTML = "";
-            if(i == 5 || i == 10 || i == 15 || i == 20 || i == 25 || i == 30 || i == 35 || i == 40 || i == 45 || i == 50){
-                text = text + "<br>";
+            if(i < 5){
                 text = text + value[i] + "\n";
-            }else{
-                text = text + value[i] + "\n";
+            }else if(i < 10){
+                text2 = text2 + value[i] + "\n";
+            }else if(i < 15){
+                text3 = text3 + value[i] + "\n";
+            }else if(i < 20){
+                text4 = text4 + value[i] + "\n";
+            }else if(i < 25){
+                text5 = text5 + value[i] + "\n";
+            }else if(i < 30){
+                text6 = text6 + value[i] + "\n";
+            }else if(i < 35){
+                text7 = text7 + value[i] + "\n";
             }
-
+//            else if(i < 40){
+//                text8 = text8 + value[i] + "\n";
+//            }else if(i < 45){
+//                text9 = text9 + value[i] + "\n";
+//            }else if(i < 50){
+//                text10 = text10 + value[i] + "\n";
+//            }
         }
+
         document.getElementById('demo').innerHTML = text;
+        document.getElementById('demo2').innerHTML = text2;
+        document.getElementById('demo3').innerHTML = text3;
+        document.getElementById('demo4').innerHTML = text4;
+        document.getElementById('demo5').innerHTML = text5;
+        document.getElementById('demo6').innerHTML = text6;
+        document.getElementById('demo7').innerHTML = text7;
+//        document.getElementById('demo8').innerHTML = text8;
+//        document.getElementById('demo9').innerHTML = text9;
+//        document.getElementById('demo10').innerHTML = text10;
     }
