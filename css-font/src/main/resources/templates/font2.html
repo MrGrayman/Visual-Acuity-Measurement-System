@@ -82,7 +82,7 @@
                     </select>
                     <br><br>
                     <p style="color:black;">Input Font</p>
-                    <textarea placeholder="Input font for testing....." rows="5" id="textarea1"></textarea>
+                    <textarea placeholder="Input font for testing....." rows="5" id="textarea1" onchange="showTextArea()"></textarea>
                     <br>
 
                     <button id="button2" onclick="" class="btn btn-primary">Confirm</button>
@@ -91,13 +91,13 @@
                     <br>
 
                 </div>
-                <div id="random-button">
+                <div id="random-button" style="display: none">
                     <button id="button4" onclick="random()" class="btn btn-light">Random Text</button>
                     <br>
                     <button id="button5" onclick="randomNumber()" class="btn btn-light">Random Number</button>
                     <br>
                 </div>
-                <div id="import-button">
+                <div id="import-button" style="display: none">
                     <form action="">
                         <label for="myfile">Select files:</label>
                         <input type="file" id="myfile" name="myfile" multiple><br><br>
@@ -119,7 +119,6 @@
             <div style="font-size: 250%" id="demo4" value="">Q R S T U</div>
             <br>
             <div style="font-size: 250%" id="demo5" value="">V W X Y Z</div>
-            <br>
         </div>
 
         <div class="center2">

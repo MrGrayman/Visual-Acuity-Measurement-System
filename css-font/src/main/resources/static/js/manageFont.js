@@ -179,3 +179,22 @@ function distance() {
             x.style.display = "none";
             y.style.display = "none";
     }
+
+    function showTextArea(textareaTag) {
+        var value = document.getElementById("textarea1").value;
+        var text = "";
+        for (var i = 0; i < value.length; i++) {
+            document.getElementById('demo2').innerHTML = "";
+            document.getElementById('demo3').innerHTML = "";
+            document.getElementById('demo4').innerHTML = "";
+            document.getElementById('demo5').innerHTML = "";
+            if(i == 5 || i == 10 || i == 15 || i == 20 || i == 25 || i == 30 || i == 35 || i == 40 || i == 45 || i == 50){
+                text = text + "<br>";
+                text = text + value[i] + "\n";
+            }else{
+                text = text + value[i] + "\n";
+            }
+
+        }
+        document.getElementById('demo').innerHTML = text;
+    }
