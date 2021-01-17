@@ -1,7 +1,7 @@
 var mar = 1.0;
 function myFunction(selectTag) {
         var listValue = selectTag.options[selectTag.selectedIndex].text;
-        document.getElementById("demo").style.fontFamily = listValue;
+        document.getElementById("demo1").style.fontFamily = listValue;
         document.getElementById("demo2").style.fontFamily = listValue;
         document.getElementById("demo3").style.fontFamily = listValue;
         document.getElementById("demo4").style.fontFamily = listValue;
@@ -11,7 +11,7 @@ function myFunction(selectTag) {
     function myPx(selectTag) {
         var listValue = selectTag.options[selectTag.selectedIndex].text;
         var listSizeNumber = parseInt(listValue);
-        document.getElementById("demo").style.fontSize = listSizeNumber + "px";
+        document.getElementById("demo1").style.fontSize = listSizeNumber + "px";
         document.getElementById("demo2").style.fontSize = listSizeNumber + "px";
         document.getElementById("demo3").style.fontSize = listSizeNumber + "px";
         document.getElementById("demo4").style.fontSize = listSizeNumber + "px";
@@ -85,6 +85,8 @@ function distance() {
         var r3 = ''
         var r4 = ''
         var r5 = ''
+        var r6 = ''
+        var r7 = ''
         var charactersLength = characters.length;
         for ( var i = 0; i < 5; i++ ) {
 
@@ -107,13 +109,23 @@ function distance() {
             var randomNumber5 = Math.floor(Math.random() *(27-1) + 1);
             result = characters.charAt(randomNumber5);
             r5 = r5 + result + " ";
+
+            var randomNumber6 = Math.floor(Math.random() *(27-1) + 1);
+            result = characters.charAt(randomNumber5);
+            r6 = r6 + result + " ";
+
+            var randomNumber7 = Math.floor(Math.random() *(27-1) + 1);
+            result = characters.charAt(randomNumber5);
+            r7 = r7 + result + " ";
         }
-        document.getElementById('demo').innerHTML = r;
+        document.getElementById('demo1').innerHTML = r;
         document.getElementById('demo2').innerHTML = r2;
         document.getElementById('demo3').innerHTML = r3;
         document.getElementById('demo4').innerHTML = r4;
         document.getElementById('demo5').innerHTML = r5;
-        return r,r2,r3,r4,r5;
+        document.getElementById('demo6').innerHTML = r6;
+        document.getElementById('demo7').innerHTML = r7;
+        return r,r2,r3,r4,r5,r6,r7;
     }
 
     function randomNumber(buttonTag) {
@@ -124,6 +136,8 @@ function distance() {
         var rn3 = ''
         var rn4 = ''
         var rn5 = ''
+        var rn6 = ''
+        var rn7 = ''
         var charactersLength = characters.length;
         for ( var i = 0; i < 5; i++ ) {
 
@@ -146,13 +160,23 @@ function distance() {
             var randomNumber5 = Math.floor(Math.random() *(10-1) + 1);
             result = characters.charAt(randomNumber5);
             rn5 = rn5 + result + " ";
+
+            var randomNumber5 = Math.floor(Math.random() *(10-1) + 1);
+            result = characters.charAt(randomNumber5);
+            rn6 = rn6 + result + " ";
+
+            var randomNumber5 = Math.floor(Math.random() *(10-1) + 1);
+            result = characters.charAt(randomNumber5);
+            rn7 = rn7 + result + " ";
         }
-        document.getElementById('demo').innerHTML = rn1;
+        document.getElementById('demo1').innerHTML = rn1;
         document.getElementById('demo2').innerHTML = rn2;
         document.getElementById('demo3').innerHTML = rn3;
         document.getElementById('demo4').innerHTML = rn4;
         document.getElementById('demo5').innerHTML = rn5;
-        return rn1,rn2,rn3,rn4,rn5;
+        document.getElementById('demo6').innerHTML = rn6;
+        document.getElementById('demo7').innerHTML = rn7;
+        return rn1,rn2,rn3,rn4,rn5,rn6,rn7;
     }
 
     function change1(buttonTag){
@@ -237,7 +261,7 @@ function showTextArea(textareaTag) {
 //            }
         }
 
-        document.getElementById('demo').innerHTML = text;
+        document.getElementById('demo1').innerHTML = text;
         document.getElementById('demo2').innerHTML = text2;
         document.getElementById('demo3').innerHTML = text3;
         document.getElementById('demo4').innerHTML = text4;
