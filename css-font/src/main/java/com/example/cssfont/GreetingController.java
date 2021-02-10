@@ -88,14 +88,14 @@ public class GreetingController {
     @PostMapping("/aiForThai") // //new annotation since 4.3
     public String singleFileUpload(@RequestParam(value = "file", required = false) File file,
                                    RedirectAttributes redirectAttributes) throws IOException {
-        File waveFile = new File("D:/Accessories/SeniorProject/Visual-Acuity-Measurement-System/sound_convert/999.wav");
+        File waveFile = new File("D:/Accessories/SeniorProject/Visual-Acuity-Measurement-System/sound_convert/check/0-10_pang.wav");
 
         String url = "https://api.aiforthai.in.th/partii-webapi";
         String charset = "UTF-8";
         String boundary = Long.toHexString(System.currentTimeMillis());
         String CRLF = "\r\n"; // Line separator required by multipart/form-data.
 
-        Path path = Paths.get("D:/Accessories/SeniorProject/Visual-Acuity-Measurement-System/sound_convert/999.wav");
+        Path path = Paths.get("D:/Accessories/SeniorProject/Visual-Acuity-Measurement-System/sound_convert/check/0-10_pang.wav");
         Path fileName = path.getFileName();
 
         // print FileName
@@ -189,7 +189,7 @@ public class GreetingController {
         // Instantiates a client
         try (SpeechClient speech = SpeechClient.create()) {
 
-            Path path = Paths.get("D:/Accessories/SeniorProject/Visual-Acuity-Measurement-System/sound_convert/999.wav");
+            Path path = Paths.get("D:/Accessories/SeniorProject/Visual-Acuity-Measurement-System/sound_convert/check/0-10_pang.wav");
             // call getFileName() and get FileName path object
             Path fileName = path.getFileName();
 
@@ -237,9 +237,9 @@ public class GreetingController {
     public String azure(@RequestParam(value = "file", required = false) File file,
                         RedirectAttributes redirectAttributes) throws IOException, ExecutionException, InterruptedException {
         SpeechConfig speechConfig = SpeechConfig.fromSubscription("550233ccdb3040fdb871a7274eb18f66", "eastasia");
-        AudioConfig audioConfig = AudioConfig.fromWavFileInput("D:/Accessories/SeniorProject/Visual-Acuity-Measurement-System/sound_convert/999.wav");
+        AudioConfig audioConfig = AudioConfig.fromWavFileInput("D:/Accessories/SeniorProject/Visual-Acuity-Measurement-System/sound_convert/check/0-10_pang.wav");
 
-        Path path = Paths.get("D:/Accessories/SeniorProject/Visual-Acuity-Measurement-System/sound_convert/999.wav");
+        Path path = Paths.get("D:/Accessories/SeniorProject/Visual-Acuity-Measurement-System/sound_convert/check/0-10_pang.wav");
         Path fileName = path.getFileName();
 
         // print FileName
