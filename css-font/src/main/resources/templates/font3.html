@@ -2,22 +2,53 @@
 <html>
 <head>
     <title>Show preview font</title>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
     <link rel="stylesheet" type="text/css" href="css/font.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="css/testingPage.css">
+    <link href="style.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="css/selectionInput.css">
+    <script type="text/javascript" src="js/examination.js"></script>
 
 </head>
 <body>
-    <div class="center">
-        <div style="font-size: 620%" id="demo" value="">A B C D E</div><br>
-    </div>
-    </div>
+<div class="center" style="display: none" id="list">
+    <div style="font-size: 700%" id="demo" value=""></div>
+    <br>
+    <form>
+        <label>ใส่คำตอบ</label>
+        <input type="text" id="Answer" onchange="inputAnswer()">
+    </form>
 </div>
-
-<script>
-
-</script>
-
+<div class="contact-form" id="selection">
+<h2>เลือกวิธีการตอบ</h2>
+<br>
+<form action="">
+    <div class="row">
+        <div class="column" style="width: 50%;text-align: center">
+            <div class="card">
+                <div class="container">
+                <img class="card-img-top" src="images/keyboard.png" alt="Card image cap" style="width:100%">
+                    <h5 class="card-title">ตอบด้วยคีย์บอร์ด</h5>
+                    <a class="btn btn-primary" onclick="examination()" id="choose">Select</a>
+                </div>
+            </div>
+        </div>
+        <div class="column" style="width: 50%;text-align: center">
+            <div class="card">
+                <div class="container">
+                <img class="card-img-top" src="images/icon-speak.png" alt="Card image cap" style="width:100%">
+                    <h5 class="card-title">ตอบด้วยเสียง</h5>
+                    <a class="btn btn-primary" style="">Select</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+</div>
 </body>
 </html>
