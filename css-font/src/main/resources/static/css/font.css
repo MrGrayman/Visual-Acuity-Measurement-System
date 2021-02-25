@@ -13,10 +13,20 @@
     font-size: 250%;
     width: 1000px;
     margin: 10px auto;
-    text-align: left;
+    text-align: center;
     border: 1px solid #666;
     padding: 20px;
     color: red;
+}
+.optic2 {
+    font-family: Conv_Optician-Sans,Sans-Serif;
+    font-size: 250%;
+    width: 1000px;
+    margin: 10px auto;
+    text-align: center;
+    border: 1px solid #666;
+    padding: 20px;
+    color: black;
 }
 h1{
     color: #00b3ff;

@@ -12,33 +12,62 @@
 
 <body>
     <h1>Font Optician-Sans </h1>
+<!--    <br>-->
+<!--    <div class="optic">THE QUICK BROWN FOX JUMPS OVER THE LAZY DOG</div>-->
+<!--    <div class="optic">The quick brown fox jumps over the lazy dog</div>-->
+<!--    <div class="optic">1 2 3 4 5 6 7 8 9</div>-->
+    <div id="test1" class="optic" >A B C D E F G H I J K L M N O P Q R S T U V W X Y Z</div>
+    <div id="test2" class="optic2" style="display: none" >A B C D E F G H I J K L M N O P Q R S T U V W X Y Z</div>
+<!--    <div class="optic" id="demo1" value="">A B C D F</div>-->
+
+<!--    <div class="optic" id="demo2" value="">G H I J K</div>-->
+
+<!--    <div class="optic" id="demo3" value="">L M N O P</div>-->
+
+<!--    <div class="optic" id="demo4" value="">Q R S T U</div>-->
+
+<!--    <div class="optic" id="demo5" value="">V W X Y Z</div>-->
+
+<!--    <div class="optic" id="demo6" value="">V W X Y Z</div>-->
+
+<!--    <div class="optic" id="demo7" value="">V W X Y Z</div>-->
+
+    <input type="file" name="inputfile"
+           id="inputfile">
     <br>
-    <div class="optic">THE QUICK BROWN FOX JUMPS OVER THE LAZY DOG</div>
-    <div class="optic">The quick brown fox jumps over the lazy dog</div>
-    <div class="optic">1 2 3 4 5 6 7 8 9</div>
-    <div class="optic">A B C D E F G H I J K L M N O P Q R S T U V W X Y Z</div>
 
-<br>
+    <pre id="output"></pre>
 
-    <div id="font">
-        <h2>Font Size</h2>
-        <input type="text" name="font" value="15" /> px
-        <br /><span id="warning"></span>
-    </div>
-    <br />
-    <div id="testFont">Hello World</div>
+    <br>
 
 
 </body>
 <script>
-    $("input").keyup(function(){
-        if( parseInt($(this).val()) < 10 ) {
-            $("#warning").text("Your font is smaller than 10px");
-        } else {
-            $("#warning").text("");
-            $('#testFont').css('font-size', $(this).val() + 'px');
-        }
-    });
+    // $("input").keyup(function(){
+    //     if( parseInt($(this).val()) < 10 ) {
+    //         $("#warning").text("Your font is smaller than 10px");
+    //     } else {
+    //         $("#warning").text("");
+    //         $('#testFont').css('font-size', $(this).val() + 'px');
+    //     }
+    // });
+    document.getElementById('inputfile')
+        .addEventListener('change', function() {
+            var x = document.getElementById("test1");
+            var y = document.getElementById("test2");
+            var result = "";
+            var fr=new FileReader();
+            fr.onload=function(){
+                var jsontext = textContent=fr.result;
+                var obj = JSON.parse(jsontext);
+                var text = obj.text;
+                document.getElementById("test2").innerHTML = text;
+                x.style.display = "none";
+                y.style.display = "block";
+            }
+
+            fr.readAsText(this.files[0]);
+        })
 </script>
 
 </html>

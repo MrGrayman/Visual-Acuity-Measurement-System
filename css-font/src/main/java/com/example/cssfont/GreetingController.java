@@ -8,11 +8,11 @@ import com.microsoft.cognitiveservices.speech.SpeechRecognizer;
 import com.microsoft.cognitiveservices.speech.audio.AudioConfig;
 import org.apache.commons.io.IOUtils;
 import org.apache.commons.lang3.StringEscapeUtils;
+import org.json.JSONException;
+import org.json.JSONObject;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 
 import java.io.*;
 import java.net.URL;
@@ -35,6 +35,10 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.Future;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 public class GreetingController {
@@ -83,6 +87,52 @@ public class GreetingController {
     public String azure(@RequestParam(name = "name", required = false, defaultValue = "World") String name, Model model) {
         model.addAttribute("name", name);
         return "azure";
+    }
+    @RequestMapping("/hello")
+    //read the provided form data
+    public String display(@RequestParam(value = "optotype", required = true) String optotype,
+                          @RequestParam(value = "distance", required = true) String distance,Model m) throws UnsupportedEncodingException, JSONException {
+        String text = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+        System.out.println("optotype : "+optotype);
+        System.out.println("distance : "+distance);
+        JSONObject json = new JSONObject();
+        json.put("optotype", optotype);
+        json.put("distance", distance);
+        json.put("text", text);
+        String message = json.toString();
+        System.out.println("message : "+message);
+//        String test = URLDecoder.decode(optotype, "UTF-8");
+
+        //************write text in text file**************
+        try {
+            FileWriter myWriter = new FileWriter("D:/Accessories/SeniorProject/Visual-Acuity-Measurement-System/test_text_file/file.txt",false);
+            myWriter.write(message);
+            myWriter.close();
+            System.out.println("Successfully wrote to the file.");
+        } catch (IOException e) {
+            System.out.println("An error occurred.");
+            e.printStackTrace();
+        }
+        try {
+            BufferedReader br = new BufferedReader(new FileReader("D:/Accessories/SeniorProject/Visual-Acuity-Measurement-System/test_text_file/file.txt"));
+            String line;
+            while ((line = br.readLine()) != null) {
+                System.out.println(line);
+            }
+            br.close();
+        } catch (IOException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+        // ****************************************************************
+        return "font2";
+    }
+    @ResponseBody
+    @RequestMapping(value = "/testapi")
+    public String getSearchResultViaAjax(@PathVariable(value = "id") Integer id)
+    {
+        System.out.println(id);
+        return "font2";
     }
 
     @PostMapping("/aiForThai") // //new annotation since 4.3

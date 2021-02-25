@@ -236,4 +236,46 @@ function showTextArea(textareaTag) {
 //        document.getElementById('demo8').innerHTML = text8;
 //        document.getElementById('demo9').innerHTML = text9;
 //        document.getElementById('demo10').innerHTML = text10;
-    }
+}
+
+function download_txt() {
+    var demo1 = document.getElementById('demo1').innerHTML;
+    var demo2 = document.getElementById('demo2').innerHTML;
+    var demo3 = document.getElementById('demo3').innerHTML;
+    var demo4 = document.getElementById('demo4').innerHTML;
+    var demo5 = document.getElementById('demo5').innerHTML;
+    var demo6 = document.getElementById('demo6').innerHTML;
+    var demo7 = document.getElementById('demo7').innerHTML;
+    var optotype = document.getElementById('optotype').value;
+    var distance = document.getElementById('distance').value;
+    var hiddenElement = document.createElement('a');
+
+    hiddenElement.href = 'data:attachment/text,' + encodeURI(demo1) +encodeURI("\n"+demo2) +encodeURI("\n"+demo3)
+        +encodeURI("\n"+demo4) +encodeURI("\n"+demo5) +encodeURI("\n"+demo6) +encodeURI("\n"+demo7) +encodeURI("\nFont : "+optotype) +encodeURI("\nDistance : "+distance);
+    hiddenElement.target = '_blank';
+    hiddenElement.download = 'myFile.txt';
+    hiddenElement.click();
+}
+function sentText(buttonTag){
+    alert("123")
+    console.log("123")
+    var id = 12;
+    $.ajax({
+        type : "POST",
+        url : "/testapi",
+        data : {id:id},
+        timeout : 100000,
+        success : function(id) {
+            console.log("SUCCESS: ", id);
+            display(id);
+            alert(response);
+        },
+        error : function(e) {
+            console.log("ERROR: ", e);
+            display(e);
+        },
+        done : function(e) {
+            console.log("DONE");
+        }
+    });
+}
