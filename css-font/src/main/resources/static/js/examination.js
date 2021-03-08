@@ -21,11 +21,3 @@ function examination(){
             document.getElementById('demo').innerHTML = r;
             return r;
         }
-
-//        function inputAnswer(r) {
-//                var value = document.getElementById("Answer").value;
-//                var n = 0;
-//                for(var i = 0; value ; i++){
-//
-//                }
-//            }

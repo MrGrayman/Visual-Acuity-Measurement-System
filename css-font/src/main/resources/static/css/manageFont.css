@@ -1,3 +1,5 @@
+
+
 h1 {
             font-size: 250%;
         }
@@ -85,4 +87,8 @@ h1 {
             width: 160px;
             height: 30px;
             font-size: 16px;
+        }
+
+        .contact-form{
+          background-color: #FFFFFF;
         }
