@@ -10,8 +10,10 @@ import org.apache.commons.io.IOUtils;
 import org.apache.commons.lang3.StringEscapeUtils;
 import org.json.JSONException;
 import org.json.JSONObject;
+import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.*;
 
 import java.io.*;
@@ -19,7 +21,7 @@ import java.net.URL;
 import java.net.URLConnection;
 import java.net.URLDecoder;
 import java.nio.file.Files;
-import org.springframework.web.multipart.MultipartFile;
+
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import java.io.File;
 
@@ -30,15 +32,14 @@ import java.io.PrintWriter;
 import java.io.StringWriter;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
+import java.util.*;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.Future;
-import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
+
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+
+import javax.servlet.http.HttpServletRequest;
 
 @Controller
 public class GreetingController {
@@ -63,10 +64,20 @@ public class GreetingController {
 
     @GetMapping("/font3")
     public String font3(@RequestParam(name="name", required=false, defaultValue="World") String name, Model model) {
-        model.addAttribute("name", name);
+        try {
+            File myObj = new File("D:/Accessories/SeniorProject/Visual-Acuity-Measurement-System/test_text_file/file.txt");
+            Scanner myReader = new Scanner(myObj);
+            while (myReader.hasNextLine()) {
+                String data = myReader.nextLine();
+                System.out.println(data);
+            }
+            myReader.close();
+        } catch (FileNotFoundException e) {
+            System.out.println("An error occurred.");
+            e.printStackTrace();
+        }
         return "font3";
     }
-
     @GetMapping("/calculator")
     public String calculator(@RequestParam(name = "name", required = false, defaultValue = "World") String name, Model model) {
         model.addAttribute("name", name);
@@ -91,14 +102,17 @@ public class GreetingController {
     @RequestMapping("/hello")
     //read the provided form data
     public String display(@RequestParam(value = "optotype", required = true) String optotype,
-                          @RequestParam(value = "distance", required = true) String distance,Model m) throws UnsupportedEncodingException, JSONException {
-        String text = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+                          @RequestParam(value = "distance", required = true) String distance,
+                          @RequestParam(value = "distance2", required = true) String distance2,
+                          @RequestParam(value = "pass_text", required = false) String pass_text,Model m) throws UnsupportedEncodingException, JSONException {
+        System.out.println("pass_text : "+pass_text);
+        System.out.println("distance2 : "+distance2);
         System.out.println("optotype : "+optotype);
         System.out.println("distance : "+distance);
         JSONObject json = new JSONObject();
         json.put("optotype", optotype);
         json.put("distance", distance);
-        json.put("text", text);
+        json.put("pass_text", pass_text);
         String message = json.toString();
         System.out.println("message : "+message);
 //        String test = URLDecoder.decode(optotype, "UTF-8");
@@ -128,12 +142,43 @@ public class GreetingController {
         return "font2";
     }
     @ResponseBody
-    @RequestMapping(value = "/testapi")
-    public String getSearchResultViaAjax(@PathVariable(value = "id") Integer id)
+    @RequestMapping(value = "/apisent", method = RequestMethod.POST)
+    public String getSearchResultViaAjax(@RequestParam(value = "id",required = false) Integer id)
     {
-        System.out.println(id);
+        System.out.println("id: "+id);
+        return "font2"+id;
+    }
+
+    @RequestMapping(value = "/testapi",method = RequestMethod.GET)
+    public String setupForm(@RequestParam(value = "id",required = false) int petId, ModelMap model) {
+        System.out.println("id");
+//        model.addAttribute("id", petId);
         return "font2";
     }
+    @RequestMapping(value = "/results", method = RequestMethod.GET)
+    public @ResponseBody String test (HttpServletRequest request,@RequestParam("text") String text) {
+
+        System.out.println(text);
+
+
+        // other stuff
+        return "font2";
+    }
+    @RequestMapping(value = "/submit.htm", method = RequestMethod.POST,produces = MediaType.APPLICATION_JSON_VALUE)
+    public @ResponseBody
+    String Submit(@RequestParam(value = "name",required = false) String name,@RequestParam(value = "location",required = false) String location) {
+        System.out.println(name);
+        // your logic here
+        return name;
+    }
+    @PostMapping("/submit.htm/{name}/{location}")
+    @ResponseBody
+    public String getEmployeesById(@PathVariable String name,@PathVariable String location) {
+        System.out.println("Name : "+name);
+        System.out.println("Name : "+location);
+        return "ID: " + location;
+    }
+
 
     @PostMapping("/aiForThai") // //new annotation since 4.3
     public String singleFileUpload(@RequestParam(value = "file", required = false) File file,

@@ -41,6 +41,29 @@ function distance(selectTag) {
         mar = mar - 0.1;
     }
 }
+function distance_test(selectTag) {
+    var mar = 1.0;
+    var distance = selectTag.options[selectTag.selectedIndex].text;
+    // change tan to radian
+    var y = 1/60;
+    var tan = Math.tan(y * Math.PI/180);
+    //************************************
+    for (var i = 1; i <= 7; i++) {
+        var sizeDecimal = tan * (5 * Math.pow(10,mar)) * distance;
+        console.log("sizedecimal",sizeDecimal);
+        var size = (sizeDecimal * 1000);
+        console.log("size",size);
+        var inch = size * 0.0393701;
+        console.log("inch",inch);
+        var pt = inch * 72;
+        console.log("pt",pt);
+        // var px = size * 3.7795275590551;
+        // console.log("px",px);
+        var listValue = pt;
+        document.getElementById("test2").style.fontSize = listValue + "pt";
+        mar = mar - 0.1;
+    }
+}
 
     function random(buttonTag) {
         var result           = '';
@@ -90,6 +113,7 @@ function distance(selectTag) {
         document.getElementById('demo5').innerHTML = r5;
         document.getElementById('demo6').innerHTML = r6;
         document.getElementById('demo7').innerHTML = r7;
+        document.getElementById('pass_text').value = r+r2+r3+r4+r5+r6+r7;
         return r,r2,r3,r4,r5,r6,r7;
     }
 
@@ -256,14 +280,14 @@ function download_txt() {
     hiddenElement.download = 'myFile.txt';
     hiddenElement.click();
 }
-function sentText(buttonTag){
-    alert("123")
-    console.log("123")
-    var id = 12;
+function sentText(){
+    var tempId = 123;
+    alert(tempId)
+    console.log(tempId)
     $.ajax({
         type : "POST",
-        url : "/testapi",
-        data : {id:id},
+        url : "http://localhost:8081/apisent",
+        data : {id:tempId},
         timeout : 100000,
         success : function(id) {
             console.log("SUCCESS: ", id);
@@ -278,4 +302,30 @@ function sentText(buttonTag){
             console.log("DONE");
         }
     });
+}
+function getFilter() {
+    var text = "hi"
+    alert("hrllp")
+    return {
+        "type" : "GET",
+        "url" : "results",
+        "async" : true,
+        "data" : {
+            "text" : text,
+            success : function() {
+                alert("success ");
+            },
+            error : function() {
+                alert("error");
+            }
+        }
+    };
+}
+function tester() {
+    alert("55")
+    $.ajax({
+        type: "POST",
+        url: "http://localhost:8081/submit.htm",
+        data: { name: "John", location: "Boston" } // parameters
+    })
 }
