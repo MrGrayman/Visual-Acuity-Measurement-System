@@ -1,0 +1,1 @@
+{"distance":"3","optotype":"Conv_Optician-Sans","text":"ABCDEFGHIJKLMNOPQRSTUVWXYZ"}

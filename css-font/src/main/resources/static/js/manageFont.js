@@ -30,6 +30,29 @@ function distance(selectTag) {
         console.log("sizedecimal",sizeDecimal);
         var size = (sizeDecimal * 1000);
         console.log("size",size);
+//        var inch = size * 0.0393701;
+//        console.log("inch",inch);
+//        var pt = inch * 72;
+//        console.log("pt",pt);
+         var px = size * 3.7795275590551;
+         console.log("px",px);
+        var listValue = px;
+        document.getElementById("demo"+i).style.fontSize = listValue + "px";
+        mar = mar - 0.1;
+    }
+}
+function distance_test(selectTag) {
+    var mar = 1.0;
+    var distance = selectTag.options[selectTag.selectedIndex].text;
+    // change tan to radian
+    var y = 1/60;
+    var tan = Math.tan(y * Math.PI/180);
+    //************************************
+    for (var i = 1; i <= 7; i++) {
+        var sizeDecimal = tan * (5 * Math.pow(10,mar)) * distance;
+        console.log("sizedecimal",sizeDecimal);
+        var size = (sizeDecimal * 1000);
+        console.log("size",size);
         var inch = size * 0.0393701;
         console.log("inch",inch);
         var pt = inch * 72;
@@ -37,7 +60,7 @@ function distance(selectTag) {
         // var px = size * 3.7795275590551;
         // console.log("px",px);
         var listValue = pt;
-        document.getElementById("demo"+i).style.fontSize = listValue + "pt";
+        document.getElementById("test2").style.fontSize = listValue + "pt";
         mar = mar - 0.1;
     }
 }

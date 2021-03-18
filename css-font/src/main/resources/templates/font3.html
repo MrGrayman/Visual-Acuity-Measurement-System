@@ -2,51 +2,59 @@
 <html>
 <head>
     <title>Show preview font</title>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
     <link rel="stylesheet" type="text/css" href="css/font.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-<<<<<<< HEAD
     <link rel="stylesheet" type="text/css" href="css/testingPage.css">
-    <script type="text/javascript" src="js/manageFont.js"></script>
+    <link href="style.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="css/selectionInput.css">
+    <script type="text/javascript" src="js/examination.js"></script>
+
+    <!-- Template Main CSS File -->
+    <link href="assets/css/style.css" rel="stylesheet">
 
 </head>
 <body>
-<h1>Font Optician-Sans </h1>
-<input id="dis" value="">
-<input id="font" value="">
-<!--    <br>-->
-<!--    <div class="optic">THE QUICK BROWN FOX JUMPS OVER THE LAZY DOG</div>-->
-<!--    <div class="optic">The quick brown fox jumps over the lazy dog</div>-->
-<!--    <div class="optic">1 2 3 4 5 6 7 8 9</div>-->
-<div id="test1" class="optic" >A B C D E F G H I J K L M N O P Q R S T U V W X Y Z</div>
-<div id="test3" class="optic2" style="display: none" ></div>
-<div class="item2" id="test2">
-        <div class="optic2" id="demo1" value=""></div>
-
-        <div class="optic2" id="demo2" value=""></div>
-
-        <div class="optic2" id="demo3" value=""></div>
-
-        <div class="optic2" id="demo4" value=""></div>
-
-        <div class="optic2" id="demo5" value=""></div>
-
-        <div class="optic2" id="demo6" value=""></div>
-
-        <div class="optic2" id="demo7" value=""></div>
+<div class="center" style="display: none" id="list">
+    <div style="font-size: 700%" id="demo" value=""></div>
+    <br>
+    <form>
+        <label>ใส่คำตอบ</label>
+        <input type="text" id="Answer" onchange="inputAnswer()">
+    </form>
 </div>
 
 
-<input type="file" name="inputfile"
-       id="inputfile">
-<br>
-
-<pre id="output"></pre>
-
-<br>
-
-
-</body>
+<br><br><br><br><br><br><br>
+<form action="" id="selection">
+    <h1 style="text-align: center; color: black">เลือกวิธีการตอบ</h1>
+    <br><br>
+    <div class="row">
+        <div class="column" style="width: 50%;text-align: center">
+            <div class="card" style="left: 250px;">
+                <div class="container" id="hero1">
+                    <img class="card-img-top" src="images/keyboard.png" alt="Card image cap" style="width:100%">
+                    <h5 class="card-title">ตอบด้วยคีย์บอร์ด</h5>
+                    <!--                    <a class="btn btn-primary" onclick="examination()" id="choose">Select</a>-->
+                    <a href="#" class="btn-get-started scrollto" onclick="examination()" id="choose">Select</a>
+                </div>
+            </div>
+        </div>
+        <div class="column" style="width: 50%;text-align: center">
+            <div class="card" style="left: -250px;">
+                <div class="container" id="hero2">
+                    <img class="card-img-top" src="images/icon-speak.png" alt="Card image cap" style="width:82%">
+                    <h5 class="card-title">ตอบด้วยเสียง</h5>
+                    <a href="#" class="btn-get-started scrollto" onclick="">Select</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
 <script>
     // $("input").keyup(function(){
     //     if( parseInt($(this).val()) < 10 ) {
@@ -121,59 +129,5 @@
             fr.readAsText(this.files[0]);
         })
 </script>
-
-
-=======
-    <style type="text/css">
-        h1 {
-            font-size: 250%;
-        }
-
-        h2 {
-            font-size: 200%;
-        }
-
-        p {
-            font-size: 100%;
-        }
-
-        .serif {
-            font-family: "Times New Roman", Times, serif;
-        }
-
-        .sansserif {
-            font-family: Arial, Helvetica, sans-serif;
-        }
-
-        .monospace {
-            font-family: "Lucida Console", Courier, monospace;
-        }
-
-        div {
-            font-family: Conv_Optician-Sans;
-
-        }
-
-        .center {
-              padding: 400px 0;
-              text-align: center;
-        }
-    </style>
-
-
-</head>
-<body>
-    <div class="center">
-        <div style="font-size: 620%" id="demo" value="">A B C D E</div><br>
-    </div>
-    </div>
-</div>
-<script>
-
-</script>
-
-
-
 </body>
->>>>>>> Add css file
 </html>
