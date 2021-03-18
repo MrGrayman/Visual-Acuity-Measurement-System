@@ -79,6 +79,12 @@ public class GreetingController {
         return "font3";
     }
 
+    @GetMapping("/examinationResult")
+    public String examinationResult(@RequestParam(name = "name", required = false, defaultValue = "World") String name, Model model) {
+        model.addAttribute("name", name);
+        return "examinationResult";
+    }
+
     @GetMapping("/calculator")
     public String calculator(@RequestParam(name = "name", required = false, defaultValue = "World") String name, Model model) {
         model.addAttribute("name", name);
