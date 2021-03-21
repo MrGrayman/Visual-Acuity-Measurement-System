@@ -11,9 +11,9 @@ import javax.persistence.*;
 public class ExaminationResult {
     private int id;
     private int patient_id;
-    private String VA;
-    private String RE;
-    private String LE;
+    private String va;
+    private String re;
+    private String le;
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -38,27 +38,37 @@ public class ExaminationResult {
     @Basic
     @Column(name = "va")
     public String getVA(){
-        return VA;
+        return va;
     }
-    public void setVA(String VA){
-        this.VA = VA;
+    public void setVA(String va){
+        this.va = va;
     }
 
     @Basic
     @Column(name = "re")
     public String getRE(){
-        return RE;
+        return re;
     }
-    public void setRE(String RE){
-        this.RE = RE;
+    public void setRE(String re){
+        this.re = re;
     }
 
     @Basic
     @Column(name = "le")
     public String getLE(){
-        return LE;
+        return le;
     }
-    public void setLE(String LE){
-        this.LE = LE;
+    public void setLE(String le){
+        this.le = le;
     }
+
+    public ExaminationResult(){
+
+    }
+
+//    public ExaminationResult(String va, String re, String le){
+//        this.va = va;
+//        this.re = re;
+//        this.le = le;
+//    }
 }

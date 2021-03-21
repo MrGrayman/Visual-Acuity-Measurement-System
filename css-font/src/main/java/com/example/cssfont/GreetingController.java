@@ -120,18 +120,18 @@ public class GreetingController {
 
         return "redirect:/";
     }
-    @GetMapping("/saveEmployee")
-    public String saveEmployee(@ModelAttribute("employee") Employee employee) throws JsonProcessingException, JSONException {
-        System.out.println("tertert");
-        System.out.println(""+employee);
-        ObjectWriter ow = new ObjectMapper().writer().withDefaultPrettyPrinter();
-        String json = ow.writeValueAsString(employee);
-        JSONObject obj = new JSONObject(json);
-        System.out.println("obj : "+obj.toString());
-        System.out.println("Json"+json);
-        // save employee to database
-        return "redirect:/";
-    }
+//    @GetMapping("/saveEmployee")
+//    public String saveEmployee(@ModelAttribute("employee") Employee employee) throws JsonProcessingException, JSONException {
+//        System.out.println("tertert");
+//        System.out.println(""+employee);
+//        ObjectWriter ow = new ObjectMapper().writer().withDefaultPrettyPrinter();
+//        String json = ow.writeValueAsString(employee);
+//        JSONObject obj = new JSONObject(json);
+//        System.out.println("obj : "+obj.toString());
+//        System.out.println("Json"+json);
+//        // save employee to database
+//        return "redirect:/";
+//    }
     @RequestMapping(value ="/hello" , method=RequestMethod.POST)
     //read the provided form data
     public String display(@RequestParam(value = "optotype", required = false) String optotype,
