@@ -64,6 +64,29 @@ function distance_test(selectTag) {
         mar = mar - 0.1;
     }
 }
+function distance_test(selectTag) {
+    var mar = 1.0;
+    var distance = selectTag.options[selectTag.selectedIndex].text;
+    // change tan to radian
+    var y = 1/60;
+    var tan = Math.tan(y * Math.PI/180);
+    //************************************
+    for (var i = 1; i <= 7; i++) {
+        var sizeDecimal = tan * (5 * Math.pow(10,mar)) * distance;
+        console.log("sizedecimal",sizeDecimal);
+        var size = (sizeDecimal * 1000);
+        console.log("size",size);
+        var inch = size * 0.0393701;
+        console.log("inch",inch);
+        var pt = inch * 72;
+        console.log("pt",pt);
+        // var px = size * 3.7795275590551;
+        // console.log("px",px);
+        var listValue = pt;
+        document.getElementById("test2").style.fontSize = listValue + "pt";
+        mar = mar - 0.1;
+    }
+}
 
     function random(buttonTag) {
         var result           = '';
@@ -99,11 +122,11 @@ function distance_test(selectTag) {
             r5 = r5 + result + " ";
 
             var randomNumber6 = Math.floor(Math.random() *(27-1) + 1);
-            result = characters.charAt(randomNumber5);
+            result = characters.charAt(randomNumber6);
             r6 = r6 + result + " ";
 
             var randomNumber7 = Math.floor(Math.random() *(27-1) + 1);
-            result = characters.charAt(randomNumber5);
+            result = characters.charAt(randomNumber7);
             r7 = r7 + result + " ";
         }
         document.getElementById('demo1').innerHTML = r;
@@ -113,7 +136,7 @@ function distance_test(selectTag) {
         document.getElementById('demo5').innerHTML = r5;
         document.getElementById('demo6').innerHTML = r6;
         document.getElementById('demo7').innerHTML = r7;
-        document.getElementById('pass_text').value = r+r2+r3+r4+r5+r6+r7;
+        document.getElementById('passText').value = r+r2+r3+r4+r5+r6+r7;
         return r,r2,r3,r4,r5,r6,r7;
     }
 
@@ -165,6 +188,7 @@ function distance_test(selectTag) {
         document.getElementById('demo5').innerHTML = rn5;
         document.getElementById('demo6').innerHTML = rn6;
         document.getElementById('demo7').innerHTML = rn7;
+        document.getElementById('passText').value = rn1+rn2+rn3+rn4+rn5+rn6+rn7;
         return rn1,rn2,rn3,rn4,rn5,rn6,rn7;
     }
 
@@ -257,9 +281,22 @@ function showTextArea(textareaTag) {
         document.getElementById('demo5').innerHTML = text5;
         document.getElementById('demo6').innerHTML = text6;
         document.getElementById('demo7').innerHTML = text7;
+        document.getElementById('passText').value = text+text2+text3+text4+text5+text6+text7;
 //        document.getElementById('demo8').innerHTML = text8;
 //        document.getElementById('demo9').innerHTML = text9;
 //        document.getElementById('demo10').innerHTML = text10;
+}
+function changeText() {
+    alert("hi")
+    var d1 = document.getElementById('demo1').innerHTML;
+    var d2 = document.getElementById('demo2').innerHTML;
+    var d3 = document.getElementById('demo3').innerHTML;
+    var d4 = document.getElementById('demo4').innerHTML;
+    var d5 = document.getElementById('demo5').innerHTML;
+    var d6 = document.getElementById('demo6').innerHTML;
+    var d7 = document.getElementById('demo7').innerHTML;
+    alert(d1)
+    alert(d2)
 }
 
 function download_txt() {

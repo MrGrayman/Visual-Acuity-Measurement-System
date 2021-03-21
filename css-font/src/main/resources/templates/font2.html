@@ -1,5 +1,6 @@
 <!DOCTYPE HTML>
-<html>
+
+<html xmlns:th="http://thymeleaf.org">
 <head>
     <title>Show preview font</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
@@ -29,7 +30,10 @@
     <link href="assets/css/style.css" rel="stylesheet">
 
     <link rel="stylesheet" type="text/css" href="css/font.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/page.css">
     <link rel="stylesheet" href="css/manageFont.css">
+    <link rel="stylesheet" href="css/button.css">
     <script type="text/javascript" src="js/manageFont.js"></script>
     <script src="https://kit.fontawesome.com/a076d05399.js"></script>
 
@@ -104,43 +108,48 @@
                 <button class="btn btn-primary" id="big-button2" onclick="change2()">Random</button>
                 <button class="btn btn-primary" id="big-button3" onclick="change3()">Import</button>
                 <br><br>
-                <div id="all">
-                    <p style="color:black;">Font Type</p>
-                    <select onchange="myFunction(this);">
-                        <option value="Georgia">Georgia</option>
-                        <option value="Palatino Linotype">Palatino Linotype</option>
-                        <option value="Book Antiqua">Book Antiqua</option>
-                        <option value="Times New Roman">Times New Roman</option>
-                        <option value="Arial">Arial</option>
-                        <option value="Helvetica">Helvetica</option>
-                        <option value="Arial Black">Arial Black</option>
-                        <option value="Impact">Impact</option>
-                        <option value="Lucida Sans Unicode">Lucida Sans Unicode</option>
-                        <option value="Tahoma">Tahoma</option>
-                        <option value="Verdana">Verdana</option>
-                        <option value="Courier New">Courier New</option>
-                        <option value="Lucida Console">Lucida Console</option>
-                        <option value="Conv_Optician-Sans" selected="selected">Conv_Optician-Sans</option>
-                    </select>
-                    <br><br>
-                    <p style="color:black;">Distance</p>
-                    <select onchange="distance(this)">
-                        <option value="">Choose Distance</option>
-                        <option value="1">1</option>
-                        <option value="2">2</option>
-                        <option value="3">3</option>
-                        <option value="4">4</option>
-                        <option value="5">5</option>
-                        <option value="6">6</option>
-                    </select>
-                    <br><br>
-                    <p style="color:black;">Input Font</p>
-                    <textarea placeholder="Input font for testing....." rows="5" id="textarea1"
-                              onchange="showTextArea()"></textarea>
-                    <br>
 
-                    <button id="button2" onclick="" class="btn btn-primary">Confirm</button>
-                    <br>
+                <div id="all">
+                    <form action="hello" method="post">
+                        <p style="color:black;">Font Type</p>
+                        <select onchange="myFunction(this);">
+                            <option value="Georgia">Georgia</option>
+                            <option value="Palatino Linotype">Palatino Linotype</option>
+                            <option value="Book Antiqua">Book Antiqua</option>
+                            <option value="Times New Roman">Times New Roman</option>
+                            <option value="Arial">Arial</option>
+                            <option value="Helvetica">Helvetica</option>
+                            <option value="Arial Black">Arial Black</option>
+                            <option value="Impact">Impact</option>
+                            <option value="Lucida Sans Unicode">Lucida Sans Unicode</option>
+                            <option value="Tahoma">Tahoma</option>
+                            <option value="Verdana">Verdana</option>
+                            <option value="Courier New">Courier New</option>
+                            <option value="Lucida Console">Lucida Console</option>
+                            <option value="Conv_Optician-Sans" selected="selected">Conv_Optician-Sans</option>
+                        </select>
+                        <br><br>
+                        <p style="color:black;">Distance</p>
+                        <select onchange="distance(this)" >
+                            <option value="">Choose Distance</option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                            <option value="6">6</option>
+                        </select>
+                        <input id="passText" >
+
+                        <br><br>
+                        <p style="color:black;">Input Font</p>
+                        <textarea placeholder="Input font for testing....." rows="5" id="textarea1"
+                                  onchange="showTextArea()"></textarea>
+                        <br>
+
+                        <button type="submit" id="button2" onclick="" class="btn btn-primary">Confirm</button>
+                    </form>
+
                     <button id="button3" onclick="" class="btn btn-success">Set Default</button>
                     <br>
 

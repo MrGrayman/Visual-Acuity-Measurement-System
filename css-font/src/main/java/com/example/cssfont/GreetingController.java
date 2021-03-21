@@ -1,5 +1,8 @@
 package com.example.cssfont;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.ObjectWriter;
 import com.google.api.gax.longrunning.OperationFuture;
 import com.google.cloud.speech.v1.*;
 import com.google.protobuf.ByteString;
@@ -10,6 +13,7 @@ import org.apache.commons.io.IOUtils;
 import org.apache.commons.lang3.StringEscapeUtils;
 import org.json.JSONException;
 import org.json.JSONObject;
+import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -40,7 +44,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.servlet.http.HttpServletRequest;
-
+@EnableAutoConfiguration
 @Controller
 public class GreetingController {
 
@@ -52,7 +56,8 @@ public class GreetingController {
 
     @GetMapping("/font1")
     public String font1(@RequestParam(name = "name", required = false, defaultValue = "World") String name, Model model) {
-        model.addAttribute("name", name);
+        String hello = "Hello Kunad!";
+        model.addAttribute("testHello",hello);
         return "font1";
     }
 
@@ -70,19 +75,22 @@ public class GreetingController {
             while (myReader.hasNextLine()) {
                 String data = myReader.nextLine();
                 System.out.println(data);
+                JSONObject jsonData = new JSONObject(data);
+                String pass_text = jsonData.getString("pass_text");
+                String distance = jsonData.getString("distance");
+                String optotype = jsonData.getString("optotype");
+                model.addAttribute("optotype",optotype);
+                model.addAttribute("distance",distance);
+                model.addAttribute("pass_text",pass_text);
+                model.addAttribute("testHello",data);
             }
             myReader.close();
-        } catch (FileNotFoundException e) {
+        } catch (FileNotFoundException | JSONException e) {
             System.out.println("An error occurred.");
             e.printStackTrace();
         }
-        return "font3";
-    }
 
-    @GetMapping("/examinationResult")
-    public String examinationResult(@RequestParam(name = "name", required = false, defaultValue = "World") String name, Model model) {
-        model.addAttribute("name", name);
-        return "examinationResult";
+        return "font3";
     }
 
     @GetMapping("/calculator")
@@ -106,20 +114,39 @@ public class GreetingController {
         model.addAttribute("name", name);
         return "azure";
     }
-    @RequestMapping("/hello")
+    @RequestMapping(value = "/processForm", method=RequestMethod.POST)
+    public String processForm(@ModelAttribute(value="textForm") textForm textForm) throws JsonProcessingException, JSONException {
+        System.out.println("text : "+textForm);
+
+        return "redirect:/";
+    }
+    @GetMapping("/saveEmployee")
+    public String saveEmployee(@ModelAttribute("employee") Employee employee) throws JsonProcessingException, JSONException {
+        System.out.println("tertert");
+        System.out.println(""+employee);
+        ObjectWriter ow = new ObjectMapper().writer().withDefaultPrettyPrinter();
+        String json = ow.writeValueAsString(employee);
+        JSONObject obj = new JSONObject(json);
+        System.out.println("obj : "+obj.toString());
+        System.out.println("Json"+json);
+        // save employee to database
+        return "redirect:/";
+    }
+    @RequestMapping(value ="/hello" , method=RequestMethod.POST)
     //read the provided form data
-    public String display(@RequestParam(value = "optotype", required = true) String optotype,
-                          @RequestParam(value = "distance", required = true) String distance,
-                          @RequestParam(value = "distance2", required = true) String distance2,
-                          @RequestParam(value = "pass_text", required = false) String pass_text,Model m) throws UnsupportedEncodingException, JSONException {
-        System.out.println("pass_text : "+pass_text);
-        System.out.println("distance2 : "+distance2);
+    public String display(@RequestParam(value = "optotype", required = false) String optotype,
+                          @RequestParam(value = "distance", required = false) String distance,
+                          @RequestParam(value = "passtext", required = false) String passtext,Model m) throws UnsupportedEncodingException, JSONException {
+        System.out.println("pass_text : "+passtext);
         System.out.println("optotype : "+optotype);
         System.out.println("distance : "+distance);
+        optotype = "Conv_Optician-Sans";
+        distance = "3";
+        passtext = "S I C M R J D B I T H O F N M F Q O H X O X P T Q Z S Q N S S U Q U B ";
         JSONObject json = new JSONObject();
         json.put("optotype", optotype);
         json.put("distance", distance);
-        json.put("pass_text", pass_text);
+        json.put("pass_text", passtext);
         String message = json.toString();
         System.out.println("message : "+message);
 //        String test = URLDecoder.decode(optotype, "UTF-8");
