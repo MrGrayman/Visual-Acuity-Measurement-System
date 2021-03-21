@@ -122,11 +122,11 @@ function distance_test(selectTag) {
             r5 = r5 + result + " ";
 
             var randomNumber6 = Math.floor(Math.random() *(27-1) + 1);
-            result = characters.charAt(randomNumber5);
+            result = characters.charAt(randomNumber6);
             r6 = r6 + result + " ";
 
             var randomNumber7 = Math.floor(Math.random() *(27-1) + 1);
-            result = characters.charAt(randomNumber5);
+            result = characters.charAt(randomNumber7);
             r7 = r7 + result + " ";
         }
         document.getElementById('demo1').innerHTML = r;
@@ -136,7 +136,7 @@ function distance_test(selectTag) {
         document.getElementById('demo5').innerHTML = r5;
         document.getElementById('demo6').innerHTML = r6;
         document.getElementById('demo7').innerHTML = r7;
-        document.getElementById('pass_text').value = r+r2+r3+r4+r5+r6+r7;
+        document.getElementById('passText').value = r+r2+r3+r4+r5+r6+r7;
         return r,r2,r3,r4,r5,r6,r7;
     }
 
@@ -188,6 +188,7 @@ function distance_test(selectTag) {
         document.getElementById('demo5').innerHTML = rn5;
         document.getElementById('demo6').innerHTML = rn6;
         document.getElementById('demo7').innerHTML = rn7;
+        document.getElementById('passText').value = rn1+rn2+rn3+rn4+rn5+rn6+rn7;
         return rn1,rn2,rn3,rn4,rn5,rn6,rn7;
     }
 
@@ -280,9 +281,22 @@ function showTextArea(textareaTag) {
         document.getElementById('demo5').innerHTML = text5;
         document.getElementById('demo6').innerHTML = text6;
         document.getElementById('demo7').innerHTML = text7;
+        document.getElementById('passText').value = text+text2+text3+text4+text5+text6+text7;
 //        document.getElementById('demo8').innerHTML = text8;
 //        document.getElementById('demo9').innerHTML = text9;
 //        document.getElementById('demo10').innerHTML = text10;
+}
+function changeText() {
+    alert("hi")
+    var d1 = document.getElementById('demo1').innerHTML;
+    var d2 = document.getElementById('demo2').innerHTML;
+    var d3 = document.getElementById('demo3').innerHTML;
+    var d4 = document.getElementById('demo4').innerHTML;
+    var d5 = document.getElementById('demo5').innerHTML;
+    var d6 = document.getElementById('demo6').innerHTML;
+    var d7 = document.getElementById('demo7').innerHTML;
+    alert(d1)
+    alert(d2)
 }
 
 function download_txt() {

@@ -1,6 +1,7 @@
 <!DOCTYPE HTML>
-<html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
+
     <title>Show preview font</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
@@ -19,12 +20,24 @@
 
 </head>
 <body>
-<div class="center" style="display: none" id="list">
-    <div style="font-size: 700%" id="demo" value=""></div>
+<div class="center" style="display: none" id="list" >
+    <div style="font-size: 250% ;display: block" id="demo1" value=""></div>
+    <div style="font-size: 250% ;display: none" id="demo2" value=""></div>
+    <div style="font-size: 250% ;display: none" id="demo3" value=""></div>
+    <div style="font-size: 250% ;display: none" id="demo4" value=""></div>
+    <div style="font-size: 250% ;display: none" id="demo5" value=""></div>
+    <div style="font-size: 250% ;display: none" id="demo6" value=""></div>
+    <div style="font-size: 250% ;display: none" id="demo7" value=""></div>
     <br>
     <form>
         <label>ใส่คำตอบ</label>
         <input type="text" id="Answer" onchange="inputAnswer()">
+        <br>
+        <br>
+        <button class="btn btn-secondary" id="big-button2" onclick="backline()">Back</button>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <button class="btn btn-primary" id="big-button1" onclick="nextline()">Next</button>
+
     </form>
 </div>
 
@@ -40,7 +53,7 @@
                     <img class="card-img-top" src="images/keyboard.png" alt="Card image cap" style="width:100%">
                     <h5 class="card-title">ตอบด้วยคีย์บอร์ด</h5>
                     <!--                    <a class="btn btn-primary" onclick="examination()" id="choose">Select</a>-->
-                    <a href="#" class="btn-get-started scrollto" onclick="examination()" id="choose">Select</a>
+                    <a class="btn-get-started scrollto" onclick="examination()" id="choose">Select</a>
                 </div>
             </div>
         </div>
@@ -55,6 +68,49 @@
         </div>
     </div>
 </form>
+<script th:inline="javascript">
+    function ReadData() {
+        var optotype = /*[[${optotype}]]*/ 'default';
+        var distance = /*[[${distance}]]*/ 'default'; //text=69lenght
+        var pass_text = /*[[${pass_text}]]*/ 'default';
+        var m = 0;
+        var value = pass_text;
+        var text = "";
+        var text2 = "";
+        var text3 = "";
+        var text4 = "";
+        var text5 = "";
+        var text6 = "";
+        var text7 = "";
+        for (var i = 0; i < value.length; i++) {
+            if(i < 9){
+                text = text + value[i] + "\n";
+            }else if(i < 19){
+                text2 = text2 + value[i] + "\n";
+            }else if(i < 29){
+                text3 = text3 + value[i] + "\n";
+            }else if(i < 39){
+                text4 = text4 + value[i] + "\n";
+            }else if(i < 49){
+                text5 = text5 + value[i] + "\n";
+            }else if(i < 59){
+                text6 = text6 + value[i] + "\n";
+            }else if(i < 69){
+                text7 = text7 + value[i] + "\n";
+            }
+        }
+        document.getElementById('demo1').innerHTML = text;
+        document.getElementById('demo2').innerHTML = text2;
+        document.getElementById('demo3').innerHTML = text3;
+        document.getElementById('demo4').innerHTML = text4;
+        document.getElementById('demo5').innerHTML = text5;
+        document.getElementById('demo6').innerHTML = text6;
+        document.getElementById('demo7').innerHTML = text7;
+        changeFontFamily(optotype);
+        changeDistance(distance);
+    }
+    /*]]>*/
+</script>
 <script>
     // $("input").keyup(function(){
     //     if( parseInt($(this).val()) < 10 ) {

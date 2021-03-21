@@ -1,88 +1,191 @@
+var numTemp = 1;
 function examination(){
         var x = document.getElementById("selection");
         var y = document.getElementById("list");
             x.style.display = "none";
             y.style.display = "block";
-            showData();
+        ReadData();
+    }
+function changeFontFamily(optotype) {
+    var listValue = optotype;
+    document.getElementById("demo1").style.fontFamily = listValue;
+    document.getElementById("demo2").style.fontFamily = listValue;
+    document.getElementById("demo3").style.fontFamily = listValue;
+    document.getElementById("demo4").style.fontFamily = listValue;
+    document.getElementById("demo5").style.fontFamily = listValue;
+}
+function changeDistance(distance) {
+    var mar = 1.0;
+    var distanceValue = distance;
+    // change tan to radian
+    var y = 1/60;
+    var tan = Math.tan(y * Math.PI/180);
+    //************************************
+    for (var i = 1; i <= 7; i++) {
+        var sizeDecimal = tan * (5 * Math.pow(10,mar)) * distanceValue
+        console.log("sizedecimal",sizeDecimal);
+        var size = (sizeDecimal * 1000);
+        console.log("size",size);
+//        var inch = size * 0.0393701;
+//        console.log("inch",inch);
+//        var pt = inch * 72;
+//        console.log("pt",pt);
+        var px = size * 3.7795275590551;
+        console.log("px",px);
+        var listValue = px;
+        document.getElementById("demo"+i).style.fontSize = listValue + "px";
+        mar = mar - 0.1;
+    }
+}
+function nextline(){
+    if(numTemp < 7){
+        numTemp = numTemp +1;
+    }
+    var demo1 = document.getElementById("demo1");
+    var demo2 = document.getElementById("demo2");
+    var demo3 = document.getElementById("demo3");
+    var demo4 = document.getElementById("demo4");
+    var demo5 = document.getElementById("demo5");
+    var demo6 = document.getElementById("demo6");
+    var demo7 = document.getElementById("demo7");
+    if (numTemp == 1){
+        demo1.style.display = "block";
+        demo2.style.display = "none";
+        demo3.style.display = "none";
+        demo4.style.display = "none";
+        demo5.style.display = "none";
+        demo6.style.display = "none";
+        demo7.style.display = "none";
+    }
+    else if (numTemp == 2){
+        demo1.style.display = "none";
+        demo2.style.display = "block";
+        demo3.style.display = "none";
+        demo4.style.display = "none";
+        demo5.style.display = "none";
+        demo6.style.display = "none";
+        demo7.style.display = "none";
+    }
+    else if (numTemp == 3){
+        demo1.style.display = "none";
+        demo2.style.display = "none";
+        demo3.style.display = "block";
+        demo4.style.display = "none";
+        demo5.style.display = "none";
+        demo6.style.display = "none";
+        demo7.style.display = "none";
+    }
+    else if (numTemp == 4){
+        demo1.style.display = "none";
+        demo2.style.display = "none";
+        demo3.style.display = "none";
+        demo4.style.display = "block";
+        demo5.style.display = "none";
+        demo6.style.display = "none";
+        demo7.style.display = "none";
+    }
+    else if (numTemp == 5){
+        demo1.style.display = "none";
+        demo2.style.display = "none";
+        demo3.style.display = "none";
+        demo4.style.display = "none";
+        demo5.style.display = "block";
+        demo6.style.display = "none";
+        demo7.style.display = "none";
+    }
+    else if (numTemp == 6){
+        demo1.style.display = "none";
+        demo2.style.display = "none";
+        demo3.style.display = "none";
+        demo4.style.display = "none";
+        demo5.style.display = "none";
+        demo6.style.display = "block";
+        demo7.style.display = "none";
+    }
+    else if (numTemp == 7){
+        demo1.style.display = "none";
+        demo2.style.display = "none";
+        demo3.style.display = "none";
+        demo4.style.display = "none";
+        demo5.style.display = "none";
+        demo6.style.display = "none";
+        demo7.style.display = "block";
     }
 
-    function showData() {
-            var result           = '';
-            var characters       = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
-            var r = ''
+}
+function backline(){
+    if(numTemp > 1){
+        numTemp = numTemp -1;
+    }
+    var demo1 = document.getElementById("demo1");
+    var demo2 = document.getElementById("demo2");
+    var demo3 = document.getElementById("demo3");
+    var demo4 = document.getElementById("demo4");
+    var demo5 = document.getElementById("demo5");
+    var demo6 = document.getElementById("demo6");
+    var demo7 = document.getElementById("demo7");
+    if (numTemp == 1){
+        demo1.style.display = "block";
+        demo2.style.display = "none";
+        demo3.style.display = "none";
+        demo4.style.display = "none";
+        demo5.style.display = "none";
+        demo6.style.display = "none";
+        demo7.style.display = "none";
+    }
+    else if (numTemp == 2){
+        demo1.style.display = "none";
+        demo2.style.display = "block";
+        demo3.style.display = "none";
+        demo4.style.display = "none";
+        demo5.style.display = "none";
+        demo6.style.display = "none";
+        demo7.style.display = "none";
+    }
+    else if (numTemp == 3){
+        demo1.style.display = "none";
+        demo2.style.display = "none";
+        demo3.style.display = "block";
+        demo4.style.display = "none";
+        demo5.style.display = "none";
+        demo6.style.display = "none";
+        demo7.style.display = "none";
+    }
+    else if (numTemp == 4){
+        demo1.style.display = "none";
+        demo2.style.display = "none";
+        demo3.style.display = "none";
+        demo4.style.display = "block";
+        demo5.style.display = "none";
+        demo6.style.display = "none";
+        demo7.style.display = "none";
+    }
+    else if (numTemp == 5){
+        demo1.style.display = "none";
+        demo2.style.display = "none";
+        demo3.style.display = "none";
+        demo4.style.display = "none";
+        demo5.style.display = "block";
+        demo6.style.display = "none";
+        demo7.style.display = "none";
+    }
+    else if (numTemp == 6){
+        demo1.style.display = "none";
+        demo2.style.display = "none";
+        demo3.style.display = "none";
+        demo4.style.display = "none";
+        demo5.style.display = "none";
+        demo6.style.display = "block";
+        demo7.style.display = "none";
+    }
+    else if (numTemp == 7){
+        demo1.style.display = "none";
+        demo2.style.display = "none";
+        demo3.style.display = "none";
+        demo4.style.display = "none";
+        demo5.style.display = "none";
+        demo6.style.display = "none";
+        demo7.style.display = "block";
+    }
 
-            var charactersLength = characters.length;
-            for ( var i = 0; i < 5; i++ ) {
-
-                var randomNumber = Math.floor(Math.random() *(27-1) + 1);
-                result = characters.charAt(randomNumber);
-                r = r + result + " ";
-            }
-            document.getElementById('demo').innerHTML = r;
-            return r;
-        }
-
-//        document.getElementById('inputfile')
-//                .addEventListener('change', function() {
-//                    var x = document.getElementById("test1");
-//                    var y = document.getElementById("test2");
-//                    var result = "";
-//                    var fr=new FileReader();
-//                    fr.onload=function(){
-//                        var jsontext = textContent=fr.result;
-//                        var obj = JSON.parse(jsontext);
-//                        var example = obj.text;
-//                        var distance = obj.distance;
-//                        var font = obj.optotype;
-//                        var value = example;
-//                        var text = "";
-//                        var text2 = "";
-//                        var text3 = "";
-//                        var text4 = "";
-//                        var text5 = "";
-//                        var text6 = "";
-//                        var text7 = "";
-//        //        var text8 = "";
-//        //        var text9 = "";
-//        //        var text10 = "";
-//                        for (var i = 0; i < value.length; i++) {
-//                            if(i < 5){
-//                                text = text + value[i] + "\n";
-//                            }else if(i < 10){
-//                                text2 = text2 + value[i] + "\n";
-//                            }else if(i < 15){
-//                                text3 = text3 + value[i] + "\n";
-//                            }else if(i < 20){
-//                                text4 = text4 + value[i] + "\n";
-//                            }else if(i < 25){
-//                                text5 = text5 + value[i] + "\n";
-//                            }else if(i < 30){
-//                                text6 = text6 + value[i] + "\n";
-//                            }else if(i < 35){
-//                                text7 = text7 + value[i] + "\n";
-//                            }
-//        //            else if(i < 40){
-//        //                text8 = text8 + value[i] + "\n";
-//        //            }else if(i < 45){
-//        //                text9 = text9 + value[i] + "\n";
-//        //            }else if(i < 50){
-//        //                text10 = text10 + value[i] + "\n";
-//        //            }
-//                        }
-//
-//                        document.getElementById('demo1').innerHTML = text;
-//                        document.getElementById('demo2').innerHTML = text2;
-//                        document.getElementById('demo3').innerHTML = text3;
-//                        document.getElementById('demo4').innerHTML = text4;
-//                        document.getElementById('demo5').innerHTML = text5;
-//                        document.getElementById('demo6').innerHTML = text6;
-//                        document.getElementById('demo7').innerHTML = text7;
-//                        document.getElementById("dis").value = distance;
-//                        document.getElementById("font").value = font;
-//
-//                        x.style.display = "none";
-//                        y.style.display = "block";
-//                    }
-//
-//                    fr.readAsText(this.files[0]);
-//                })
+}
