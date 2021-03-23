@@ -113,24 +113,7 @@ public class GreetingController {
         model.addAttribute("name", name);
         return "azure";
     }
-//    @RequestMapping(value = "/processForm", method=RequestMethod.POST)
-//    public String processForm(@ModelAttribute(value="textForm") textForm textForm) throws JsonProcessingException, JSONException {
-//        System.out.println("text : "+textForm);
-//
-//        return "redirect:/";
-//    }
-    @GetMapping("/saveEmployee")
-    public String saveEmployee(@ModelAttribute("employee") Employee employee) throws JsonProcessingException, JSONException {
-        System.out.println("tertert");
-        System.out.println(""+employee);
-        ObjectWriter ow = new ObjectMapper().writer().withDefaultPrettyPrinter();
-        String json = ow.writeValueAsString(employee);
-        JSONObject obj = new JSONObject(json);
-        System.out.println("obj : "+obj.toString());
-        System.out.println("Json"+json);
-        // save employee to database
-        return "redirect:/";
-    }
+
     @RequestMapping(value ="/hello" , method=RequestMethod.POST)
     //read the provided form data
     public String display(@RequestParam(value = "optotype", required = false) String optotype,
@@ -181,37 +164,6 @@ public class GreetingController {
         System.out.println("id: "+id);
         return "font2"+id;
     }
-
-    @RequestMapping(value = "/testapi",method = RequestMethod.GET)
-    public String setupForm(@RequestParam(value = "id",required = false) int petId, ModelMap model) {
-        System.out.println("id");
-//        model.addAttribute("id", petId);
-        return "font2";
-    }
-    @RequestMapping(value = "/results", method = RequestMethod.GET)
-    public @ResponseBody String test (HttpServletRequest request,@RequestParam("text") String text) {
-
-        System.out.println(text);
-
-
-        // other stuff
-        return "font2";
-    }
-    @RequestMapping(value = "/submit.htm", method = RequestMethod.POST,produces = MediaType.APPLICATION_JSON_VALUE)
-    public @ResponseBody
-    String Submit(@RequestParam(value = "name",required = false) String name,@RequestParam(value = "location",required = false) String location) {
-        System.out.println(name);
-        // your logic here
-        return name;
-    }
-    @PostMapping("/submit.htm/{name}/{location}")
-    @ResponseBody
-    public String getEmployeesById(@PathVariable String name,@PathVariable String location) {
-        System.out.println("Name : "+name);
-        System.out.println("Name : "+location);
-        return "ID: " + location;
-    }
-
 
     @PostMapping("/aiForThai") // //new annotation since 4.3
     public String singleFileUpload(@RequestParam(value = "file", required = false) File file,
