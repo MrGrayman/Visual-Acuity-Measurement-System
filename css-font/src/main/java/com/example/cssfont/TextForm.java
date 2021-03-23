@@ -1,6 +1,6 @@
 package com.example.cssfont;
 
-public class textForm {
+public class TextForm {
     private String distance;
     private String optotype;
     private String passtext;
@@ -18,12 +18,16 @@ public class textForm {
     public void setOptotype(String optotype) {
         this.optotype = optotype;
     }
-    public String getText() {
+    public String getPasstext() {
         return passtext;
     }
 
-    public void setText(String passtext) {
+    public void setPasstext(String passtext) {
         this.passtext = passtext;
+    }
+
+    public TextForm(){
+
     }
     @Override
     public String toString()

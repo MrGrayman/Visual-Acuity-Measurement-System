@@ -18,6 +18,7 @@ import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 import java.io.*;
@@ -55,9 +56,8 @@ public class GreetingController {
     }
 
     @GetMapping("/font1")
-    public String font1(@RequestParam(name = "name", required = false, defaultValue = "World") String name, Model model) {
-        String hello = "Hello Kunad!";
-        model.addAttribute("testHello",hello);
+    public String font1(Model model) {
+        model.addAttribute("textForm",new TextForm());
         return "font1";
     }
 
@@ -113,12 +113,12 @@ public class GreetingController {
         model.addAttribute("name", name);
         return "azure";
     }
-    @RequestMapping(value = "/processForm", method=RequestMethod.POST)
-    public String processForm(@ModelAttribute(value="textForm") textForm textForm) throws JsonProcessingException, JSONException {
-        System.out.println("text : "+textForm);
-
-        return "redirect:/";
-    }
+//    @RequestMapping(value = "/processForm", method=RequestMethod.POST)
+//    public String processForm(@ModelAttribute(value="textForm") textForm textForm) throws JsonProcessingException, JSONException {
+//        System.out.println("text : "+textForm);
+//
+//        return "redirect:/";
+//    }
     @GetMapping("/saveEmployee")
     public String saveEmployee(@ModelAttribute("employee") Employee employee) throws JsonProcessingException, JSONException {
         System.out.println("tertert");
