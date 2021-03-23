@@ -6,6 +6,9 @@ function examination(){
             y.style.display = "block";
         ReadData();
     }
+    function loadData(){
+    ReadData();
+    }
 function changeFontFamily(optotype) {
     var listValue = optotype;
     document.getElementById("demo1").style.fontFamily = listValue;

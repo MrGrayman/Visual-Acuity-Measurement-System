@@ -50,6 +50,7 @@ import javax.servlet.http.HttpServletRequest;
 @Controller
 public class GreetingController {
 
+
     @GetMapping("/home")
     public String home(@RequestParam(name = "name", required = false, defaultValue = "World") String name, Model model) {
         model.addAttribute("name", name);
@@ -58,32 +59,31 @@ public class GreetingController {
 
     @GetMapping("/font1")
     public String font1(Model model) {
-        model.addAttribute("textForm",new TextForm());
         return "font1";
     }
 
     @GetMapping("/font2")
     public String font2(@RequestParam(name = "name", required = false, defaultValue = "World") String name, Model model) {
-        model.addAttribute("name", name);
+        model.addAttribute("textForm",new TextForm());
         return "font2";
     }
 
     @GetMapping("/font3")
     public String font3(@RequestParam(name="name", required=false, defaultValue="World") String name, Model model) {
+        model.addAttribute("textForm",new TextForm());
         try {
-            File myObj = new File("C:/Visual-Acuity-Measurement-System/test_text_file/file.txt");
+            File myObj = new File("D:/Accessories/SeniorProject/Visual-Acuity-Measurement-System/test_text_file/file.txt");
             Scanner myReader = new Scanner(myObj);
             while (myReader.hasNextLine()) {
                 String data = myReader.nextLine();
-                System.out.println(data);
+//                System.out.println(data);
                 JSONObject jsonData = new JSONObject(data);
-                String pass_text = jsonData.getString("pass_text");
+                String pass_text = jsonData.getString("passtext");
                 String distance = jsonData.getString("distance");
                 String optotype = jsonData.getString("optotype");
                 model.addAttribute("optotype",optotype);
                 model.addAttribute("distance",distance);
-                model.addAttribute("pass_text",pass_text);
-                model.addAttribute("testHello",data);
+                model.addAttribute("passtext",pass_text);
             }
             myReader.close();
         } catch (FileNotFoundException | JSONException e) {
@@ -92,6 +92,65 @@ public class GreetingController {
         }
 
         return "font3";
+    }
+    @GetMapping("/showExamination")
+    public String showExamination(@RequestParam(name = "name", required = false, defaultValue = "World") String name, Model model) {
+        model.addAttribute("textForm",new TextForm());
+        try {
+            File myObj = new File("D:/Accessories/SeniorProject/Visual-Acuity-Measurement-System/test_text_file/file.txt");
+            Scanner myReader = new Scanner(myObj);
+            while (myReader.hasNextLine()) {
+                String data = myReader.nextLine();
+//                System.out.println(data);
+                JSONObject jsonData = new JSONObject(data);
+                String pass_text = jsonData.getString("passtext");
+                String distance = jsonData.getString("distance");
+                String optotype = jsonData.getString("optotype");
+                model.addAttribute("optotype",optotype);
+                model.addAttribute("distance",distance);
+                model.addAttribute("passtext",pass_text);
+            }
+            myReader.close();
+        } catch (FileNotFoundException | JSONException e) {
+            System.out.println("An error occurred.");
+            e.printStackTrace();
+        }
+        return "showExamination";
+    }
+    @RequestMapping(value = "/processForm", method= RequestMethod.POST)
+    public String processForm(@Validated @ModelAttribute(value="textForm") TextForm textForm , Model model) throws JsonProcessingException, JSONException {
+        System.out.println("text : "+textForm);
+        ObjectWriter ow = new ObjectMapper().writer().withDefaultPrettyPrinter();
+        String json = ow.writeValueAsString(textForm);
+        JSONObject obj = new JSONObject(json);
+        System.out.println("obj : "+obj.toString());
+        String message = obj.toString();
+//        String test = URLDecoder.decode(optotype, "UTF-8");
+
+        //************write text in text file**************
+        try {
+            FileWriter myWriter = new FileWriter("D:/Accessories/SeniorProject/Visual-Acuity-Measurement-System/test_text_file/file.txt",false);
+            myWriter.write(message);
+            myWriter.close();
+            System.out.println("Successfully wrote to the file.");
+        } catch (IOException e) {
+            System.out.println("An error occurred.");
+            e.printStackTrace();
+        }
+        try {
+            BufferedReader br = new BufferedReader(new FileReader("D:/Accessories/SeniorProject/Visual-Acuity-Measurement-System/test_text_file/file.txt"));
+            String line;
+            while ((line = br.readLine()) != null) {
+                System.out.println(line);
+            }
+            br.close();
+        } catch (IOException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+        // ****************************************************************
+
+        return "redirect:/font2";
     }
 
     @GetMapping("/examinationResult")
@@ -120,50 +179,6 @@ public class GreetingController {
     public String azure(@RequestParam(name = "name", required = false, defaultValue = "World") String name, Model model) {
         model.addAttribute("name", name);
         return "azure";
-    }
-
-    @RequestMapping(value ="/hello" , method=RequestMethod.POST)
-    //read the provided form data
-    public String display(@RequestParam(value = "optotype", required = false) String optotype,
-                          @RequestParam(value = "distance", required = false) String distance,
-                          @RequestParam(value = "passtext", required = false) String passtext,Model m) throws UnsupportedEncodingException, JSONException {
-        System.out.println("pass_text : "+passtext);
-        System.out.println("optotype : "+optotype);
-        System.out.println("distance : "+distance);
-        optotype = "Conv_Optician-Sans";
-        distance = "3";
-        passtext = "S I C M R J D B I T H O F N M F Q O H X O X P T Q Z S Q N S S U Q U B ";
-        JSONObject json = new JSONObject();
-        json.put("optotype", optotype);
-        json.put("distance", distance);
-        json.put("pass_text", passtext);
-        String message = json.toString();
-        System.out.println("message : "+message);
-//        String test = URLDecoder.decode(optotype, "UTF-8");
-
-        //************write text in text file**************
-        try {
-            FileWriter myWriter = new FileWriter("C:/Visual-Acuity-Measurement-System/test_text_file/file.txt",false);
-            myWriter.write(message);
-            myWriter.close();
-            System.out.println("Successfully wrote to the file.");
-        } catch (IOException e) {
-            System.out.println("An error occurred.");
-            e.printStackTrace();
-        }
-        try {
-            BufferedReader br = new BufferedReader(new FileReader("C:/Visual-Acuity-Measurement-System/test_text_file/file.txt"));
-            String line;
-            while ((line = br.readLine()) != null) {
-                System.out.println(line);
-            }
-            br.close();
-        } catch (IOException e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
-        }
-        // ****************************************************************
-        return "font2";
     }
 
     @PostMapping("/aiForThai") // //new annotation since 4.3
