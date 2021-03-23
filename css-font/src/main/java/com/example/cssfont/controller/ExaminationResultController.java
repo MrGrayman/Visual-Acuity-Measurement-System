@@ -15,7 +15,7 @@ import java.io.IOException;
 import java.text.ParseException;
 
 @RestController
-@RequestMapping(value = "${general.root_uri}")
+//@RequestMapping(value = "${general.root_uri}")
 public class ExaminationResultController {
 
     @Autowired
@@ -34,28 +34,30 @@ public class ExaminationResultController {
         return "index";
     }
 
-    @RequestMapping(value = "/examinationResult/save", method = RequestMethod.GET)
-    public String saveExaminationResult(Model model) {
-        model.addAttribute("examinationResult", new ExaminationResult());
-        return "/examinationResult/save";
-    }
+//    @GetMapping("/examinationResult")
+//    public String examinationResult(Model model) {
+//        model.addAttribute("examinationResult", new ExaminationResult());
+//        return "examinationResult";
+//    }
 
     @RequestMapping(value = "/examinationResult/save", method = RequestMethod.POST)
     public String processSave(@Validated @ModelAttribute("examinationResult") ExaminationResult examinationResult,
                               BindingResult bindingResult,
                               Model model){
-        model.addAttribute("examinationResult", examinationResult);
         if (bindingResult.hasErrors()) {
             System.out.println("There was a error " + bindingResult);
-            return "save-examination";
+            return "/examinationResult/save";
         }
+        model.addAttribute("va",examinationResult.getVa());
+        model.addAttribute("re", examinationResult.getRe());
+        model.addAttribute("le", examinationResult.getLe());
         examinationResultService.saveExaminationResult(examinationResult);
         return "save-examination-successfully";
 
     }
 
     @RequestMapping(value = "/examinationResult/saveResult", method = RequestMethod.POST)
-    public void ExaminationResult(@Validated @ModelAttribute("examinationResult") ExaminationResult examinationResult){
+    public void ExaminationResult(@RequestBody ExaminationResult examinationResult){
         examinationResultService.saveExaminationResult(examinationResult);
     }
 }

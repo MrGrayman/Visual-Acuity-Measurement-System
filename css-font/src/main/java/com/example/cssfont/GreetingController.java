@@ -1,5 +1,6 @@
 package com.example.cssfont;
 
+import com.example.cssfont.entities.ExaminationResult;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.ObjectWriter;
@@ -70,7 +71,7 @@ public class GreetingController {
     @GetMapping("/font3")
     public String font3(@RequestParam(name="name", required=false, defaultValue="World") String name, Model model) {
         try {
-            File myObj = new File("D:/Accessories/SeniorProject/Visual-Acuity-Measurement-System/test_text_file/file.txt");
+            File myObj = new File("C:/Visual-Acuity-Measurement-System/test_text_file/file.txt");
             Scanner myReader = new Scanner(myObj);
             while (myReader.hasNextLine()) {
                 String data = myReader.nextLine();
@@ -91,6 +92,12 @@ public class GreetingController {
         }
 
         return "font3";
+    }
+
+    @GetMapping("/examinationResult")
+    public String examinationResult(Model model) {
+        model.addAttribute("examinationResult", new ExaminationResult());
+        return "examinationResult";
     }
 
     @GetMapping("/calculator")
@@ -136,7 +143,7 @@ public class GreetingController {
 
         //************write text in text file**************
         try {
-            FileWriter myWriter = new FileWriter("D:/Accessories/SeniorProject/Visual-Acuity-Measurement-System/test_text_file/file.txt",false);
+            FileWriter myWriter = new FileWriter("C:/Visual-Acuity-Measurement-System/test_text_file/file.txt",false);
             myWriter.write(message);
             myWriter.close();
             System.out.println("Successfully wrote to the file.");
@@ -145,7 +152,7 @@ public class GreetingController {
             e.printStackTrace();
         }
         try {
-            BufferedReader br = new BufferedReader(new FileReader("D:/Accessories/SeniorProject/Visual-Acuity-Measurement-System/test_text_file/file.txt"));
+            BufferedReader br = new BufferedReader(new FileReader("C:/Visual-Acuity-Measurement-System/test_text_file/file.txt"));
             String line;
             while ((line = br.readLine()) != null) {
                 System.out.println(line);

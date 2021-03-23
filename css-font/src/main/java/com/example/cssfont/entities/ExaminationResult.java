@@ -37,28 +37,28 @@ public class ExaminationResult {
 
     @Basic
     @Column(name = "va")
-    public String getVA(){
+    public String getVa(){
         return va;
     }
-    public void setVA(String va){
+    public void setVa(String va){
         this.va = va;
     }
 
     @Basic
     @Column(name = "re")
-    public String getRE(){
+    public String getRe(){
         return re;
     }
-    public void setRE(String re){
+    public void setRe(String re){
         this.re = re;
     }
 
     @Basic
     @Column(name = "le")
-    public String getLE(){
+    public String getLe(){
         return le;
     }
-    public void setLE(String le){
+    public void setLe(String le){
         this.le = le;
     }
 
@@ -66,9 +66,9 @@ public class ExaminationResult {
 
     }
 
-//    public ExaminationResult(String va, String re, String le){
-//        this.va = va;
-//        this.re = re;
-//        this.le = le;
-//    }
+    public ExaminationResult(String va, String re, String le){
+        this.va = va;
+        this.re = re;
+        this.le = le;
+    }
 }

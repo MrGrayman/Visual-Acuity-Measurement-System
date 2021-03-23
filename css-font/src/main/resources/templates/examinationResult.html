@@ -20,35 +20,35 @@
 </head>
 <body>
 <br>
-<form id="" style="text-align: center" th:action="@{/examinationResult/save}" object="${examinationResult}" method="post" modelAttribute="examinationResult" commandName="examinationResult">
+<form id="" style="text-align: center" th:action="@{/examinationResult/save}" th:object="${examinationResult}" method="post" modelAttribute="examinationResult" commandName="examinationResult">
     <h1 style="text-align: center; color: black; margin-top: 100px;">ผลการตรวจสายตา</h1>
     <div class="row" style="margin: 20em; margin-top: 100px; margin-bottom: 100px">
         <div class="col-md-4">
             <div class="container" style="text-align: center">
                 <h1 style="text-align: center; color: black; font-size: 50px">VA</h1>
                 <a class="" style="font-size: 24px" onclick="">Result</a><br>
-                <a class="" style="font-size: 24px" onclick="" field="*{va}" value="24/60 -1">24/60 -1</input>
-<!--                <div th:if="${#fields.hasErrors('va')}" th:errors="*{va}">errors</div>-->
+                <input class="" style="font-size: 24px" onclick="" th:field="*{va}" value="24/60 -1">24/60 -1</input>
+                <div th:if="${#fields.hasErrors('va')}" th:errors="*{va}">errors</div>
             </div>
         </div>
         <div class="col-md-4">
             <div class="container" style="text-align: center">
                 <h1 style="text-align: center; color: black; font-size: 50px">RE</h1>
                 <a class="" style="font-size: 24px" onclick="">Result</a><br>
-                <a class="" style="font-size: 24px" onclick="" field="*{re}" value="36/60 -2">36/60 -2</input>
-<!--                <div th:if="${#fields.hasErrors('re')}" th:errors="*{re}">errors</div>-->
+                <input class="" style="font-size: 24px" onclick="" th:field="*{re}" value="36/60 -2">36/60 -2</input>
+                <div th:if="${#fields.hasErrors('re')}" th:errors="*{re}">errors</div>
             </div>
         </div>
         <div class="col-md-4">
             <div class="container" style="text-align: center">
                 <h1 style="text-align: center; color: black; font-size: 50px">LE</h1>
                 <a class="" style="font-size: 24px" onclick="">Result</a><br>
-                <a class="" style="font-size: 24px" onclick="" field="*{le}" value="42/60 -3">42/60 -3</input>
-<!--                <div th:if="${#fields.hasErrors('le')}" th:errors="*{le}">errors</div>-->
+                <input class="" style="font-size: 24px" onclick="" th:field="*{le}" value="42/60 -3">42/60 -3</input>
+                <div th:if="${#fields.hasErrors('le')}" th:errors="*{le}">errors</div>
             </div>
         </div>
     </div>
-    <button href="#" class="btn btn-primary" onclick="" id="save-examination">Save Result</button>
+    <button href="#" class="btn btn-primary" type="submit" onclick="" id="save-examination">Save Result</button>
     <button href="#" class="btn btn-secondary" onclick="">Print Result</button><br><br>
     <a href="/font2" class="btn btn-secondary" onclick="">Back to setting</a>
 </form>
