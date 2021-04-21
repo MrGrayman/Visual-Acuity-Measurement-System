@@ -1,4 +1,5 @@
 var numTemp = 1;
+var arr_result = [];
 function examination(){
         var x = document.getElementById("selection");
         var y = document.getElementById("list");
@@ -192,3 +193,41 @@ function backline(){
     }
 
 }
+
+$(document).ready(function () {
+    $('#Answer').keyup(function(e) {
+        let input = $(this).val().toUpperCase();
+        let text = $('#demo'+numTemp).text();
+        text = text.match(/[A-Z]/g);
+
+        let size_text = text.length;
+        let size_input = input.length;
+        if(size_input == size_text){
+            let result = calculate(text, input);
+            console.log(result);
+            console.log(arr_result);
+            if(result.percent < 50){
+                $('#Answer').val('');
+                $('#big-button1').click();
+            }
+        }
+    });
+
+    function calculate(text, input){
+        let size_input = input.length;
+        let size_text = text.length;
+        let s_wrong = 0;
+        for(let i = 0; i < size_input; i++){
+            if(text[i] != input.charAt(i)){
+                s_wrong++;
+            }
+        }
+
+        let result = {
+            percent: s_wrong*100/size_text,
+            s_wrong: s_wrong
+        };
+        arr_result.push(result);
+        return result;
+    }
+});

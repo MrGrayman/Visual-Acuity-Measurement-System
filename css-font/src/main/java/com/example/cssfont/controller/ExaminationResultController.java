@@ -29,10 +29,10 @@ public class ExaminationResultController {
         return examinationResultService.getByIdExaminationResult(id);
     }
 
-    @RequestMapping(value = "/", method = RequestMethod.GET)
-    public String indexPage(){
-        return "index";
-    }
+//    @RequestMapping(value = "/", method = RequestMethod.GET)
+//    public String indexPage(){
+//        return "index";
+//    }
 
 //    @GetMapping("/examinationResult")
 //    public String examinationResult(Model model) {
@@ -48,7 +48,6 @@ public class ExaminationResultController {
             System.out.println("There was a error " + bindingResult);
             return "/examinationResult/save";
         }
-        model.addAttribute("va",examinationResult.getVa());
         model.addAttribute("re", examinationResult.getRe());
         model.addAttribute("le", examinationResult.getLe());
         examinationResultService.saveExaminationResult(examinationResult);

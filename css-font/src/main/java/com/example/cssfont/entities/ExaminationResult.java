@@ -11,7 +11,6 @@ import javax.persistence.*;
 public class ExaminationResult {
     private int id;
     private int patient_id;
-    private String va;
     private String re;
     private String le;
 
@@ -36,15 +35,6 @@ public class ExaminationResult {
     }
 
     @Basic
-    @Column(name = "va")
-    public String getVa(){
-        return va;
-    }
-    public void setVa(String va){
-        this.va = va;
-    }
-
-    @Basic
     @Column(name = "re")
     public String getRe(){
         return re;
@@ -66,8 +56,7 @@ public class ExaminationResult {
 
     }
 
-    public ExaminationResult(String va, String re, String le){
-        this.va = va;
+    public ExaminationResult(String re, String le){
         this.re = re;
         this.le = le;
     }
