@@ -192,6 +192,50 @@ function changeDistance(selectTag) {
 //        document.getElementById('demo').innerHTML = text;
 //    }
 
+//$(document).ready(function () {
+//    $('#textarea1').keyup(function(e) {
+//        let value = $(this).val().toUpperCase();
+//        let text = $('#demo'+numTemp).text();
+////        var text = "";
+////        var text2 = "";
+////        var text3 = "";
+////        var text4 = "";
+////        var text5 = "";
+////        var text6 = "";
+////        var text7 = "";
+//
+//        if(text.match(/[A-Z]/g)){
+//            for (var i = 0; i < value.length; i++) {
+//                        if(i < 5){
+//                            text = text + value[i] + "\n";
+//                        }else if(i < 10){
+//                            text2 = text2 + value[i] + "\n";
+//                        }else if(i < 15){
+//                            text3 = text3 + value[i] + "\n";
+//                        }else if(i < 20){
+//                            text4 = text4 + value[i] + "\n";
+//                        }else if(i < 25){
+//                            text5 = text5 + value[i] + "\n";
+//                        }else if(i < 30){
+//                            text6 = text6 + value[i] + "\n";
+//                        }else if(i < 35){
+//                            text7 = text7 + value[i] + "\n";
+//                        }
+//                    }
+//        }
+//
+//
+//        document.getElementById('demo1').innerHTML = text;
+//        document.getElementById('demo2').innerHTML = text2;
+//        document.getElementById('demo3').innerHTML = text3;
+//        document.getElementById('demo4').innerHTML = text4;
+//        document.getElementById('demo5').innerHTML = text5;
+//        document.getElementById('demo6').innerHTML = text6;
+//        document.getElementById('demo7').innerHTML = text7;
+//        document.getElementById('passText').value = text+text2+text3+text4+text5+text6+text7;
+//    });
+//});
+
 function showTextArea(textareaTag) {
         var value = document.getElementById("textarea1").value;
         var text = "";
@@ -204,22 +248,27 @@ function showTextArea(textareaTag) {
 //        var text8 = "";
 //        var text9 = "";
 //        var text10 = "";
-        for (var i = 0; i < value.length; i++) {
-            if(i < 5){
-                text = text + value[i] + "\n";
-            }else if(i < 10){
-                text2 = text2 + value[i] + "\n";
-            }else if(i < 15){
-                text3 = text3 + value[i] + "\n";
-            }else if(i < 20){
-                text4 = text4 + value[i] + "\n";
-            }else if(i < 25){
-                text5 = text5 + value[i] + "\n";
-            }else if(i < 30){
-                text6 = text6 + value[i] + "\n";
-            }else if(i < 35){
-                text7 = text7 + value[i] + "\n";
-            }
+        var regex = /^[a-zA-Z]+$/;
+        var regex2 = /^[0-9]+$/;
+
+            for (var i = 0; i < value.length; i++) {
+
+                if(i < 5){
+                    text = text + value[i] + "\n";
+                }else if(i < 10){
+                     text2 = text2 + value[i] + "\n";
+                }else if(i < 15){
+                     text3 = text3 + value[i] + "\n";
+                }else if(i < 20){
+                     text4 = text4 + value[i] + "\n";
+                }else if(i < 25){
+                      text5 = text5 + value[i] + "\n";
+                }else if(i < 30){
+                      text6 = text6 + value[i] + "\n";
+                }else if(i < 35){
+                      text7 = text7 + value[i] + "\n";
+                }
+
 //            else if(i < 40){
 //                text8 = text8 + value[i] + "\n";
 //            }else if(i < 45){

@@ -35,16 +35,18 @@
         <div class="col-md-6">
             <div class="container" style="text-align: center">
                 <h1 style="text-align: center; color: black; font-size: 40px">RE</h1>
-                <a class="" style="font-size: 20px" onclick="">Result</a><br>
-                <input class="" style="font-size: 24px" onclick="" th:field="*{re}" value="36/60 -2"></input>
+                <a class="" style="font-size: 20px">Result</a><br>
+                <a class="" style="font-size: 24px" value="">36/60 -2</a>
+                <input class="" style="font-size: 24px" th:field="*{re}" value="36/60 -2" hidden>
                 <div th:if="${#fields.hasErrors('re')}" th:errors="*{re}">errors</div>
             </div>
         </div>
         <div class="col-md-6">
             <div class="container" style="text-align: center">
                 <h1 style="text-align: center; color: black; font-size: 40px">LE</h1>
-                <a class="" style="font-size: 20px" onclick="">Result</a><br>
-                <input class="" style="font-size: 24px" onclick="" th:field="*{le}" value="42/60 -3"></input>
+                <a class="" style="font-size: 20px">Result</a><br>
+                <a class="" style="font-size: 24px" value="">42/60 -3</a>
+                <input class="" style="font-size: 24px" th:field="*{le}" value="42/60 -3" hidden>
                 <div th:if="${#fields.hasErrors('le')}" th:errors="*{le}">errors</div>
             </div>
         </div>
