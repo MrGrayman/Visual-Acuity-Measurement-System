@@ -2,6 +2,7 @@ package com.example.cssfont;
 
 import com.example.cssfont.entities.ExaminationResult;
 import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.ObjectWriter;
 import com.google.api.gax.longrunning.OperationFuture;
@@ -15,10 +16,8 @@ import org.apache.commons.lang3.StringEscapeUtils;
 import org.json.JSONException;
 import org.json.JSONObject;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
-import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.ui.ModelMap;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
@@ -38,6 +37,7 @@ import java.io.PrintWriter;
 import java.io.StringWriter;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.text.ParseException;
 import java.util.*;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.Future;
@@ -46,6 +46,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
 @EnableAutoConfiguration
 @Controller
 public class GreetingController {
@@ -117,6 +119,16 @@ public class GreetingController {
         }
         return "showExamination";
     }
+    @RequestMapping(value = "/eyeResult", method = RequestMethod.POST, produces = "application/json")
+    public @ResponseBody EyeResult eyeResultData(@RequestBody EyeResult eyeResult) {
+
+        String num = eyeResult.getNum();
+        String eyeTest = eyeResult.getEyeTest();
+        System.out.println("num"+num);
+        System.out.println("eyeTest"+eyeTest);
+
+        return eyeResult;
+    }
     @RequestMapping(value = "/processForm", method= RequestMethod.POST)
     public String processForm(@Validated @ModelAttribute(value="textForm") TextForm textForm , Model model) throws JsonProcessingException, JSONException {
         System.out.println("text : "+textForm);
@@ -157,6 +169,16 @@ public class GreetingController {
     public String examinationResult(Model model) {
         model.addAttribute("examinationResult", new ExaminationResult());
         return "examinationResult";
+    }
+    @GetMapping("/showText")
+    public String showText(Model model) {
+//        model.addAttribute("examinationResult", new ExaminationResult());
+        return "showText";
+    }
+    @GetMapping("/speech")
+    public String speech(Model model) {
+//        model.addAttribute("examinationResult", new ExaminationResult());
+        return "speech";
     }
 
     @GetMapping("/calculator")
@@ -326,7 +348,7 @@ public class GreetingController {
         } catch (ExecutionException e) {
             e.printStackTrace();
         }
-        return "showText";
+        return "font1";
     }
 
     @PostMapping("/azure") // //new annotation since 4.3

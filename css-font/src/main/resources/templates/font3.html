@@ -14,6 +14,7 @@
     <link href="style.css" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="css/selectionInput.css">
     <script type="text/javascript" src="js/examination.js"></script>
+    <script src="https://code.jquery.com/jquery-2.2.0.min.js"></script>
 
     <!-- Template Main CSS File -->
     <link href="assets/css/style.css" rel="stylesheet">
@@ -41,7 +42,6 @@
 
     </form>
 </div>
-
 
 <br><br><br><br><br><br><br>
 <form action="" id="selection">
@@ -185,6 +185,39 @@
 
             fr.readAsText(this.files[0]);
         })
+</script>
+
+<script>
+    function sendAjax(s_wrong){
+        alert("start send ajax")
+        var eyeResult = {};
+        eyeResult["num"] = s_wrong;
+        eyeResult["eyeTest"] = "4/6";
+        console.log(eyeResult)
+        $.ajax({
+
+            url:"eyeResult",
+
+            type: 'POST',
+
+            data:  JSON.stringify(eyeResult),
+
+            dataType: "json",
+
+            contentType: 'application/json',
+
+            mimeType: 'application/json',
+
+            success: function(data){
+
+                console.log("send success");
+
+                return false;
+
+            }
+
+        });
+    }
 </script>
 </body>
 </html>

@@ -194,10 +194,12 @@ function backline(){
 
 }
 
+
 $(document).ready(function () {
     $('#Answer').keyup(function(e) {
         let input = $(this).val().toUpperCase();
         let text = $('#demo'+numTemp).text();
+        var s_wrong;
         text = text.match(/[A-Z]/g);
 
         let size_text = text.length;
@@ -206,9 +208,18 @@ $(document).ready(function () {
             let result = calculate(text, input);
             console.log(result);
             console.log(arr_result);
+
             if(result.percent < 50){
-                $('#Answer').val('');
-                $('#big-button1').click();
+                if (numTemp == 7){
+                    s_wrong = result.s_wrong;
+                    sendAjax(s_wrong)
+                }else{
+                    $('#Answer').val('');
+                    $('#big-button1').click();
+                }
+
+
+
             }
         }
     });
