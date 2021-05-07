@@ -50,7 +50,10 @@ import javax.servlet.http.HttpServletResponse;
 
 @EnableAutoConfiguration
 @Controller
+
 public class GreetingController {
+    public String s_wrong ;
+    public String s_acuity ;
 
 
     @GetMapping("/home")
@@ -72,7 +75,7 @@ public class GreetingController {
 
     @GetMapping("/font3")
     public String font3(@RequestParam(name="name", required=false, defaultValue="World") String name, Model model) {
-        model.addAttribute("textForm",new TextForm());
+//        model.addAttribute("textForm",new TextForm());
         try {
             File myObj = new File("D:/Accessories/SeniorProject/Visual-Acuity-Measurement-System/test_text_file/file.txt");
             Scanner myReader = new Scanner(myObj);
@@ -122,10 +125,11 @@ public class GreetingController {
     @RequestMapping(value = "/eyeResult", method = RequestMethod.POST, produces = "application/json")
     public @ResponseBody EyeResult eyeResultData(@RequestBody EyeResult eyeResult) {
 
-        String num = eyeResult.getNum();
-        String eyeTest = eyeResult.getEyeTest();
-        System.out.println("num"+num);
-        System.out.println("eyeTest"+eyeTest);
+        s_wrong = eyeResult.getS_wrong();
+        s_acuity = eyeResult.getS_acuity();
+        System.out.println("s_wrong"+s_wrong);
+        System.out.println("s_acuity"+s_acuity);
+
 
         return eyeResult;
     }
@@ -168,6 +172,10 @@ public class GreetingController {
     @GetMapping("/examinationResult")
     public String examinationResult(Model model) {
         model.addAttribute("examinationResult", new ExaminationResult());
+//        System.out.println("s_wrong"+s_wrong);
+//        System.out.println("s_acuity"+s_acuity);
+        model.addAttribute("s_wrong",s_wrong);
+        model.addAttribute("s_acuity",s_acuity);
         return "examinationResult";
     }
     @GetMapping("/showText")

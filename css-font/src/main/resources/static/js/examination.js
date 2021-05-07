@@ -200,6 +200,8 @@ $(document).ready(function () {
         let input = $(this).val().toUpperCase();
         let text = $('#demo'+numTemp).text();
         var s_wrong;
+        var s_acuity;
+
         text = text.match(/[A-Z]/g);
 
         let size_text = text.length;
@@ -212,18 +214,18 @@ $(document).ready(function () {
             if(result.percent < 50){
                 if (numTemp == 7){
                     s_wrong = result.s_wrong;
-                    sendAjax(s_wrong)
+                    if (numTemp == 7){
+                        s_acuity = "6/15";
+                    }
+
+                    sendAjax(s_wrong,s_acuity)
                 }else{
                     $('#Answer').val('');
                     $('#big-button1').click();
                 }
-
-
-
             }
         }
     });
-
     function calculate(text, input){
         let size_input = input.length;
         let size_text = text.length;
@@ -242,3 +244,7 @@ $(document).ready(function () {
         return result;
     }
 });
+
+function page_ExamResult_onload(){
+    ShowData();
+}

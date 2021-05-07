@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <title>Examination Result</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
@@ -13,12 +13,12 @@
     <link href="style.css" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="css/selectionInput.css">
     <script type="text/javascript" src="js/examination.js"></script>
-
+    <script src="https://code.jquery.com/jquery-2.2.0.min.js"></script>
     <!-- Template Main CSS File -->
     <link href="assets/css/style.css" rel="stylesheet">
 
 </head>
-<body>
+<body onload="page_ExamResult_onload()">
 <br>
 <form id="" style="text-align: center" th:action="@{/examinationResult/save}" th:object="${examinationResult}" method="post" modelAttribute="examinationResult" commandName="examinationResult">
     <h1 style="text-align: center; color: black; margin-top: 100px;">ผลการตรวจสายตา</h1>
@@ -36,8 +36,9 @@
             <div class="container" style="text-align: center">
                 <h1 style="text-align: center; color: black; font-size: 40px">RE</h1>
                 <a class="" style="font-size: 20px">Result</a><br>
-                <a class="" style="font-size: 24px" value="">36/60 -2</a>
-                <input class="" style="font-size: 24px" th:field="*{re}" value="36/60 -2" hidden>
+                <a class="" style="font-size: 24px" id="show_RE" value=""></a>
+                <input class="" style="font-size: 24px" id="RE_s_wrong" th:field="*{re}" value="36/60 -2" >
+                <input class="" style="font-size: 24px" id="RE_s_acuity" th:field="*{le}" value="42/60 -3" >
                 <div th:if="${#fields.hasErrors('re')}" th:errors="*{re}">errors</div>
             </div>
         </div>
@@ -45,8 +46,9 @@
             <div class="container" style="text-align: center">
                 <h1 style="text-align: center; color: black; font-size: 40px">LE</h1>
                 <a class="" style="font-size: 20px">Result</a><br>
-                <a class="" style="font-size: 24px" value="">42/60 -3</a>
-                <input class="" style="font-size: 24px" th:field="*{le}" value="42/60 -3" hidden>
+                <a class="" style="font-size: 24px" id="show_LE" value="">42/60 -3</a>
+                <input class="" style="font-size: 24px" id="LE_s_wrong" th:field="*{le}" value="42/60 -3" >
+                <input class="" style="font-size: 24px" id="LE_s_acuity" th:field="*{le}" value="42/60 -3" >
                 <div th:if="${#fields.hasErrors('le')}" th:errors="*{le}">errors</div>
             </div>
         </div>
@@ -56,4 +58,15 @@
     <a href="/font2" class="btn btn-secondary" onclick="">Back to setting</a>
 </form>
 </body>
+<script th:inline="javascript">
+    function ShowData() {
+        var s_wrong = /*[[${s_wrong}]]*/ 'default';
+        var s_acuity = /*[[${s_acuity}]]*/ 'default'; //text=69lenght
+        console.log("load data success")
+        document.getElementById('RE_s_acuity').value = s_acuity;
+        document.getElementById('RE_s_wrong').value = s_wrong;
+        document.getElementById('show_RE').innerHTML = s_acuity + "&ensp;&ensp;" + "  -"+s_wrong;
+    }
+    /*]]>*/
+</script>
 </html>
