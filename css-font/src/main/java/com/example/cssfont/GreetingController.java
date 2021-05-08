@@ -168,7 +168,6 @@ public class GreetingController {
 
         return "redirect:/font2";
     }
-
     @GetMapping("/examinationResult")
     public String examinationResult(Model model) {
         model.addAttribute("examinationResult", new ExaminationResult());

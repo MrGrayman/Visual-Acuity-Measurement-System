@@ -1,5 +1,6 @@
 var numTemp = 1;
 var arr_result = [];
+var round_wrong = 1;
 function examination(){
         var x = document.getElementById("selection");
         var y = document.getElementById("list");
@@ -45,6 +46,8 @@ function nextline(){
     if(numTemp < 7){
         numTemp = numTemp +1;
     }
+    round_wrong = 1;
+    $('#Answer').val('');
     var demo1 = document.getElementById("demo1");
     var demo2 = document.getElementById("demo2");
     var demo3 = document.getElementById("demo3");
@@ -121,6 +124,8 @@ function backline(){
     if(numTemp > 1){
         numTemp = numTemp -1;
     }
+    round_wrong = 1;
+    $('#Answer').val('');
     var demo1 = document.getElementById("demo1");
     var demo2 = document.getElementById("demo2");
     var demo3 = document.getElementById("demo3");
@@ -202,6 +207,7 @@ $(document).ready(function () {
         var s_wrong;
         var s_acuity;
 
+
         text = text.match(/[A-Z]/g);
 
         let size_text = text.length;
@@ -217,11 +223,49 @@ $(document).ready(function () {
                     if (numTemp == 7){
                         s_acuity = "6/15";
                     }
-
                     sendAjax(s_wrong,s_acuity)
                 }else{
                     $('#Answer').val('');
-                    $('#big-button1').click();
+                    // $('#big-button1').click();
+                    nextline();
+
+                }
+            }
+            else{
+                if (round_wrong < 3){
+                    $('#Answer').val('');
+                    round_wrong = round_wrong + 1;
+                }
+                else {
+                    if (numTemp == 1){
+                        s_wrong = result.s_wrong;
+                        s_acuity = "6/60";
+                        sendAjax(s_wrong,s_acuity)
+                    }else if (numTemp == 2){
+                        s_wrong = result.s_wrong;
+                        s_acuity = "6/48";
+                        sendAjax(s_wrong,s_acuity)
+                    }else if (numTemp == 3){
+                        s_wrong = result.s_wrong;
+                        s_acuity = "6/38";
+                        sendAjax(s_wrong,s_acuity)
+                    }else if (numTemp == 4){
+                        s_wrong = result.s_wrong;
+                        s_acuity = "6/30";
+                        sendAjax(s_wrong,s_acuity)
+                    }else if (numTemp == 5){
+                        s_wrong = result.s_wrong;
+                        s_acuity = "6/24";
+                        sendAjax(s_wrong,s_acuity)
+                    }else if (numTemp == 6){
+                        s_wrong = result.s_wrong;
+                        s_acuity = "6/20";
+                        sendAjax(s_wrong,s_acuity)
+                    }else if (numTemp == 7){
+                        s_wrong = result.s_wrong;
+                        s_acuity = "6/15";
+                        sendAjax(s_wrong,s_acuity)
+                    }
                 }
             }
         }
@@ -243,8 +287,13 @@ $(document).ready(function () {
         arr_result.push(result);
         return result;
     }
+
 });
 
 function page_ExamResult_onload(){
     ShowData();
 }
+function show_modal(){
+    $("#btn_show_modal").click();
+}
+

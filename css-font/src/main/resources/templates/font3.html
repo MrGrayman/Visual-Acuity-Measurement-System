@@ -43,6 +43,30 @@
     </form>
 </div>
 
+        <!-- Button trigger modal -->
+        <button id="btn_show_modal" data-toggle="modal" data-target="#staticBackdrop" hidden>open modal</button>
+        <button onclick="show_modal()" hidden >show modal</button>
+<!--        <button  id="btn_link" type="button" class="btn btn-success" ><a id="link_to_result" href="../examinationResult">Close</a></button>-->
+        <!-- Modal -->
+        <div class="modal fade" id="staticBackdrop" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="staticBackdropLabel">แจ้งเตือน</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+    <!--                        <span aria-hidden="true">&times;</span>-->
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        จบการทดสอบวัดสายตา
+                    </div>
+                    <div class="modal-footer">
+                        <a href="examinationResult" class="btn btn-primary">ตกลง</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
 <br><br><br><br><br><br><br>
 <form action="" id="selection">
     <h1 style="text-align: center; color: black">เลือกวิธีการตอบ</h1>
@@ -181,7 +205,6 @@
 
 <script>
     function sendAjax(s_wrong,s_acuity){
-        alert("start send ajax")
         var eyeResult = {};
         eyeResult["s_wrong"] = s_wrong;
         eyeResult["s_acuity"] = s_acuity;
@@ -208,6 +231,22 @@
 
             }
 
+        });
+        show_modal()
+    }
+    function change_page_ajax() {
+        $.ajax({
+            type: 'POST',
+            url: "changePageToResult",
+            data: {
+                message: 'hello'
+            },
+            success: function(text) {
+                $(document.body).text('Response: ' + text);
+            },
+            error: function (jqXHR) {
+                $(document.body).text('Error: ' + jqXHR.status);
+            }
         });
     }
 </script>
