@@ -206,7 +206,7 @@
 <script>
     function sendAjax(s_wrong,s_acuity){
         var eyeResult = {};
-        eyeResult["s_wrong"] = s_wrong;
+        eyeResult["s_wrong"] = "-"+s_wrong;
         eyeResult["s_acuity"] = s_acuity;
         console.log(eyeResult)
         $.ajax({
@@ -233,21 +233,6 @@
 
         });
         show_modal()
-    }
-    function change_page_ajax() {
-        $.ajax({
-            type: 'POST',
-            url: "changePageToResult",
-            data: {
-                message: 'hello'
-            },
-            success: function(text) {
-                $(document.body).text('Response: ' + text);
-            },
-            error: function (jqXHR) {
-                $(document.body).text('Error: ' + jqXHR.status);
-            }
-        });
     }
 </script>
 </body>
