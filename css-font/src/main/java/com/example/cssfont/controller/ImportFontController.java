@@ -13,13 +13,13 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 
-@Controller
+@RestController
 public class ImportFontController {
 
     private static String UPLOADED_FOLDER = "/css/fonts";
 
     @RequestMapping(value = "/importFile", method = RequestMethod.GET)
-    public String importFont(@RequestParam("file") MultipartFile file, RedirectAttributes redirectAttributes){
+    public String importFont(@RequestParam("myFile") MultipartFile file, RedirectAttributes redirectAttributes){
 
         if (file.isEmpty()) {
             redirectAttributes.addFlashAttribute("message", "Please select a file to upload");

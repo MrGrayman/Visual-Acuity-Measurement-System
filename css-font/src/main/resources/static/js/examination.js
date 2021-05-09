@@ -208,7 +208,7 @@ $(document).ready(function () {
         var s_acuity;
 
 
-        text = text.match(/[A-Z]/g);
+        text = text.match(/[A-Z0-9]/g);
 
         let size_text = text.length;
         let size_input = input.length;
