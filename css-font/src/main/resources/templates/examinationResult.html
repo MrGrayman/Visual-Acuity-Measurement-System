@@ -37,8 +37,7 @@
                 <h1 style="text-align: center; color: black; font-size: 40px">RE</h1>
                 <a class="" style="font-size: 20px">Result</a><br>
                 <a class="" style="font-size: 24px" id="show_RE" value=""></a>
-                <input class="" style="font-size: 24px" id="RE_s_wrong" th:field="*{re}" value="36/60 -2" >
-                <input class="" style="font-size: 24px" id="RE_s_acuity" th:field="*{le}" value="42/60 -3" >
+                <input class="" style="font-size: 24px" id="RE_s_acuity" th:field="*{re}" value="" hidden>
                 <div th:if="${#fields.hasErrors('re')}" th:errors="*{re}">errors</div>
             </div>
         </div>
@@ -46,9 +45,8 @@
             <div class="container" style="text-align: center">
                 <h1 style="text-align: center; color: black; font-size: 40px">LE</h1>
                 <a class="" style="font-size: 20px">Result</a><br>
-                <a class="" style="font-size: 24px" id="show_LE" value="">42/60 -3</a>
-                <input class="" style="font-size: 24px" id="LE_s_wrong" th:field="*{le}" value="42/60 -3" >
-                <input class="" style="font-size: 24px" id="LE_s_acuity" th:field="*{le}" value="42/60 -3" >
+                <a class="" style="font-size: 24px" id="show_LE" value=""></a>
+                <input class="" style="font-size: 24px" id="LE_s_acuity" th:field="*{le}" value="" hidden>
                 <div th:if="${#fields.hasErrors('le')}" th:errors="*{le}">errors</div>
             </div>
         </div>
@@ -63,9 +61,8 @@
         var s_wrong = /*[[${s_wrong}]]*/ 'default';
         var s_acuity = /*[[${s_acuity}]]*/ 'default'; //text=69lenght
         console.log("load data success")
-        document.getElementById('RE_s_acuity').value = s_acuity;
-        document.getElementById('RE_s_wrong').value = s_wrong;
-        document.getElementById('show_RE').innerHTML = s_acuity + "&ensp;&ensp;" + "  "+s_wrong;
+        document.getElementById('RE_s_acuity').value = s_acuity + " " + s_wrong;
+        document.getElementById('show_RE').innerHTML = s_acuity + " " + s_wrong;
     }
     /*]]>*/
 </script>
