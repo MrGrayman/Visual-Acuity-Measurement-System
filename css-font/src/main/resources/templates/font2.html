@@ -104,8 +104,8 @@
 
         <div class="grid-container">
             <div class="container-fluid">
-                <button class="btn btn-primary" id="big-button1" onclick="change1()">Manage Font</button>
-                <button class="btn btn-primary" id="big-button2" onclick="change2()">Random</button>
+                <button class="btn btn-primary" id="big-button1" onclick="change1()">Manage Optotype</button>
+<!--                <button class="btn btn-primary" id="big-button2" onclick="change2()">Random</button>-->
                 <button class="btn btn-primary" id="big-button3" onclick="change3()">Import</button>
                 <br><br>
 
@@ -143,26 +143,35 @@
                         <input id="passText" th:field="*{passtext}" hidden>
 
                         <br><br>
+                        <div>
+                            <p style="color:black;">Random Optotype</p>
+
+<!--                        <button id="button3" onclick="random()" class="btn btn-light">Random Text</button>-->
+<!--                        <button id="button4" onclick="randomNumber()" class="btn btn-light">Random Number</button>-->
+<!--                        <br>-->
+
+<!--                        <br><br>-->
+
+                            <label><input id="checkbox1" onclick="check(this);" type="checkbox" class="radio" name="random[1][]"> : Text</label>&nbsp&nbsp&nbsp&nbsp&nbsp
+                            <label><input id="checkbox2" onclick="check(this);" type="checkbox" class="radio" name="random[1][]"> : Number</label>
+                            <br>
+                        </div>
+                        <br>
                         <p style="color:black;" >Input Font</p>
                         <textarea placeholder="Input font for testing....." rows="5" id="textarea1"
                                   onchange="showTextArea()"></textarea>
                         <br>
+                        <button id="button5" onclick="" class="btn btn-primary">Set Default</button>
+                        <br><br>
+                        <button type="submit" id="button2" onclick="" class="btn btn-warning" style="width:30%; height:50%; font-size: 30px">Start Testing</button>
 
-                        <button type="submit" id="button2" onclick="" class="btn btn-primary">Confirm</button>
                     </form>
 
-                    <button id="button3" onclick="" class="btn btn-success">Set Default</button>
                     <br>
 
                 </div>
-                <div id="random-button" style="display: none">
-                    <button id="button4" onclick="random()" class="btn btn-light">Random Text</button>
-                    <br>
-                    <button id="button5" onclick="randomNumber()" class="btn btn-light">Random Number</button>
-                    <br>
-                </div>
                 <div id="import-button" style="display: none">
-                    <form th:action="@{/importFile}" method="GET" enctype="multipart/form-data">
+                    <form th:action="@{/importFile}" method="POST" enctype="multipart/form-data">
                         <label for="myFile">Select files:</label>
                         <input type="file" id="myFile" name="myFile" multiple><br><br>
                         <button id="button6" onclick="" class="btn btn-light" type="submit">Import</button>
