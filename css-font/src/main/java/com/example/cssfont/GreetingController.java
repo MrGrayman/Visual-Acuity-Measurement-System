@@ -12,10 +12,13 @@ import com.microsoft.cognitiveservices.speech.SpeechConfig;
 import com.microsoft.cognitiveservices.speech.SpeechRecognizer;
 import com.microsoft.cognitiveservices.speech.audio.AudioConfig;
 import org.apache.commons.io.IOUtils;
-import org.apache.commons.lang3.StringEscapeUtils;
 import org.json.JSONException;
 import org.json.JSONObject;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
+import org.springframework.core.env.Environment;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.annotation.Validated;
@@ -27,6 +30,7 @@ import java.net.URLConnection;
 import java.net.URLDecoder;
 import java.nio.file.Files;
 
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import java.io.File;
 
@@ -45,8 +49,14 @@ import java.util.concurrent.Future;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
+import java.io.BufferedOutputStream;
+import java.io.File;
+import java.io.FileOutputStream;
+import java.nio.file.Paths;
+
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
+
 
 @EnableAutoConfiguration
 @Controller
@@ -54,7 +64,20 @@ import javax.servlet.http.HttpServletResponse;
 public class GreetingController {
     public String s_wrong ;
     public String s_acuity ;
+    public String left_s_wrong;
+    public String left_s_acuity;
+    public String left_pin_s_wrong;
+    public String left_pin_s_acuity;
+    public  String right_s_wrong;
+    public  String right_s_acuity;
+    public  String right_pin_s_wrong;
+    public  String right_pin_s_acuity;
+    public static String uploadDirectory = System.getProperty("user.dir")+"/";
 
+    // The Environment object will be used to read parameters from the
+    // application.properties configuration file
+    @Autowired
+    private Environment env;
 
     @GetMapping("/home")
     public String home(@RequestParam(name = "name", required = false, defaultValue = "World") String name, Model model) {
@@ -98,6 +121,179 @@ public class GreetingController {
 
         return "font3";
     }
+    @GetMapping("/selectInputTextLeftEye")
+    public String selectInputTextLeftEye(@RequestParam(name="name", required=false, defaultValue="World") String name, Model model) {
+//        model.addAttribute("textForm",new TextForm());
+        try {
+            File myObj = new File("D:/Accessories/SeniorProject/Visual-Acuity-Measurement-System/test_text_file/file.txt");
+            Scanner myReader = new Scanner(myObj);
+            while (myReader.hasNextLine()) {
+                String data = myReader.nextLine();
+//                System.out.println(data);
+                JSONObject jsonData = new JSONObject(data);
+                String pass_text = jsonData.getString("passtext");
+                String distance = jsonData.getString("distance");
+                String optotype = jsonData.getString("optotype");
+                model.addAttribute("optotype",optotype);
+                model.addAttribute("distance",distance);
+                model.addAttribute("passtext",pass_text);
+            }
+            myReader.close();
+        } catch (FileNotFoundException | JSONException e) {
+            System.out.println("An error occurred.");
+            e.printStackTrace();
+        }
+        model.addAttribute("right_s_wrong",right_s_wrong);
+        model.addAttribute("right_s_acuity",right_s_acuity);
+        model.addAttribute("right_pin_s_wrong",right_pin_s_wrong);
+        model.addAttribute("right_pin_s_acuity",right_pin_s_acuity);
+        return "selectInputTextLeftEye";
+    }
+    @GetMapping("/selectInputTextRightEye")
+    public String selectInputTextRightEye(@RequestParam(name="name", required=false, defaultValue="World") String name, Model model) {
+//        model.addAttribute("textForm",new TextForm());
+        try {
+            File myObj = new File("D:/Accessories/SeniorProject/Visual-Acuity-Measurement-System/test_text_file/file.txt");
+            Scanner myReader = new Scanner(myObj);
+            while (myReader.hasNextLine()) {
+                String data = myReader.nextLine();
+//                System.out.println(data);
+                JSONObject jsonData = new JSONObject(data);
+                String pass_text = jsonData.getString("passtext");
+                String distance = jsonData.getString("distance");
+                String optotype = jsonData.getString("optotype");
+                model.addAttribute("optotype",optotype);
+                model.addAttribute("distance",distance);
+                model.addAttribute("passtext",pass_text);
+            }
+            myReader.close();
+        } catch (FileNotFoundException | JSONException e) {
+            System.out.println("An error occurred.");
+            e.printStackTrace();
+        }
+
+        return "selectInputTextRightEye";
+    }
+    @GetMapping("/selectInputVoiceRightEye")
+    public String selectInputVoiceRightEye(@RequestParam(name="name", required=false, defaultValue="World") String name, Model model) {
+//        model.addAttribute("textForm",new TextForm());
+        try {
+            File myObj = new File("D:/Accessories/SeniorProject/Visual-Acuity-Measurement-System/test_text_file/file.txt");
+            Scanner myReader = new Scanner(myObj);
+            while (myReader.hasNextLine()) {
+                String data = myReader.nextLine();
+//                System.out.println(data);
+                JSONObject jsonData = new JSONObject(data);
+                String pass_text = jsonData.getString("passtext");
+                String distance = jsonData.getString("distance");
+                String optotype = jsonData.getString("optotype");
+                model.addAttribute("optotype",optotype);
+                model.addAttribute("distance",distance);
+                model.addAttribute("passtext",pass_text);
+            }
+            myReader.close();
+        } catch (FileNotFoundException | JSONException e) {
+            System.out.println("An error occurred.");
+            e.printStackTrace();
+        }
+
+        return "selectInputVoiceRightEye";
+    }
+    @GetMapping("/selectInputVoiceLeftEye")
+    public String selectInputVoiceLeftEye(@RequestParam(name="name", required=false, defaultValue="World") String name, Model model) {
+//        model.addAttribute("textForm",new TextForm());
+        try {
+            File myObj = new File("D:/Accessories/SeniorProject/Visual-Acuity-Measurement-System/test_text_file/file.txt");
+            Scanner myReader = new Scanner(myObj);
+            while (myReader.hasNextLine()) {
+                String data = myReader.nextLine();
+//                System.out.println(data);
+                JSONObject jsonData = new JSONObject(data);
+                String pass_text = jsonData.getString("passtext");
+                String distance = jsonData.getString("distance");
+                String optotype = jsonData.getString("optotype");
+                model.addAttribute("optotype",optotype);
+                model.addAttribute("distance",distance);
+                model.addAttribute("passtext",pass_text);
+            }
+            myReader.close();
+        } catch (FileNotFoundException | JSONException e) {
+            System.out.println("An error occurred.");
+            e.printStackTrace();
+        }
+        model.addAttribute("right_s_wrong",right_s_wrong);
+        model.addAttribute("right_s_acuity",right_s_acuity);
+        model.addAttribute("right_pin_s_wrong",right_pin_s_wrong);
+        model.addAttribute("right_pin_s_acuity",right_pin_s_acuity);
+
+        return "selectInputVoiceLeftEye";
+    }
+    @GetMapping("/recordSound")
+    public String recordSound(@RequestParam(name = "name", required = false, defaultValue = "World") String name, Model model) {
+        model.addAttribute("textForm",new TextForm());
+        return "recordSound";
+    }
+    @GetMapping("/rec")
+    public String rec(@RequestParam(name = "name", required = false, defaultValue = "World") String name, Model model) {
+        model.addAttribute("textForm",new TextForm());
+        return "rec";
+    }
+    @GetMapping("/sendAjax")
+    public String sendAjax(@RequestParam(name = "name", required = false, defaultValue = "World") String name, Model model) {
+        model.addAttribute("textForm",new TextForm());
+        return "sendAjax";
+    }
+    @GetMapping("/speechJavascript")
+    public String speechJavascript(@RequestParam(name = "name", required = false, defaultValue = "World") String name, Model model) {
+        model.addAttribute("textForm",new TextForm());
+        return "speechJavascript";
+    }
+    @GetMapping("/speechApi")
+    public String speechApi(@RequestParam(name = "name", required = false, defaultValue = "World") String name, Model model) {
+        model.addAttribute("textForm",new TextForm());
+        return "speechApi";
+    }
+    @RequestMapping(value = "/uploadFile", method = RequestMethod.POST)
+    @ResponseBody
+    public ResponseEntity<?> uploadFile(Model model,@RequestParam("uploadFile") MultipartFile uploadFile) {
+
+        try {
+            // Get the filename and build the local file path
+            String filename = uploadFile.getOriginalFilename();
+            System.out.println("File name : " +filename);
+            String directory = env.getProperty("netgloo.paths.uploadedFiles");
+            String filepath = Paths.get(directory, filename).toString();
+
+            // Save the file locally
+            BufferedOutputStream stream =
+                    new BufferedOutputStream(new FileOutputStream(new File(filepath)));
+            stream.write(uploadFile.getBytes());
+            stream.close();
+        }
+        catch (Exception e) {
+            System.out.println(e.getMessage());
+            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+        }
+
+        return new ResponseEntity<>(HttpStatus.OK);
+    } // method uploadFile
+    @RequestMapping("/uploadSound")
+    public String uploadSound(Model model,@RequestParam("files") MultipartFile[] files) {
+        StringBuilder fileNames = new StringBuilder();
+        for (MultipartFile file : files) {
+            Path fileNameAndPath = Paths.get(uploadDirectory, file.getOriginalFilename());
+            fileNames.append(file.getOriginalFilename()+" ");
+            try {
+                Files.write(fileNameAndPath, file.getBytes());
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+        System.out.println("filename"+fileNames.toString());
+        model.addAttribute("msg", "Successfully uploaded files "+fileNames.toString());
+        return "recordSound";
+    }
+
     @GetMapping("/showExamination")
     public String showExamination(@RequestParam(name = "name", required = false, defaultValue = "World") String name, Model model) {
         model.addAttribute("textForm",new TextForm());
@@ -125,10 +321,24 @@ public class GreetingController {
     @RequestMapping(value = "/eyeResult", method = RequestMethod.POST, produces = "application/json")
     public @ResponseBody EyeResult eyeResultData(@RequestBody EyeResult eyeResult) {
 
-        s_wrong = eyeResult.getS_wrong();
-        s_acuity = eyeResult.getS_acuity();
-        System.out.println("s_wrong"+s_wrong);
-        System.out.println("s_acuity"+s_acuity);
+        left_s_wrong = eyeResult.getLeft_s_wrong();
+        left_s_acuity = eyeResult.getLeft_s_acuity();
+        left_pin_s_wrong = eyeResult.getLeft_pin_s_wrong();
+        left_pin_s_acuity = eyeResult.getLeft_pin_s_acuity();
+        System.out.println("left_s_wrong"+left_s_wrong);
+        System.out.println("left_s_acuity"+left_s_acuity);
+        System.out.println("left_pin_s_wrong"+left_pin_s_wrong);
+        System.out.println("left_pin_s_acuity"+left_pin_s_acuity);
+
+        right_s_wrong = eyeResult.getRight_s_wrong();
+        right_s_acuity = eyeResult.getRight_s_acuity();
+        right_pin_s_wrong = eyeResult.getRight_pin_s_wrong();
+        right_pin_s_acuity = eyeResult.getRight_pin_s_acuity();
+
+        System.out.println("right_s_wrong"+right_s_wrong);
+        System.out.println("right_s_acuity"+right_s_acuity);
+        System.out.println("right_pin_s_wrong"+right_pin_s_wrong);
+        System.out.println("right_pin_s_acuity"+right_pin_s_acuity);
 
 
         return eyeResult;
@@ -173,8 +383,15 @@ public class GreetingController {
         model.addAttribute("examinationResult", new ExaminationResult());
 //        System.out.println("s_wrong"+s_wrong);
 //        System.out.println("s_acuity"+s_acuity);
-        model.addAttribute("s_wrong",s_wrong);
-        model.addAttribute("s_acuity",s_acuity);
+        model.addAttribute("right_s_wrong",right_s_wrong);
+        model.addAttribute("right_s_acuity",right_s_acuity);
+        model.addAttribute("right_pin_s_wrong",right_pin_s_wrong);
+        model.addAttribute("right_pin_s_acuity",right_pin_s_acuity);
+
+        model.addAttribute("left_s_wrong",left_s_wrong);
+        model.addAttribute("left_s_acuity",left_s_acuity);
+        model.addAttribute("left_pin_s_wrong",left_pin_s_wrong);
+        model.addAttribute("left_pin_s_acuity",left_pin_s_acuity);
         return "examinationResult";
     }
     @GetMapping("/showText")
@@ -184,7 +401,25 @@ public class GreetingController {
     }
     @GetMapping("/speech")
     public String speech(Model model) {
-//        model.addAttribute("examinationResult", new ExaminationResult());
+        try {
+            File myObj = new File("D:/Accessories/SeniorProject/Visual-Acuity-Measurement-System/test_text_file/file.txt");
+            Scanner myReader = new Scanner(myObj);
+            while (myReader.hasNextLine()) {
+                String data = myReader.nextLine();
+//                System.out.println(data);
+                JSONObject jsonData = new JSONObject(data);
+                String pass_text = jsonData.getString("passtext");
+                String distance = jsonData.getString("distance");
+                String optotype = jsonData.getString("optotype");
+                model.addAttribute("optotype",optotype);
+                model.addAttribute("distance",distance);
+                model.addAttribute("passtext",pass_text);
+            }
+            myReader.close();
+        } catch (FileNotFoundException | JSONException e) {
+            System.out.println("An error occurred.");
+            e.printStackTrace();
+        }
         return "speech";
     }
 
@@ -280,7 +515,7 @@ public class GreetingController {
         String test = URLDecoder.decode(thai2, "UTF-8");
 //        System.out.println("Thai" + test);
         String sJava= test;
-        System.out.println("Result AI For Thai :" + StringEscapeUtils.unescapeJava(sJava));
+//        System.out.println("Result AI For Thai :" + StringEscapeUtils.unescapeJava(sJava));
 
             //************write text in text file**************
 //        try {
@@ -314,7 +549,7 @@ public class GreetingController {
         // Instantiates a client
         try (SpeechClient speech = SpeechClient.create()) {
 
-            Path path = Paths.get("D:/Accessories/SeniorProject/Visual-Acuity-Measurement-System/sound_convert/check/0-10_pang.wav");
+            Path path = Paths.get("D:/Accessories/SeniorProject/Visual-Acuity-Measurement-System/sound_convert/check/1-10_jame2.wav");
             // call getFileName() and get FileName path object
             Path fileName = path.getFileName();
 
@@ -355,7 +590,7 @@ public class GreetingController {
         } catch (ExecutionException e) {
             e.printStackTrace();
         }
-        return "font1";
+        return "google";
     }
 
     @PostMapping("/azure") // //new annotation since 4.3

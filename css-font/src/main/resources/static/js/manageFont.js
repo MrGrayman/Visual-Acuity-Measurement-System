@@ -45,7 +45,7 @@ function changeDistance(selectTag) {
 }
     function random(buttonTag) {
         var result           = '';
-        var characters       = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+        var characters       = 'ABCDEFGHIJKLMNPQRSTUVWXYZ';
         var r = ''
         var r2 = ''
         var r3 = ''
@@ -56,31 +56,31 @@ function changeDistance(selectTag) {
         var charactersLength = characters.length;
         for ( var i = 0; i < 5; i++ ) {
 
-            var randomNumber = Math.floor(Math.random() *(26-1) + 1);
+            var randomNumber = Math.floor(Math.random() *(25-1) + 1);
             result = characters.charAt(randomNumber);
             r = r + result + " ";
 
-            var randomNumber2 = Math.floor(Math.random() *(26-1) + 1);
+            var randomNumber2 = Math.floor(Math.random() *(25-1) + 1);
             result = characters.charAt(randomNumber2);
             r2 = r2 + result + " ";
 
-            var randomNumber3 = Math.floor(Math.random() *(26-1) + 1);
+            var randomNumber3 = Math.floor(Math.random() *(25-1) + 1);
             result = characters.charAt(randomNumber3);
             r3 = r3 + result + " ";
 
-            var randomNumber4 = Math.floor(Math.random() *(26-1) + 1);
+            var randomNumber4 = Math.floor(Math.random() *(25-1) + 1);
             result = characters.charAt(randomNumber4);
             r4 = r4 + result + " ";
 
-            var randomNumber5 = Math.floor(Math.random() *(26-1) + 1);
+            var randomNumber5 = Math.floor(Math.random() *(25-1) + 1);
             result = characters.charAt(randomNumber5);
             r5 = r5 + result + " ";
 
-            var randomNumber6 = Math.floor(Math.random() *(26-1) + 1);
+            var randomNumber6 = Math.floor(Math.random() *(25-1) + 1);
             result = characters.charAt(randomNumber6);
             r6 = r6 + result + " ";
 
-            var randomNumber7 = Math.floor(Math.random() *(26-1) + 1);
+            var randomNumber7 = Math.floor(Math.random() *(25-1) + 1);
             result = characters.charAt(randomNumber7);
             r7 = r7 + result + " ";
         }

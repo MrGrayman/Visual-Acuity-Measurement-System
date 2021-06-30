@@ -1,1 +1,1 @@
-{"distance":"3","pass_text":"S I C M R J D B I T H O F N M F Q O H X O X P T Q Z S Q N S S U Q U B ","optotype":"Conv_Optician-Sans"}
+{"distance":"1","passtext":"M U Y L J R L G Q N Z U J G S Z U S S E Y G B G D U V Z G F P T C P C ","optotype":"Conv_Optician-Sans"}
