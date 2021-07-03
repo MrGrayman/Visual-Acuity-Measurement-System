@@ -72,6 +72,10 @@
     <div style="font-size: 250% ;display: none" id="demo5" value=""></div>
     <div style="font-size: 250% ;display: none" id="demo6" value=""></div>
     <div style="font-size: 250% ;display: none" id="demo7" value=""></div>
+    <div style="font-size: 250% ;display: none" id="demo8" value=""></div>
+    <div style="font-size: 250% ;display: none" id="demo9" value=""></div>
+    <div style="font-size: 250% ;display: none" id="demo10" value=""></div>
+    <div style="font-size: 250% ;display: none" id="demo11" value=""></div>
     <br>
 
     <label>ใส่คำตอบ</label>
@@ -190,21 +194,33 @@
         var text5 = "";
         var text6 = "";
         var text7 = "";
+        var text8 = "";
+        var text9 = "";
+        var text10 = "";
+        var text11 = "";
         for (var i = 0; i < value.length; i++) {
             if(i < 9){
-                text = text + value[i] + "\n";
+                text = text + value[i] + "&nbsp";
             }else if(i < 19){
-                text2 = text2 + value[i] + "\n";
+                text2 = text2 + value[i] + "&nbsp";
             }else if(i < 29){
-                text3 = text3 + value[i] + "\n";
+                text3 = text3 + value[i] + "&nbsp";
             }else if(i < 39){
-                text4 = text4 + value[i] + "\n";
+                text4 = text4 + value[i] + "&nbsp";
             }else if(i < 49){
-                text5 = text5 + value[i] + "\n";
+                text5 = text5 + value[i] + "&nbsp";
             }else if(i < 59){
-                text6 = text6 + value[i] + "\n";
+                text6 = text6 + value[i] + "&nbsp";
             }else if(i < 69){
-                text7 = text7 + value[i] + "\n";
+                text7 = text7 + value[i] + "&nbsp";
+            }else if(i < 79){
+                text8 = text8 + value[i] + "&nbsp";
+            }else if(i < 89){
+                text9 = text9 + value[i] + "&nbsp";
+            }else if(i < 99){
+                text10 = text10 + value[i] + "&nbsp";
+            }else if(i < 109){
+                text11 = text11 + value[i] + "&nbsp";
             }
         }
         document.getElementById('demo1').innerHTML = text;
@@ -214,6 +230,10 @@
         document.getElementById('demo5').innerHTML = text5;
         document.getElementById('demo6').innerHTML = text6;
         document.getElementById('demo7').innerHTML = text7;
+        document.getElementById('demo8').innerHTML = text8;
+        document.getElementById('demo9').innerHTML = text9;
+        document.getElementById('demo10').innerHTML = text10;
+        document.getElementById('demo11').innerHTML = text11;
         changeFontFamily(optotype);
         changeDistance(distance);
         document.getElementById('right_s_wrong').value = right_s_wrong;

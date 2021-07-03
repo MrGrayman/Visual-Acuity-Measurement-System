@@ -440,27 +440,27 @@ function showTextArea(textareaTag) {
             for (var i = 0; i < value.length; i++) {
 
                 if(i < 5){
-                    text = text + value[i] + "\n";
+                    text = text + value[i] + " ";
                 }else if(i < 10){
-                     text2 = text2 + value[i] + "\n";
+                     text2 = text2 + value[i] + " ";
                 }else if(i < 15){
-                     text3 = text3 + value[i] + "\n";
+                     text3 = text3 + value[i] + " ";
                 }else if(i < 20){
-                     text4 = text4 + value[i] + "\n";
+                     text4 = text4 + value[i] + " ";
                 }else if(i < 25){
-                      text5 = text5 + value[i] + "\n";
+                      text5 = text5 + value[i] + " ";
                 }else if(i < 30){
-                      text6 = text6 + value[i] + "\n";
+                      text6 = text6 + value[i] + " ";
                 }else if(i < 35){
-                      text7 = text7 + value[i] + "\n";
+                      text7 = text7 + value[i] + " ";
                 }else if(i < 40){
-                      text8 = text8 + value[i] + "\n";
+                      text8 = text8 + value[i] + " ";
                 }else if(i < 45){
-                      text9 = text9 + value[i] + "\n";
+                      text9 = text9 + value[i] + " ";
                 }else if(i < 50){
-                      text10 = text10 + value[i] + "\n";
+                      text10 = text10 + value[i] + " ";
                 }else if(i < 55){
-                      text11 = text11 + value[i] + "\n";
+                      text11 = text11 + value[i] + " ";
                 }
 
 //            else if(i < 40){

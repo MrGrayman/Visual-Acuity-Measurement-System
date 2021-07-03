@@ -68,7 +68,7 @@ function changeDistance(distance) {
     var y = 1/60;
     var tan = Math.tan(y * Math.PI/180);
     //************************************
-    for (var i = 1; i <= 7; i++) {
+    for (var i = 1; i <= 11; i++) {
         var sizeDecimal = tan * (5 * Math.pow(10,mar)) * distanceValue
         console.log("sizedecimal",sizeDecimal);
         var size = (sizeDecimal * 1000);
@@ -85,7 +85,7 @@ function changeDistance(distance) {
     }
 }
 function nextline(){
-    if(numTemp < 7){
+    if(numTemp < 11){
         numTemp = numTemp +1;
     }
     round_wrong = 1;
@@ -97,6 +97,10 @@ function nextline(){
     var demo5 = document.getElementById("demo5");
     var demo6 = document.getElementById("demo6");
     var demo7 = document.getElementById("demo7");
+    var demo8 = document.getElementById("demo8");
+    var demo9 = document.getElementById("demo9");
+    var demo10 = document.getElementById("demo10");
+    var demo11 = document.getElementById("demo11");
     // var distance_numTemp = document.getElementById("distance_numTemp");
     if (numTemp == 1){
         document.getElementById('distance_numTemp').innerHTML = "6/60";
@@ -107,6 +111,10 @@ function nextline(){
         demo5.style.display = "none";
         demo6.style.display = "none";
         demo7.style.display = "none";
+        demo8.style.display = "none";
+        demo9.style.display = "none";
+        demo10.style.display = "none";
+        demo11.style.display = "none";
     }
     else if (numTemp == 2){
         document.getElementById('distance_numTemp').innerHTML = "6/48";
@@ -117,6 +125,10 @@ function nextline(){
         demo5.style.display = "none";
         demo6.style.display = "none";
         demo7.style.display = "none";
+        demo8.style.display = "none";
+        demo9.style.display = "none";
+        demo10.style.display = "none";
+        demo11.style.display = "none";
     }
     else if (numTemp == 3){
         document.getElementById('distance_numTemp').innerHTML = "6/38";
@@ -127,6 +139,10 @@ function nextline(){
         demo5.style.display = "none";
         demo6.style.display = "none";
         demo7.style.display = "none";
+        demo8.style.display = "none";
+        demo9.style.display = "none";
+        demo10.style.display = "none";
+        demo11.style.display = "none";
     }
     else if (numTemp == 4){
         document.getElementById('distance_numTemp').innerHTML = "6/30";
@@ -137,6 +153,10 @@ function nextline(){
         demo5.style.display = "none";
         demo6.style.display = "none";
         demo7.style.display = "none";
+        demo8.style.display = "none";
+        demo9.style.display = "none";
+        demo10.style.display = "none";
+        demo11.style.display = "none";
     }
     else if (numTemp == 5){
         document.getElementById('distance_numTemp').innerHTML = "6/24";
@@ -147,6 +167,10 @@ function nextline(){
         demo5.style.display = "block";
         demo6.style.display = "none";
         demo7.style.display = "none";
+        demo8.style.display = "none";
+        demo9.style.display = "none";
+        demo10.style.display = "none";
+        demo11.style.display = "none";
     }
     else if (numTemp == 6){
         document.getElementById('distance_numTemp').innerHTML = "6/20";
@@ -157,6 +181,10 @@ function nextline(){
         demo5.style.display = "none";
         demo6.style.display = "block";
         demo7.style.display = "none";
+        demo8.style.display = "none";
+        demo9.style.display = "none";
+        demo10.style.display = "none";
+        demo11.style.display = "none";
     }
     else if (numTemp == 7){
         document.getElementById('distance_numTemp').innerHTML = "6/15";
@@ -167,6 +195,66 @@ function nextline(){
         demo5.style.display = "none";
         demo6.style.display = "none";
         demo7.style.display = "block";
+        demo8.style.display = "none";
+        demo9.style.display = "none";
+        demo10.style.display = "none";
+        demo11.style.display = "none";
+    }
+    else if (numTemp == 8){
+        document.getElementById('distance_numTemp').innerHTML = "6/12";
+        demo1.style.display = "none";
+        demo2.style.display = "none";
+        demo3.style.display = "none";
+        demo4.style.display = "none";
+        demo5.style.display = "none";
+        demo6.style.display = "none";
+        demo7.style.display = "none";
+        demo8.style.display = "block";
+        demo9.style.display = "none";
+        demo10.style.display = "none";
+        demo11.style.display = "none";
+    }
+    else if (numTemp == 9){
+        document.getElementById('distance_numTemp').innerHTML = "6/10";
+        demo1.style.display = "none";
+        demo2.style.display = "none";
+        demo3.style.display = "none";
+        demo4.style.display = "none";
+        demo5.style.display = "none";
+        demo6.style.display = "none";
+        demo7.style.display = "none";
+        demo8.style.display = "none";
+        demo9.style.display = "block";
+        demo10.style.display = "none";
+        demo11.style.display = "none";
+    }
+    else if (numTemp == 10){
+        document.getElementById('distance_numTemp').innerHTML = "6/7.5";
+        demo1.style.display = "none";
+        demo2.style.display = "none";
+        demo3.style.display = "none";
+        demo4.style.display = "none";
+        demo5.style.display = "none";
+        demo6.style.display = "none";
+        demo7.style.display = "none";
+        demo8.style.display = "none";
+        demo9.style.display = "none";
+        demo10.style.display = "block";
+        demo11.style.display = "none";
+    }
+    else if (numTemp == 11){
+        document.getElementById('distance_numTemp').innerHTML = "6/6";
+        demo1.style.display = "none";
+        demo2.style.display = "none";
+        demo3.style.display = "none";
+        demo4.style.display = "none";
+        demo5.style.display = "none";
+        demo6.style.display = "none";
+        demo7.style.display = "none";
+        demo8.style.display = "none";
+        demo9.style.display = "none";
+        demo10.style.display = "none";
+        demo11.style.display = "block";
     }
 
 }
@@ -183,6 +271,10 @@ function backline(){
     var demo5 = document.getElementById("demo5");
     var demo6 = document.getElementById("demo6");
     var demo7 = document.getElementById("demo7");
+    var demo8 = document.getElementById("demo8");
+    var demo9 = document.getElementById("demo9");
+    var demo10 = document.getElementById("demo10");
+    var demo11 = document.getElementById("demo11");
     if (numTemp == 1){
         document.getElementById('distance_numTemp').innerHTML = "6/60";
         demo1.style.display = "block";
@@ -192,6 +284,10 @@ function backline(){
         demo5.style.display = "none";
         demo6.style.display = "none";
         demo7.style.display = "none";
+        demo8.style.display = "none";
+        demo9.style.display = "none";
+        demo10.style.display = "none";
+        demo11.style.display = "none";
     }
     else if (numTemp == 2){
         document.getElementById('distance_numTemp').innerHTML = "6/48";
@@ -202,6 +298,10 @@ function backline(){
         demo5.style.display = "none";
         demo6.style.display = "none";
         demo7.style.display = "none";
+        demo8.style.display = "none";
+        demo9.style.display = "none";
+        demo10.style.display = "none";
+        demo11.style.display = "none";
     }
     else if (numTemp == 3){
         document.getElementById('distance_numTemp').innerHTML = "6/38";
@@ -212,6 +312,10 @@ function backline(){
         demo5.style.display = "none";
         demo6.style.display = "none";
         demo7.style.display = "none";
+        demo8.style.display = "none";
+        demo9.style.display = "none";
+        demo10.style.display = "none";
+        demo11.style.display = "none";
     }
     else if (numTemp == 4){
         document.getElementById('distance_numTemp').innerHTML = "6/30";
@@ -222,6 +326,10 @@ function backline(){
         demo5.style.display = "none";
         demo6.style.display = "none";
         demo7.style.display = "none";
+        demo8.style.display = "none";
+        demo9.style.display = "none";
+        demo10.style.display = "none";
+        demo11.style.display = "none";
     }
     else if (numTemp == 5){
         document.getElementById('distance_numTemp').innerHTML = "6/24";
@@ -232,6 +340,10 @@ function backline(){
         demo5.style.display = "block";
         demo6.style.display = "none";
         demo7.style.display = "none";
+        demo8.style.display = "none";
+        demo9.style.display = "none";
+        demo10.style.display = "none";
+        demo11.style.display = "none";
     }
     else if (numTemp == 6){
         document.getElementById('distance_numTemp').innerHTML = "6/20";
@@ -242,6 +354,10 @@ function backline(){
         demo5.style.display = "none";
         demo6.style.display = "block";
         demo7.style.display = "none";
+        demo8.style.display = "none";
+        demo9.style.display = "none";
+        demo10.style.display = "none";
+        demo11.style.display = "none";
     }
     else if (numTemp == 7){
         document.getElementById('distance_numTemp').innerHTML = "6/15";
@@ -252,6 +368,66 @@ function backline(){
         demo5.style.display = "none";
         demo6.style.display = "none";
         demo7.style.display = "block";
+        demo8.style.display = "none";
+        demo9.style.display = "none";
+        demo10.style.display = "none";
+        demo11.style.display = "none";
+    }
+    else if (numTemp == 8){
+        document.getElementById('distance_numTemp').innerHTML = "6/12";
+        demo1.style.display = "none";
+        demo2.style.display = "none";
+        demo3.style.display = "none";
+        demo4.style.display = "none";
+        demo5.style.display = "none";
+        demo6.style.display = "none";
+        demo7.style.display = "none";
+        demo8.style.display = "block";
+        demo9.style.display = "none";
+        demo10.style.display = "none";
+        demo11.style.display = "none";
+    }
+    else if (numTemp == 9){
+        document.getElementById('distance_numTemp').innerHTML = "6/10";
+        demo1.style.display = "none";
+        demo2.style.display = "none";
+        demo3.style.display = "none";
+        demo4.style.display = "none";
+        demo5.style.display = "none";
+        demo6.style.display = "none";
+        demo7.style.display = "none";
+        demo8.style.display = "none";
+        demo9.style.display = "block";
+        demo10.style.display = "none";
+        demo11.style.display = "none";
+    }
+    else if (numTemp == 10){
+        document.getElementById('distance_numTemp').innerHTML = "6/7.5";
+        demo1.style.display = "none";
+        demo2.style.display = "none";
+        demo3.style.display = "none";
+        demo4.style.display = "none";
+        demo5.style.display = "none";
+        demo6.style.display = "none";
+        demo7.style.display = "none";
+        demo8.style.display = "none";
+        demo9.style.display = "none";
+        demo10.style.display = "block";
+        demo11.style.display = "none";
+    }
+    else if (numTemp == 11){
+        document.getElementById('distance_numTemp').innerHTML = "6/6";
+        demo1.style.display = "none";
+        demo2.style.display = "none";
+        demo3.style.display = "none";
+        demo4.style.display = "none";
+        demo5.style.display = "none";
+        demo6.style.display = "none";
+        demo7.style.display = "none";
+        demo8.style.display = "none";
+        demo9.style.display = "none";
+        demo10.style.display = "none";
+        demo11.style.display = "block";
     }
 
 }
@@ -281,10 +457,10 @@ $(document).ready(function () {
             console.log(arr_result);
 
             if(result.percent < 50){
-                if (numTemp == 7){
+                if (numTemp == 11){
                     s_wrong = result.s_wrong;
-                    if (numTemp == 7){
-                        s_acuity = "6/15";
+                    if (numTemp == 11){
+                        s_acuity = "6/6";
                     }
                     sendAjax(s_wrong,s_acuity)
                 }else{
@@ -560,7 +736,168 @@ $(document).ready(function () {
                         }
                         s_acuity = "6/15";
                         save_result_leftEye(s_wrong,s_acuity)
+                    }else if (numTemp == 8){
+                        if (round_Save % 2 == 1 ){
+                            console.log("result save : "+result.s_wrong);
+                            if (result.s_wrong >= 5){
+                                console.log("temp_s_wrong : "+temp_s_wrong);
+                                if (temp_s_wrong <= 1 ){
+                                    s_wrong = "-" + "1";
+                                }else {
+                                    s_wrong = "-" + "2";
+                                }
+                            }
+                            else{
+                                if (result.s_wrong <= 3 ){
+                                    s_wrong = "+" + "2";
+                                }else if (result.s_wrong <= 4){
+                                    s_wrong = "+" + "1";
+                                }
+                            }
+                        }
+                        else{
+                            if (result.s_wrong >= 5){
+                                console.log("temp_s_pin_wrong : "+temp_s_pin_wrong);
+                                if (temp_s_pin_wrong <= 1 ){
+                                    s_wrong = "-" + "1";
+                                }else if (temp_s_pin_wrong <= 2 ){
+                                    s_wrong = "-" + "2";
+                                }else{
+                                    s_wrong = " ";
+                                }
+                            }
+                            else{
+                                if (result.s_wrong <= 3 ){
+                                    s_wrong = "+" + "2";
+                                }else if (result.s_wrong <= 4){
+                                    s_wrong = "+" + "1";
+                                }
+                            }
+                        }
+                        s_acuity = "6/12";
+                        save_result_leftEye(s_wrong,s_acuity)
+                    }else if (numTemp == 9){
+                        if (round_Save % 2 == 1 ){
+                            console.log("result save : "+result.s_wrong);
+                            if (result.s_wrong >= 5){
+                                console.log("temp_s_wrong : "+temp_s_wrong);
+                                if (temp_s_wrong <= 1 ){
+                                    s_wrong = "-" + "1";
+                                }else {
+                                    s_wrong = "-" + "2";
+                                }
+                            }
+                            else{
+                                if (result.s_wrong <= 3 ){
+                                    s_wrong = "+" + "2";
+                                }else if (result.s_wrong <= 4){
+                                    s_wrong = "+" + "1";
+                                }
+                            }
+                        }
+                        else{
+                            if (result.s_wrong >= 5){
+                                console.log("temp_s_pin_wrong : "+temp_s_pin_wrong);
+                                if (temp_s_pin_wrong <= 1 ){
+                                    s_wrong = "-" + "1";
+                                }else if (temp_s_pin_wrong <= 2 ){
+                                    s_wrong = "-" + "2";
+                                }else{
+                                    s_wrong = " ";
+                                }
+                            }
+                            else{
+                                if (result.s_wrong <= 3 ){
+                                    s_wrong = "+" + "2";
+                                }else if (result.s_wrong <= 4){
+                                    s_wrong = "+" + "1";
+                                }
+                            }
+                        }
+                        s_acuity = "6/10";
+                        save_result_leftEye(s_wrong,s_acuity)
+                    }else if (numTemp == 10){
+                        if (round_Save % 2 == 1 ){
+                            console.log("result save : "+result.s_wrong);
+                            if (result.s_wrong >= 5){
+                                console.log("temp_s_wrong : "+temp_s_wrong);
+                                if (temp_s_wrong <= 1 ){
+                                    s_wrong = "-" + "1";
+                                }else {
+                                    s_wrong = "-" + "2";
+                                }
+                            }
+                            else{
+                                if (result.s_wrong <= 3 ){
+                                    s_wrong = "+" + "2";
+                                }else if (result.s_wrong <= 4){
+                                    s_wrong = "+" + "1";
+                                }
+                            }
+                        }
+                        else{
+                            if (result.s_wrong >= 5){
+                                console.log("temp_s_pin_wrong : "+temp_s_pin_wrong);
+                                if (temp_s_pin_wrong <= 1 ){
+                                    s_wrong = "-" + "1";
+                                }else if (temp_s_pin_wrong <= 2 ){
+                                    s_wrong = "-" + "2";
+                                }else{
+                                    s_wrong = " ";
+                                }
+                            }
+                            else{
+                                if (result.s_wrong <= 3 ){
+                                    s_wrong = "+" + "2";
+                                }else if (result.s_wrong <= 4){
+                                    s_wrong = "+" + "1";
+                                }
+                            }
+                        }
+                        s_acuity = "6/7.5";
+                        save_result_leftEye(s_wrong,s_acuity)
+                    }else if (numTemp == 11){
+                        if (round_Save % 2 == 1 ){
+                            console.log("result save : "+result.s_wrong);
+                            if (result.s_wrong >= 5){
+                                console.log("temp_s_wrong : "+temp_s_wrong);
+                                if (temp_s_wrong <= 1 ){
+                                    s_wrong = "-" + "1";
+                                }else {
+                                    s_wrong = "-" + "2";
+                                }
+                            }
+                            else{
+                                if (result.s_wrong <= 3 ){
+                                    s_wrong = "+" + "2";
+                                }else if (result.s_wrong <= 4){
+                                    s_wrong = "+" + "1";
+                                }
+                            }
+                        }
+                        else{
+                            if (result.s_wrong >= 5){
+                                console.log("temp_s_pin_wrong : "+temp_s_pin_wrong);
+                                if (temp_s_pin_wrong <= 1 ){
+                                    s_wrong = "-" + "1";
+                                }else if (temp_s_pin_wrong <= 2 ){
+                                    s_wrong = "-" + "2";
+                                }else{
+                                    s_wrong = " ";
+                                }
+                            }
+                            else{
+                                if (result.s_wrong <= 3 ){
+                                    s_wrong = "+" + "2";
+                                }else if (result.s_wrong <= 4){
+                                    s_wrong = "+" + "1";
+                                }
+                            }
+                        }
+                        s_acuity = "6/6";
+                        save_result_leftEye(s_wrong,s_acuity)
                     }
+
                 }
             }
         }
@@ -608,10 +945,10 @@ function checkSpeechText(){
         console.log(arr_result);
 
         if(result.percent < 50){
-            if (numTemp == 7){
+            if (numTemp == 11){
                 s_wrong = result.s_wrong;
-                if (numTemp == 7){
-                    s_acuity = "6/15";
+                if (numTemp == 11){
+                    s_acuity = "6/6";
                 }
                 sendAjax(s_wrong,s_acuity)
             }else{
@@ -886,6 +1223,166 @@ function checkSpeechText(){
                         }
                     }
                     s_acuity = "6/15";
+                    save_result_leftEye(s_wrong,s_acuity)
+                }else if (numTemp == 8){
+                    if (round_Save % 2 == 1 ){
+                        console.log("result save : "+result.s_wrong);
+                        if (result.s_wrong >= 5){
+                            console.log("temp_s_wrong : "+temp_s_wrong);
+                            if (temp_s_wrong <= 1 ){
+                                s_wrong = "-" + "1";
+                            }else {
+                                s_wrong = "-" + "2";
+                            }
+                        }
+                        else{
+                            if (result.s_wrong <= 3 ){
+                                s_wrong = "+" + "2";
+                            }else if (result.s_wrong <= 4){
+                                s_wrong = "+" + "1";
+                            }
+                        }
+                    }
+                    else{
+                        if (result.s_wrong >= 5){
+                            console.log("temp_s_pin_wrong : "+temp_s_pin_wrong);
+                            if (temp_s_pin_wrong <= 1 ){
+                                s_wrong = "-" + "1";
+                            }else if (temp_s_pin_wrong <= 2 ){
+                                s_wrong = "-" + "2";
+                            }else{
+                                s_wrong = " ";
+                            }
+                        }
+                        else{
+                            if (result.s_wrong <= 3 ){
+                                s_wrong = "+" + "2";
+                            }else if (result.s_wrong <= 4){
+                                s_wrong = "+" + "1";
+                            }
+                        }
+                    }
+                    s_acuity = "6/12";
+                    save_result_leftEye(s_wrong,s_acuity)
+                }else if (numTemp == 9){
+                    if (round_Save % 2 == 1 ){
+                        console.log("result save : "+result.s_wrong);
+                        if (result.s_wrong >= 5){
+                            console.log("temp_s_wrong : "+temp_s_wrong);
+                            if (temp_s_wrong <= 1 ){
+                                s_wrong = "-" + "1";
+                            }else {
+                                s_wrong = "-" + "2";
+                            }
+                        }
+                        else{
+                            if (result.s_wrong <= 3 ){
+                                s_wrong = "+" + "2";
+                            }else if (result.s_wrong <= 4){
+                                s_wrong = "+" + "1";
+                            }
+                        }
+                    }
+                    else{
+                        if (result.s_wrong >= 5){
+                            console.log("temp_s_pin_wrong : "+temp_s_pin_wrong);
+                            if (temp_s_pin_wrong <= 1 ){
+                                s_wrong = "-" + "1";
+                            }else if (temp_s_pin_wrong <= 2 ){
+                                s_wrong = "-" + "2";
+                            }else{
+                                s_wrong = " ";
+                            }
+                        }
+                        else{
+                            if (result.s_wrong <= 3 ){
+                                s_wrong = "+" + "2";
+                            }else if (result.s_wrong <= 4){
+                                s_wrong = "+" + "1";
+                            }
+                        }
+                    }
+                    s_acuity = "6/10";
+                    save_result_leftEye(s_wrong,s_acuity)
+                }else if (numTemp == 10){
+                    if (round_Save % 2 == 1 ){
+                        console.log("result save : "+result.s_wrong);
+                        if (result.s_wrong >= 5){
+                            console.log("temp_s_wrong : "+temp_s_wrong);
+                            if (temp_s_wrong <= 1 ){
+                                s_wrong = "-" + "1";
+                            }else {
+                                s_wrong = "-" + "2";
+                            }
+                        }
+                        else{
+                            if (result.s_wrong <= 3 ){
+                                s_wrong = "+" + "2";
+                            }else if (result.s_wrong <= 4){
+                                s_wrong = "+" + "1";
+                            }
+                        }
+                    }
+                    else{
+                        if (result.s_wrong >= 5){
+                            console.log("temp_s_pin_wrong : "+temp_s_pin_wrong);
+                            if (temp_s_pin_wrong <= 1 ){
+                                s_wrong = "-" + "1";
+                            }else if (temp_s_pin_wrong <= 2 ){
+                                s_wrong = "-" + "2";
+                            }else{
+                                s_wrong = " ";
+                            }
+                        }
+                        else{
+                            if (result.s_wrong <= 3 ){
+                                s_wrong = "+" + "2";
+                            }else if (result.s_wrong <= 4){
+                                s_wrong = "+" + "1";
+                            }
+                        }
+                    }
+                    s_acuity = "6/7.5";
+                    save_result_leftEye(s_wrong,s_acuity)
+                }else if (numTemp == 11){
+                    if (round_Save % 2 == 1 ){
+                        console.log("result save : "+result.s_wrong);
+                        if (result.s_wrong >= 5){
+                            console.log("temp_s_wrong : "+temp_s_wrong);
+                            if (temp_s_wrong <= 1 ){
+                                s_wrong = "-" + "1";
+                            }else {
+                                s_wrong = "-" + "2";
+                            }
+                        }
+                        else{
+                            if (result.s_wrong <= 3 ){
+                                s_wrong = "+" + "2";
+                            }else if (result.s_wrong <= 4){
+                                s_wrong = "+" + "1";
+                            }
+                        }
+                    }
+                    else{
+                        if (result.s_wrong >= 5){
+                            console.log("temp_s_pin_wrong : "+temp_s_pin_wrong);
+                            if (temp_s_pin_wrong <= 1 ){
+                                s_wrong = "-" + "1";
+                            }else if (temp_s_pin_wrong <= 2 ){
+                                s_wrong = "-" + "2";
+                            }else{
+                                s_wrong = " ";
+                            }
+                        }
+                        else{
+                            if (result.s_wrong <= 3 ){
+                                s_wrong = "+" + "2";
+                            }else if (result.s_wrong <= 4){
+                                s_wrong = "+" + "1";
+                            }
+                        }
+                    }
+                    s_acuity = "6/6";
                     save_result_leftEye(s_wrong,s_acuity)
                 }
             }
