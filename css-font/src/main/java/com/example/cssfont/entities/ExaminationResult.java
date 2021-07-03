@@ -79,7 +79,7 @@ public class ExaminationResult {
 
     }
 
-    public ExaminationResult(String re, String le, String rePh, String lePh, String HN){
+    public ExaminationResult(String re, String le, String re_ph, String le_ph, String HN){
         this.re = re;
         this.le = le;
         this.re_ph = re_ph;
