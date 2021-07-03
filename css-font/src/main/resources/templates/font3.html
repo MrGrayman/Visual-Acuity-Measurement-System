@@ -54,7 +54,7 @@
     </style>
 
 </head>
-<body>
+<body onload="show_modal_onload_font3()">
     <br><br><br>
     <div class="center" style="display: none" id="list" >
     <div style="font-size: 250% ;display: block" id="demo1" value=""></div>
@@ -169,23 +169,6 @@
         </div>
     </div>
 </form>
-    </div>
-
-
-        <div class="col-md-1" style="margin-top: 30px">
-            <div class="pagination" id="pagination">
-
-                <a href="#" id="n1" class="numBr active">1</a><br><br>
-                <a href="#" id="n2" class="numBr">2</a><br><br>
-                <a href="#" id="n3" class="numBr">3</a><br><br>
-                <a href="#" id="n4" class="numBr">4</a><br><br>
-                <a href="#" id="n5" class="numBr">5</a><br><br>
-                <a href="#" id="n6" class="numBr">6</a><br><br>
-                <a href="#" id="n7" class="numBr">7</a><br>
-
-            </div>
-        </div>
-    </div>
 <script th:inline="javascript">
     function ReadData() {
         var optotype = /*[[${optotype}]]*/ 'default';

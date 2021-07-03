@@ -87,6 +87,6 @@ section{
   background: url(bg.jpeg) no-repeat;
   background-position: center;
   background-size: cover;
-  height: 100vh;
+  /*height: 100vh;*/
   transition: all .5s;
 }
