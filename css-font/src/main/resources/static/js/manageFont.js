@@ -170,7 +170,7 @@ function changeDistance(selectTag) {
         document.getElementById('demo8').innerHTML = selectedCharacter8.join(" ");
         document.getElementById('demo9').innerHTML = selectedCharacter9.join(" ");
         document.getElementById('demo10').innerHTML = selectedCharacter10.join(" ");
-        document.getElementById('demo11').innerHTML = selectedCharacte11.join(" ");
+        document.getElementById('demo11').innerHTML = selectedCharacter11.join(" ");
         document.getElementById('passText').value = selectedCharacter.join(" ") + " " + selectedCharacter2.join(" ") + " " + selectedCharacter3.join(" ") + " " + selectedCharacter4.join(" ") + " " + selectedCharacter5.join(" ") + " " + selectedCharacter6.join(" ") + " " + selectedCharacter7.join(" ") + " " + selectedCharacter8.join(" ") + " " + selectedCharacter9.join(" ") + " " + selectedCharacter10.join(" ") + " " + selectedCharacter11.join(" ");
         return  selectedCharacter + selectedCharacter2 + selectedCharacter3 + selectedCharacter4 + selectedCharacter5 + selectedCharacter6 + selectedCharacter7 + selectedCharacter8 + selectedCharacter9 + selectedCharacter10 + selectedCharacter11;
     }
