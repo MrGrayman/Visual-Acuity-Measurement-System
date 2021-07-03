@@ -50,8 +50,11 @@ public class ExaminationResultController {
         }
         model.addAttribute("re", examinationResult.getRe());
         model.addAttribute("le", examinationResult.getLe());
+        model.addAttribute("re_ph", examinationResult.getRePh());
+        model.addAttribute("le_ph", examinationResult.getLePh());
+        model.addAttribute("HN", examinationResult.getHN());
         examinationResultService.saveExaminationResult(examinationResult);
-        return "save-examination-successfully";
+        return "redirect:/font3";
 
     }
 

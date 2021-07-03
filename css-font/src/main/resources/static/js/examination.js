@@ -52,24 +52,7 @@ function examinationSpeech(){
     btnNext.style.display = "none";
     btnBack.style.display = "none";
     ReadData();
-    show_info_left_eye();
-}
-function checkSpeechInput(){
-    var Answer = document.getElementById("Answer").value;
-    document.getElementById("Answer").value = Answer + "";
-}
-
-var i = 0;
-var txt = '12345';
-var speed = 50;
-
-function typeWriter() {
-    if (i < txt.length) {
-        document.getElementById("Answer").value += txt.charAt(i);
-        i++;
-        setTimeout(typeWriter, speed);
     }
-}
 function changeFontFamily(optotype) {
     var listValue = optotype;
     document.getElementById("demo1").style.fontFamily = listValue;
@@ -282,7 +265,6 @@ $(document).ready(function () {
         console.log("text"+text);
         var s_wrong;
         var s_acuity;
-
 
 
         text = text.match(/[A-Z0-9]/g);

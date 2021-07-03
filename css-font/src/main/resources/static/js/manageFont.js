@@ -43,61 +43,123 @@ function changeDistance(selectTag) {
     }
 
 }
-    function random(buttonTag) {
-        var result           = '';
-        var characters       = 'ABCDEFGHIJKLMNPQRSTUVWXYZ';
-        var r = ''
-        var r2 = ''
-        var r3 = ''
-        var r4 = ''
-        var r5 = ''
-        var r6 = ''
-        var r7 = ''
-        var charactersLength = characters.length;
-        for ( var i = 0; i < 5; i++ ) {
 
-            var randomNumber = Math.floor(Math.random() *(25-1) + 1);
-            result = characters.charAt(randomNumber);
-            r = r + result + " ";
+    let selectedItemIndex;
+    let selectedItemIndex2;
+    let selectedItemIndex3;
+    let selectedItemIndex4;
+    let selectedItemIndex5;
+    let selectedItemIndex6;
+    let selectedItemIndex7;
+    var characters = ["A","B","C","D","E","F","G","H","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z"];
+    function selectNewOne(compare){
 
-            var randomNumber2 = Math.floor(Math.random() *(25-1) + 1);
-            result = characters.charAt(randomNumber2);
-            r2 = r2 + result + " ";
+    const randomItemIndex = Math.floor(Math.random() * characters.length);
+      if (characters[randomItemIndex] === compare) {
+        return selectNewOne();
+      }
 
-            var randomNumber3 = Math.floor(Math.random() *(25-1) + 1);
-            result = characters.charAt(randomNumber3);
-            r3 = r3 + result + " ";
-
-            var randomNumber4 = Math.floor(Math.random() *(25-1) + 1);
-            result = characters.charAt(randomNumber4);
-            r4 = r4 + result + " ";
-
-            var randomNumber5 = Math.floor(Math.random() *(25-1) + 1);
-            result = characters.charAt(randomNumber5);
-            r5 = r5 + result + " ";
-
-            var randomNumber6 = Math.floor(Math.random() *(25-1) + 1);
-            result = characters.charAt(randomNumber6);
-            r6 = r6 + result + " ";
-
-            var randomNumber7 = Math.floor(Math.random() *(25-1) + 1);
-            result = characters.charAt(randomNumber7);
-            r7 = r7 + result + " ";
-        }
-        document.getElementById('demo1').innerHTML = r;
-        document.getElementById('demo2').innerHTML = r2;
-        document.getElementById('demo3').innerHTML = r3;
-        document.getElementById('demo4').innerHTML = r4;
-        document.getElementById('demo5').innerHTML = r5;
-        document.getElementById('demo6').innerHTML = r6;
-        document.getElementById('demo7').innerHTML = r7;
-        document.getElementById('passText').value = r+r2+r3+r4+r5+r6+r7;
-        return r,r2,r3,r4,r5,r6,r7;
+      return characters[randomItemIndex];
     }
 
+    function random(buttonTag) {
+        var result = '';
+        var characters = ["A","B","C","D","E","F","G","H","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z"];
+//        var r = ''
+//        var r2 = ''
+//        var r3 = ''
+//        var r4 = ''
+//        var r5 = ''
+//        var r6 = ''
+//        var r7 = ''
+        var charactersLength = characters.length;
+        var selectedCharacter = [];
+        var selectedCharacter2 = [];
+        var selectedCharacter3 = [];
+        var selectedCharacter4 = [];
+        var selectedCharacter5 = [];
+        var selectedCharacter6 = [];
+        var selectedCharacter7 = [];
+        for ( var i = 0; i < 5; i++ ) {
+
+//            var randomNumber = selectNewOne();
+            selectedItemIndex = selectNewOne(selectedItemIndex);
+            selectedCharacter.push(selectedItemIndex);
+
+            selectedItemIndex2 = selectNewOne(selectedItemIndex2);
+            selectedCharacter2.push(selectedItemIndex2);
+
+            selectedItemIndex3 = selectNewOne(selectedItemIndex3);
+            selectedCharacter3.push(selectedItemIndex3);
+
+            selectedItemIndex4 = selectNewOne(selectedItemIndex4);
+            selectedCharacter4.push(selectedItemIndex4);
+
+            selectedItemIndex5 = selectNewOne(selectedItemIndex5);
+            selectedCharacter5.push(selectedItemIndex5);
+
+            selectedItemIndex6 = selectNewOne(selectedItemIndex6);
+            selectedCharacter6.push(selectedItemIndex6);
+
+            selectedItemIndex7 = selectNewOne(selectedItemIndex7);
+            selectedCharacter7.push(selectedItemIndex7);
+
+//            var randomNumber2 = Math.floor(Math.random() *(25-1) + 1);
+//            result = characters.charAt(randomNumber2);
+//            r2 = r2 + result + " ";
+//
+//            var randomNumber3 = Math.floor(Math.random() *(25-1) + 1);
+//            result = characters.charAt(randomNumber3);
+//            r3 = r3 + result + " ";
+//
+//            var randomNumber4 = Math.floor(Math.random() *(25-1) + 1);
+//            result = characters.charAt(randomNumber4);
+//            r4 = r4 + result + " ";
+//
+//            var randomNumber5 = Math.floor(Math.random() *(25-1) + 1);
+//            result = characters.charAt(randomNumber5);
+//            r5 = r5 + result + " ";
+//
+//            var randomNumber6 = Math.floor(Math.random() *(25-1) + 1);
+//            result = characters.charAt(randomNumber6);
+//            r6 = r6 + result + " ";
+//
+//            var randomNumber7 = Math.floor(Math.random() *(25-1) + 1);
+//            result = characters.charAt(randomNumber7);
+//            r7 = r7 + result + " ";
+        }
+        document.getElementById('demo1').innerHTML = selectedCharacter.join(" ");
+        document.getElementById('demo2').innerHTML = selectedCharacter2.join(" ");
+        document.getElementById('demo3').innerHTML = selectedCharacter3.join(" ");
+        document.getElementById('demo4').innerHTML = selectedCharacter4.join(" ");
+        document.getElementById('demo5').innerHTML = selectedCharacter5.join(" ");
+        document.getElementById('demo6').innerHTML = selectedCharacter6.join(" ");
+        document.getElementById('demo7').innerHTML = selectedCharacter7.join(" ");
+        document.getElementById('passText').value = selectedCharacter.join(" ") + " " + selectedCharacter2.join(" ") + " " + selectedCharacter3.join(" ") + " " + selectedCharacter4.join(" ") + " " + selectedCharacter5.join(" ") + " " + selectedCharacter6.join(" ") + " " + selectedCharacter7.join(" ");
+        return  selectedCharacter + selectedCharacter2 + selectedCharacter3 + selectedCharacter4 + selectedCharacter5 + selectedCharacter6 + selectedCharacter7;
+    }
+
+    let selectedNumberIndex;
+    let selectedNumberIndex2;
+    let selectedNumberIndex3;
+    let selectedNumberIndex4;
+    let selectedNumberIndex5;
+    let selectedNumberIndex6;
+    let selectedNumberIndex7;
+    var numbers = ["2","3","5","8","9"];
+        function selectNewOne2(compare){
+
+        const randomItemIndex = Math.floor(Math.random() * numbers.length);
+          if (numbers[randomItemIndex] === compare) {
+            return selectNewOne2();
+          }
+
+          return numbers[randomItemIndex];
+        }
+
     function randomNumber(buttonTag) {
-        var result           = '';
-        var characters       = '0123456789';
+        var result = '';
+        var numbers = ["2","3","5","8","9"];
         var rn1 = ''
         var rn2 = ''
         var rn3 = ''
@@ -106,71 +168,131 @@ function changeDistance(selectTag) {
         var rn6 = ''
         var rn7 = ''
         var charactersLength = characters.length;
+        var selectedCharacter = [];
+        var selectedCharacter2 = [];
+        var selectedCharacter3 = [];
+        var selectedCharacter4 = [];
+        var selectedCharacter5 = [];
+        var selectedCharacter6 = [];
+        var selectedCharacter7 = [];
         for ( var i = 0; i < 5; i++ ) {
 
-            var randomNumber = Math.floor(Math.random() *(10-1) + 1);
-            result = characters.charAt(randomNumber);
-            rn1 = rn1 + result + " ";
+                    selectedNumberIndex = selectNewOne2(selectedNumberIndex);
+                    selectedCharacter.push(selectedNumberIndex);
 
-            var randomNumber2 = Math.floor(Math.random() *(10-1) + 1);
-            result = characters.charAt(randomNumber2);
-            rn2 = rn2 + result + " ";
+                    selectedNumberIndex2 = selectNewOne2(selectedNumberIndex2);
+                    selectedCharacter2.push(selectedNumberIndex2);
 
-            var randomNumber3 = Math.floor(Math.random() *(10-1) + 1);
-            result = characters.charAt(randomNumber3);
-            rn3 = rn3 + result + " ";
+                    selectedNumberIndex3 = selectNewOne2(selectedNumberIndex3);
+                    selectedCharacter3.push(selectedNumberIndex3);
 
-            var randomNumber4 = Math.floor(Math.random() *(10-1) + 1);
-            result = characters.charAt(randomNumber4);
-            rn4 = rn4 + result + " ";
+                    selectedNumberIndex4 = selectNewOne2(selectedNumberIndex4);
+                    selectedCharacter4.push(selectedNumberIndex4);
 
-            var randomNumber5 = Math.floor(Math.random() *(10-1) + 1);
-            result = characters.charAt(randomNumber5);
-            rn5 = rn5 + result + " ";
+                    selectedNumberIndex5 = selectNewOne2(selectedNumberIndex5);
+                    selectedCharacter5.push(selectedNumberIndex5);
 
-            var randomNumber5 = Math.floor(Math.random() *(10-1) + 1);
-            result = characters.charAt(randomNumber5);
-            rn6 = rn6 + result + " ";
+                    selectedNumberIndex6 = selectNewOne2(selectedNumberIndex6);
+                    selectedCharacter6.push(selectedNumberIndex6);
 
-            var randomNumber5 = Math.floor(Math.random() *(10-1) + 1);
-            result = characters.charAt(randomNumber5);
-            rn7 = rn7 + result + " ";
+                    selectedNumberIndex7 = selectNewOne2(selectedNumberIndex7);
+                    selectedCharacter7.push(selectedNumberIndex7);
+
+//            var randomNumber = Math.floor(Math.random() * 5);
+//            result = characters.charAt(randomNumber);
+//            rn1 = rn1 + result + " ";
+//
+//            var randomNumber2 = Math.floor(Math.random() * 5);
+//            result = characters.charAt(randomNumber2);
+//            rn2 = rn2 + result + " ";
+//
+//            var randomNumber3 = Math.floor(Math.random() * 5);
+//            result = characters.charAt(randomNumber3);
+//            rn3 = rn3 + result + " ";
+//
+//            var randomNumber4 = Math.floor(Math.random() * 5);
+//            result = characters.charAt(randomNumber4);
+//            rn4 = rn4 + result + " ";
+//
+//            var randomNumber5 = Math.floor(Math.random() * 5);
+//            result = characters.charAt(randomNumber5);
+//            rn5 = rn5 + result + " ";
+//
+//            var randomNumber5 = Math.floor(Math.random() * 5);
+//            result = characters.charAt(randomNumber5);
+//            rn6 = rn6 + result + " ";
+//
+//            var randomNumber5 = Math.floor(Math.random() * 5);
+//            result = characters.charAt(randomNumber5);
+//            rn7 = rn7 + result + " ";
         }
-        document.getElementById('demo1').innerHTML = rn1;
-        document.getElementById('demo2').innerHTML = rn2;
-        document.getElementById('demo3').innerHTML = rn3;
-        document.getElementById('demo4').innerHTML = rn4;
-        document.getElementById('demo5').innerHTML = rn5;
-        document.getElementById('demo6').innerHTML = rn6;
-        document.getElementById('demo7').innerHTML = rn7;
-        document.getElementById('passText').value = rn1+rn2+rn3+rn4+rn5+rn6+rn7;
-        return rn1,rn2,rn3,rn4,rn5,rn6,rn7;
+        document.getElementById('demo1').innerHTML = selectedCharacter.join(" ");
+        document.getElementById('demo2').innerHTML = selectedCharacter2.join(" ");
+        document.getElementById('demo3').innerHTML = selectedCharacter3.join(" ");
+        document.getElementById('demo4').innerHTML = selectedCharacter4.join(" ");
+        document.getElementById('demo5').innerHTML = selectedCharacter5.join(" ");
+        document.getElementById('demo6').innerHTML = selectedCharacter6.join(" ");
+        document.getElementById('demo7').innerHTML = selectedCharacter7.join(" ");
+        document.getElementById('passText').value = selectedCharacter.join(" ") + " " + selectedCharacter2.join(" ") + " " + selectedCharacter3.join(" ") + " " + selectedCharacter4.join(" ") + " " + selectedCharacter5.join(" ") + " " + selectedCharacter6.join(" ") + " " + selectedCharacter7.join(" ");
+        return  selectedCharacter + selectedCharacter2 + selectedCharacter3 + selectedCharacter4 + selectedCharacter5 + selectedCharacter6 + selectedCharacter7;
     }
 
     function change1(buttonTag){
         var x = document.getElementById("all");
-        var y = document.getElementById("random-button");
+//        var y = document.getElementById("random-button");
         var z = document.getElementById("import-button");
             x.style.display = "block";
-            y.style.display = "none";
+//            y.style.display = "none";
             z.style.display = "none";
     }
-    function change2(buttonTag){
-         var x = document.getElementById("all");
-         var y = document.getElementById("random-button");
-         var z = document.getElementById("import-button");
-            y.style.display = "block";
-            x.style.display = "none";
-            z.style.display = "none";
-    }
+//    function change2(buttonTag){
+//         var x = document.getElementById("all");
+//         var y = document.getElementById("random-button");
+//         var z = document.getElementById("import-button");
+//            y.style.display = "block";
+//            x.style.display = "none";
+//            z.style.display = "none";
+//    }
     function change3(buttonTag){
          var x = document.getElementById("all");
-         var y = document.getElementById("random-button");
+//         var y = document.getElementById("random-button");
          var z = document.getElementById("import-button");
             z.style.display = "block";
             x.style.display = "none";
-            y.style.display = "none";
+//            y.style.display = "none";
     }
+
+
+    function check(input)
+            {
+            	var checkboxes = document.getElementsByClassName("radio");
+                console.log(input.id);
+            	for(var i = 0; i < checkboxes.length; i++)
+            	{
+            		//uncheck all
+            		checkboxes[i].checked = false;
+            	}
+                input.checked = true;
+            	if(checkboxes[0].checked == true)
+                            		{
+                            			random();
+                            		}
+                            		if(checkboxes[1].checked == true)
+                            		{
+                                        randomNumber();
+                            		}
+
+            	//set checked of clicked object
+//            	if(input.checked == true)
+//            	{
+//            		input.checked = false;
+//            	}
+//            	else
+//            	{
+//            		input.checked = true;
+//            	}
+            }
+
 
 //    function showTextArea(textareaTag) {
 //        var value = document.getElementById("textarea1").value;
