@@ -3,6 +3,7 @@ var arr_result = [];
 var round_wrong = 1;
 var round_Save = 1;
 let result = 0;
+var num_of_page = 1;
 var temp_s_wrong;
 var temp_s_pin_wrong;
 var temp_left_s_wrong;
@@ -14,12 +15,10 @@ var temp_right_s_acuity;
 var temp_right_pin_s_wrong;
 var temp_right_pin_s_acuity;
 function examination(){
-    var x = document.getElementById("selection");
     var y = document.getElementById("list");
     var Answer2 = document.getElementById("Answer2");
     var btnSpeech = document.getElementById("btn-speech");
     var btnOk = document.getElementById("btnOk");
-    // x.style.display = "none";
     y.style.display = "block";
     btnSpeech.style.display = "none";
     btnOk.style.display = "none";
@@ -115,7 +114,9 @@ function nextline(){
     var demo5 = document.getElementById("demo5");
     var demo6 = document.getElementById("demo6");
     var demo7 = document.getElementById("demo7");
+    // var distance_numTemp = document.getElementById("distance_numTemp");
     if (numTemp == 1){
+        document.getElementById('distance_numTemp').innerHTML = "6/60";
         demo1.style.display = "block";
         demo2.style.display = "none";
         demo3.style.display = "none";
@@ -125,6 +126,7 @@ function nextline(){
         demo7.style.display = "none";
     }
     else if (numTemp == 2){
+        document.getElementById('distance_numTemp').innerHTML = "6/48";
         demo1.style.display = "none";
         demo2.style.display = "block";
         demo3.style.display = "none";
@@ -134,6 +136,7 @@ function nextline(){
         demo7.style.display = "none";
     }
     else if (numTemp == 3){
+        document.getElementById('distance_numTemp').innerHTML = "6/38";
         demo1.style.display = "none";
         demo2.style.display = "none";
         demo3.style.display = "block";
@@ -143,6 +146,7 @@ function nextline(){
         demo7.style.display = "none";
     }
     else if (numTemp == 4){
+        document.getElementById('distance_numTemp').innerHTML = "6/30";
         demo1.style.display = "none";
         demo2.style.display = "none";
         demo3.style.display = "none";
@@ -152,6 +156,7 @@ function nextline(){
         demo7.style.display = "none";
     }
     else if (numTemp == 5){
+        document.getElementById('distance_numTemp').innerHTML = "6/24";
         demo1.style.display = "none";
         demo2.style.display = "none";
         demo3.style.display = "none";
@@ -161,6 +166,7 @@ function nextline(){
         demo7.style.display = "none";
     }
     else if (numTemp == 6){
+        document.getElementById('distance_numTemp').innerHTML = "6/20";
         demo1.style.display = "none";
         demo2.style.display = "none";
         demo3.style.display = "none";
@@ -170,6 +176,7 @@ function nextline(){
         demo7.style.display = "none";
     }
     else if (numTemp == 7){
+        document.getElementById('distance_numTemp').innerHTML = "6/15";
         demo1.style.display = "none";
         demo2.style.display = "none";
         demo3.style.display = "none";
@@ -194,6 +201,7 @@ function backline(){
     var demo6 = document.getElementById("demo6");
     var demo7 = document.getElementById("demo7");
     if (numTemp == 1){
+        document.getElementById('distance_numTemp').innerHTML = "6/60";
         demo1.style.display = "block";
         demo2.style.display = "none";
         demo3.style.display = "none";
@@ -203,6 +211,7 @@ function backline(){
         demo7.style.display = "none";
     }
     else if (numTemp == 2){
+        document.getElementById('distance_numTemp').innerHTML = "6/48";
         demo1.style.display = "none";
         demo2.style.display = "block";
         demo3.style.display = "none";
@@ -212,6 +221,7 @@ function backline(){
         demo7.style.display = "none";
     }
     else if (numTemp == 3){
+        document.getElementById('distance_numTemp').innerHTML = "6/38";
         demo1.style.display = "none";
         demo2.style.display = "none";
         demo3.style.display = "block";
@@ -221,6 +231,7 @@ function backline(){
         demo7.style.display = "none";
     }
     else if (numTemp == 4){
+        document.getElementById('distance_numTemp').innerHTML = "6/30";
         demo1.style.display = "none";
         demo2.style.display = "none";
         demo3.style.display = "none";
@@ -230,6 +241,7 @@ function backline(){
         demo7.style.display = "none";
     }
     else if (numTemp == 5){
+        document.getElementById('distance_numTemp').innerHTML = "6/24";
         demo1.style.display = "none";
         demo2.style.display = "none";
         demo3.style.display = "none";
@@ -239,6 +251,7 @@ function backline(){
         demo7.style.display = "none";
     }
     else if (numTemp == 6){
+        document.getElementById('distance_numTemp').innerHTML = "6/20";
         demo1.style.display = "none";
         demo2.style.display = "none";
         demo3.style.display = "none";
@@ -248,6 +261,7 @@ function backline(){
         demo7.style.display = "none";
     }
     else if (numTemp == 7){
+        document.getElementById('distance_numTemp').innerHTML = "6/15";
         demo1.style.display = "none";
         demo2.style.display = "none";
         demo3.style.display = "none";
@@ -941,8 +955,18 @@ function show_modal_onload_font3(){
 }
 function show_info_left_eye(){
     $("#btn_show_modal2").click();
+
 }
 function show_info_left_eye_ph(){
+    var right = document.getElementById("right")
+    var right_ph = document.getElementById("right_ph")
+    var left = document.getElementById("left")
+    var left_ph = document.getElementById("left_ph")
+
+    right.style.display = "none";
+    right_ph.style.display = "block";
+    left.style.display = "none";
+    left_ph.style.display = "block";
     $('#Answer').val('');
     $('#Answer2').val('');
     $("#btn_show_modal3").click();

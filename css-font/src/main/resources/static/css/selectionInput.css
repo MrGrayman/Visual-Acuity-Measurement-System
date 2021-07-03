@@ -5,7 +5,7 @@ body {
         }
         body {
             content: '';
-            position: fixed;
+            position: absolute;
             width: 100vw;
             height: 100vh;
             #background-image: url(https://www.imageoptical.ca/wp-content/uploads/2020/03/Guide-To-Eye-Care-For-Kids.jpg);

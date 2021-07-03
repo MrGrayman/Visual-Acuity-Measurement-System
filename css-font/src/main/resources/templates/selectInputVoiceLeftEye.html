@@ -58,6 +58,11 @@
 
 </head>
 <body onload="examinationSpeech()">
+<div id="right" align ="left" style="font-size: 40px;padding-left: 5% ;margin-bottom: -4%;display: none" hidden> R </div>
+<div id="right_ph" align ="left" style="font-size: 40px;padding-left: 5% ;margin-bottom: -4%;display: none"hidden> R ph </div>
+<div id="left" align ="left" style="font-size: 40px;padding-left: 5% ;margin-bottom: -4%;display: block"> L </div>
+<div id="left_ph" align ="left" style="font-size: 40px;padding-left: 5% ;margin-bottom: -4%;display: none"> L ph </div>
+<div id="distance_numTemp" align ="right" style="font-size: 40px ;padding-right: 5% ; margin-bottom: -11%"> 6/60 </div>
 <br><br><br>
 <div class="center" style="display: none" id="list" >
     <div style="font-size: 250% ;display: block" id="demo1" value=""></div>
@@ -78,12 +83,10 @@
     </svg>
     <span class="visually-hidden"></span>
 </button>
-    <br>
-    <br>
     <button class="btn btn-secondary"  id="big-button2" onclick="backline()">Back</button>
     <button class="btn btn-primary" id="big-button1" onclick="nextline()">Next</button>
     <div id="output" class=""></div>
-    <button class="btn btn-primary" id="btnOk" onclick="checkSpeechText()">ยืนยันคำตอบ</button>
+    <button class="btn btn-primary" id="btnOk" style="margin-top: -2%" onclick="checkSpeechText()">ยืนยันคำตอบ</button>
     <br>&nbsp; <span id="action"></span></p>
     <input id="right_s_wrong" hidden>
     <input id="right_s_acuity" hidden>
