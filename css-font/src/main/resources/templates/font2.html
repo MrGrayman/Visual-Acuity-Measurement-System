@@ -113,6 +113,7 @@
                     <form action="#" th:action="@{/processForm}" th:object="${textForm}" method="POST">
                         <p style="color:black;">Font Type</p>
                         <select onchange="myFunction(this);" th:field="*{optotype}">
+                            <option value="Conv_Optician-Sans" selected="selected">Conv_Optician-Sans</option>
                             <option value="Georgia">Georgia</option>
                             <option value="Palatino Linotype">Palatino Linotype</option>
                             <option value="Book Antiqua">Book Antiqua</option>
@@ -126,7 +127,6 @@
                             <option value="Verdana">Verdana</option>
                             <option value="Courier New">Courier New</option>
                             <option value="Lucida Console">Lucida Console</option>
-                            <option value="Conv_Optician-Sans" selected="selected">Conv_Optician-Sans</option>
                         </select>
                         <br><br>
                         <p style="color:black;">Distance</p>

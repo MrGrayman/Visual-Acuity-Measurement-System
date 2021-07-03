@@ -21,6 +21,8 @@
 
 </head>
 <body>
+<div class="row" style="">
+    <div class="col-md-11">
     <br><br><br>
     <div class="center" style="display: none" id="list" >
     <div style="font-size: 250% ;display: block" id="demo1" value=""></div>
@@ -36,8 +38,23 @@
         <input type="text" id="Answer" onchange="" style="height:100px; font-size:100pt; width:550px;">
         <br>
         <br>
+<!--        &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp-->
+<!--        <div class="pagination" id="pagination">-->
+
+<!--            <a href="#" class="active">1</a>-->
+<!--            <a href="#">2</a>-->
+<!--            <a href="#">3</a>-->
+<!--            <a href="#">4</a>-->
+<!--            <a href="#">5</a>-->
+<!--            <a href="#">6</a>-->
+<!--            <a href="#">7</a>-->
+
+<!--        </div><br><br>-->
         &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
         &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+
+
+
         <button class="btn btn-secondary" id="big-button2" onclick="backline()" style="width:10%; height:50%; font-size: 40px">Back</button>
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         <button class="btn btn-primary" id="big-button1" onclick="nextline()" style="width:10%; height:50%; font-size: 40px">Next</button>
@@ -71,8 +88,8 @@
 
 <br><br>
 <form action="" id="selection">
-    <label><h2 style="color: black; text-align: center">HN : </h2></label>
-    <input type="text" id="HN" onchange="" style="height:30px; font-size:20pt; width:200px;" required>
+<!--    <label><h2 style="color: black; text-align: center">HN : </h2></label>-->
+<!--    <input type="text" id="HN" onchange="" style="height:30px; font-size:20pt; width:200px;" required>-->
     <br>
     <h1 style="text-align: center; color: black">เลือกวิธีการตอบ</h1>
     <br><br>
@@ -98,6 +115,23 @@
         </div>
     </div>
 </form>
+    </div>
+
+
+        <div class="col-md-1" style="margin-top: 30px">
+            <div class="pagination" id="pagination">
+
+                <a href="#" id="n1" class="numBr active">1</a><br><br>
+                <a href="#" id="n2" class="numBr">2</a><br><br>
+                <a href="#" id="n3" class="numBr">3</a><br><br>
+                <a href="#" id="n4" class="numBr">4</a><br><br>
+                <a href="#" id="n5" class="numBr">5</a><br><br>
+                <a href="#" id="n6" class="numBr">6</a><br><br>
+                <a href="#" id="n7" class="numBr">7</a><br>
+
+            </div>
+        </div>
+    </div>
 <script th:inline="javascript">
     function ReadData() {
         var optotype = /*[[${optotype}]]*/ 'default';
@@ -114,19 +148,19 @@
         var text7 = "";
         for (var i = 0; i < value.length; i++) {
             if(i < 9){
-                text = text + value[i] + "\n";
+                text = text + value[i] + "&nbsp";
             }else if(i < 19){
-                text2 = text2 + value[i] + "\n";
+                text2 = text2 + value[i] + "&nbsp";
             }else if(i < 29){
-                text3 = text3 + value[i] + "\n";
+                text3 = text3 + value[i] + "&nbsp";
             }else if(i < 39){
-                text4 = text4 + value[i] + "\n";
+                text4 = text4 + value[i] + "&nbsp";
             }else if(i < 49){
-                text5 = text5 + value[i] + "\n";
+                text5 = text5 + value[i] + "&nbsp";
             }else if(i < 59){
-                text6 = text6 + value[i] + "\n";
+                text6 = text6 + value[i] + "&nbsp";
             }else if(i < 69){
-                text7 = text7 + value[i] + "\n";
+                text7 = text7 + value[i] + "&nbsp";
             }
         }
         document.getElementById('demo1').innerHTML = text;

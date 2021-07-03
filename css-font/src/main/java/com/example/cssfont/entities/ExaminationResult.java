@@ -15,6 +15,7 @@ public class ExaminationResult {
     private String le;
     private String re_ph;
     private String le_ph;
+    private String HN;
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -64,14 +65,25 @@ public class ExaminationResult {
     public String getLePh(){ return le_ph; }
     public void setLePh(String le_ph) { this.le_ph = le_ph; }
 
+
+    @Basic
+    @Column(name = "HN")
+    public String getHN(){
+        return HN;
+    }
+    public void setHN(String HN){
+        this.HN = HN;
+    }
+
     public ExaminationResult(){
 
     }
 
-    public ExaminationResult(String re, String le, String rePh, String lePh){
+    public ExaminationResult(String re, String le, String rePh, String lePh, String HN){
         this.re = re;
         this.le = le;
         this.re_ph = re_ph;
         this.le_ph = le_ph;
+        this.HN = HN;
     }
 }
