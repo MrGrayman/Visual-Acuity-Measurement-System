@@ -18,9 +18,10 @@ function myFunction(selectTag) {
         document.getElementById("demo5").style.fontSize = listSizeNumber + "px";
     }
 
-function distance(selectTag) {
+function changeDistance(selectTag) {
         var mar = 1.0;
         var distance = selectTag.options[selectTag.selectedIndex].text;
+        document.getElementById('test123').value = distance;
         // change tan to radian
         var y = 1/60;
         var tan = Math.tan(y * Math.PI/180);
@@ -30,21 +31,21 @@ function distance(selectTag) {
         console.log("sizedecimal",sizeDecimal);
         var size = (sizeDecimal * 1000);
         console.log("size",size);
-        var inch = size * 0.0393701;
-        console.log("inch",inch);
-        var pt = inch * 72;
-        console.log("pt",pt);
-        // var px = size * 3.7795275590551;
-        // console.log("px",px);
-        var listValue = pt;
-        document.getElementById("demo"+i).style.fontSize = listValue + "pt";
+//        var inch = size * 0.0393701;
+//        console.log("inch",inch);
+//        var pt = inch * 72;
+//        console.log("pt",pt);
+         var px = size * 3.7795275590551;
+         console.log("px",px);
+        var listValue = px;
+        document.getElementById("demo"+i).style.fontSize = listValue + "px";
         mar = mar - 0.1;
     }
-}
 
+}
     function random(buttonTag) {
         var result           = '';
-        var characters       = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
+        var characters       = 'ABCDEFGHIJKLMNPQRSTUVWXYZ';
         var r = ''
         var r2 = ''
         var r3 = ''
@@ -55,32 +56,32 @@ function distance(selectTag) {
         var charactersLength = characters.length;
         for ( var i = 0; i < 5; i++ ) {
 
-            var randomNumber = Math.floor(Math.random() *(27-1) + 1);
+            var randomNumber = Math.floor(Math.random() *(25-1) + 1);
             result = characters.charAt(randomNumber);
             r = r + result + " ";
 
-            var randomNumber2 = Math.floor(Math.random() *(27-1) + 1);
+            var randomNumber2 = Math.floor(Math.random() *(25-1) + 1);
             result = characters.charAt(randomNumber2);
             r2 = r2 + result + " ";
 
-            var randomNumber3 = Math.floor(Math.random() *(27-1) + 1);
+            var randomNumber3 = Math.floor(Math.random() *(25-1) + 1);
             result = characters.charAt(randomNumber3);
             r3 = r3 + result + " ";
 
-            var randomNumber4 = Math.floor(Math.random() *(27-1) + 1);
+            var randomNumber4 = Math.floor(Math.random() *(25-1) + 1);
             result = characters.charAt(randomNumber4);
             r4 = r4 + result + " ";
 
-            var randomNumber5 = Math.floor(Math.random() *(27-1) + 1);
+            var randomNumber5 = Math.floor(Math.random() *(25-1) + 1);
             result = characters.charAt(randomNumber5);
             r5 = r5 + result + " ";
 
-            var randomNumber6 = Math.floor(Math.random() *(27-1) + 1);
-            result = characters.charAt(randomNumber5);
+            var randomNumber6 = Math.floor(Math.random() *(25-1) + 1);
+            result = characters.charAt(randomNumber6);
             r6 = r6 + result + " ";
 
-            var randomNumber7 = Math.floor(Math.random() *(27-1) + 1);
-            result = characters.charAt(randomNumber5);
+            var randomNumber7 = Math.floor(Math.random() *(25-1) + 1);
+            result = characters.charAt(randomNumber7);
             r7 = r7 + result + " ";
         }
         document.getElementById('demo1').innerHTML = r;
@@ -90,6 +91,7 @@ function distance(selectTag) {
         document.getElementById('demo5').innerHTML = r5;
         document.getElementById('demo6').innerHTML = r6;
         document.getElementById('demo7').innerHTML = r7;
+        document.getElementById('passText').value = r+r2+r3+r4+r5+r6+r7;
         return r,r2,r3,r4,r5,r6,r7;
     }
 
@@ -141,6 +143,7 @@ function distance(selectTag) {
         document.getElementById('demo5').innerHTML = rn5;
         document.getElementById('demo6').innerHTML = rn6;
         document.getElementById('demo7').innerHTML = rn7;
+        document.getElementById('passText').value = rn1+rn2+rn3+rn4+rn5+rn6+rn7;
         return rn1,rn2,rn3,rn4,rn5,rn6,rn7;
     }
 
@@ -189,6 +192,50 @@ function distance(selectTag) {
 //        document.getElementById('demo').innerHTML = text;
 //    }
 
+//$(document).ready(function () {
+//    $('#textarea1').keyup(function(e) {
+//        let value = $(this).val().toUpperCase();
+//        let text = $('#demo'+numTemp).text();
+////        var text = "";
+////        var text2 = "";
+////        var text3 = "";
+////        var text4 = "";
+////        var text5 = "";
+////        var text6 = "";
+////        var text7 = "";
+//
+//        if(text.match(/[A-Z]/g)){
+//            for (var i = 0; i < value.length; i++) {
+//                        if(i < 5){
+//                            text = text + value[i] + "\n";
+//                        }else if(i < 10){
+//                            text2 = text2 + value[i] + "\n";
+//                        }else if(i < 15){
+//                            text3 = text3 + value[i] + "\n";
+//                        }else if(i < 20){
+//                            text4 = text4 + value[i] + "\n";
+//                        }else if(i < 25){
+//                            text5 = text5 + value[i] + "\n";
+//                        }else if(i < 30){
+//                            text6 = text6 + value[i] + "\n";
+//                        }else if(i < 35){
+//                            text7 = text7 + value[i] + "\n";
+//                        }
+//                    }
+//        }
+//
+//
+//        document.getElementById('demo1').innerHTML = text;
+//        document.getElementById('demo2').innerHTML = text2;
+//        document.getElementById('demo3').innerHTML = text3;
+//        document.getElementById('demo4').innerHTML = text4;
+//        document.getElementById('demo5').innerHTML = text5;
+//        document.getElementById('demo6').innerHTML = text6;
+//        document.getElementById('demo7').innerHTML = text7;
+//        document.getElementById('passText').value = text+text2+text3+text4+text5+text6+text7;
+//    });
+//});
+
 function showTextArea(textareaTag) {
         var value = document.getElementById("textarea1").value;
         var text = "";
@@ -201,22 +248,27 @@ function showTextArea(textareaTag) {
 //        var text8 = "";
 //        var text9 = "";
 //        var text10 = "";
-        for (var i = 0; i < value.length; i++) {
-            if(i < 5){
-                text = text + value[i] + "\n";
-            }else if(i < 10){
-                text2 = text2 + value[i] + "\n";
-            }else if(i < 15){
-                text3 = text3 + value[i] + "\n";
-            }else if(i < 20){
-                text4 = text4 + value[i] + "\n";
-            }else if(i < 25){
-                text5 = text5 + value[i] + "\n";
-            }else if(i < 30){
-                text6 = text6 + value[i] + "\n";
-            }else if(i < 35){
-                text7 = text7 + value[i] + "\n";
-            }
+        var regex = /^[a-zA-Z]+$/;
+        var regex2 = /^[0-9]+$/;
+
+            for (var i = 0; i < value.length; i++) {
+
+                if(i < 5){
+                    text = text + value[i] + "\n";
+                }else if(i < 10){
+                     text2 = text2 + value[i] + "\n";
+                }else if(i < 15){
+                     text3 = text3 + value[i] + "\n";
+                }else if(i < 20){
+                     text4 = text4 + value[i] + "\n";
+                }else if(i < 25){
+                      text5 = text5 + value[i] + "\n";
+                }else if(i < 30){
+                      text6 = text6 + value[i] + "\n";
+                }else if(i < 35){
+                      text7 = text7 + value[i] + "\n";
+                }
+
 //            else if(i < 40){
 //                text8 = text8 + value[i] + "\n";
 //            }else if(i < 45){
@@ -233,7 +285,88 @@ function showTextArea(textareaTag) {
         document.getElementById('demo5').innerHTML = text5;
         document.getElementById('demo6').innerHTML = text6;
         document.getElementById('demo7').innerHTML = text7;
+        document.getElementById('passText').value = text+text2+text3+text4+text5+text6+text7;
 //        document.getElementById('demo8').innerHTML = text8;
 //        document.getElementById('demo9').innerHTML = text9;
 //        document.getElementById('demo10').innerHTML = text10;
-    }
+}
+function changeText() {
+    alert("hi")
+    var d1 = document.getElementById('demo1').innerHTML;
+    var d2 = document.getElementById('demo2').innerHTML;
+    var d3 = document.getElementById('demo3').innerHTML;
+    var d4 = document.getElementById('demo4').innerHTML;
+    var d5 = document.getElementById('demo5').innerHTML;
+    var d6 = document.getElementById('demo6').innerHTML;
+    var d7 = document.getElementById('demo7').innerHTML;
+    alert(d1)
+    alert(d2)
+}
+
+function download_txt() {
+    var demo1 = document.getElementById('demo1').innerHTML;
+    var demo2 = document.getElementById('demo2').innerHTML;
+    var demo3 = document.getElementById('demo3').innerHTML;
+    var demo4 = document.getElementById('demo4').innerHTML;
+    var demo5 = document.getElementById('demo5').innerHTML;
+    var demo6 = document.getElementById('demo6').innerHTML;
+    var demo7 = document.getElementById('demo7').innerHTML;
+    var optotype = document.getElementById('optotype').value;
+    var distance = document.getElementById('distance').value;
+    var hiddenElement = document.createElement('a');
+
+    hiddenElement.href = 'data:attachment/text,' + encodeURI(demo1) +encodeURI("\n"+demo2) +encodeURI("\n"+demo3)
+        +encodeURI("\n"+demo4) +encodeURI("\n"+demo5) +encodeURI("\n"+demo6) +encodeURI("\n"+demo7) +encodeURI("\nFont : "+optotype) +encodeURI("\nDistance : "+distance);
+    hiddenElement.target = '_blank';
+    hiddenElement.download = 'myFile.txt';
+    hiddenElement.click();
+}
+function sentText(){
+    var tempId = 123;
+    alert(tempId)
+    console.log(tempId)
+    $.ajax({
+        type : "POST",
+        url : "http://localhost:8081/apisent",
+        data : {id:tempId},
+        timeout : 100000,
+        success : function(id) {
+            console.log("SUCCESS: ", id);
+            display(id);
+            alert(response);
+        },
+        error : function(e) {
+            console.log("ERROR: ", e);
+            display(e);
+        },
+        done : function(e) {
+            console.log("DONE");
+        }
+    });
+}
+function getFilter() {
+    var text = "hi"
+    alert("hrllp")
+    return {
+        "type" : "GET",
+        "url" : "results",
+        "async" : true,
+        "data" : {
+            "text" : text,
+            success : function() {
+                alert("success ");
+            },
+            error : function() {
+                alert("error");
+            }
+        }
+    };
+}
+function tester() {
+    alert("55")
+    $.ajax({
+        type: "POST",
+        url: "http://localhost:8081/submit.htm",
+        data: { name: "John", location: "Boston" } // parameters
+    })
+}
