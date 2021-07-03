@@ -8,11 +8,7 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.multipart.MultipartHttpServletRequest;
-
-import javax.servlet.http.HttpServletRequest;
-import java.io.IOException;
-import java.text.ParseException;
+import org.springframework.web.servlet.view.RedirectView;
 
 @RestController
 //@RequestMapping(value = "${general.root_uri}")
@@ -41,7 +37,7 @@ public class ExaminationResultController {
 //    }
 
     @RequestMapping(value = "/examinationResult/save", method = RequestMethod.POST)
-    public String processSave(@Validated @ModelAttribute("examinationResult") ExaminationResult examinationResult,
+    public Object processSave(@Validated @ModelAttribute("examinationResult") ExaminationResult examinationResult,
                               BindingResult bindingResult,
                               Model model){
         if (bindingResult.hasErrors()) {
@@ -54,7 +50,9 @@ public class ExaminationResultController {
         model.addAttribute("lePh", examinationResult.getLePh());
         model.addAttribute("HN", examinationResult.getHN());
         examinationResultService.saveExaminationResult(examinationResult);
-        return "redirect:/font3";
+        RedirectView redirectView = new RedirectView();
+        redirectView.setUrl("/examinationResult");
+        return redirectView;
 
     }
 

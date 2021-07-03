@@ -94,13 +94,18 @@
     <input type="text" id="HN" onchange="" style="height:30px; font-size:20pt; width:200px;" th:field="*{HN}" required>
     <div th:if="${#fields.hasErrors('HN')}" th:errors="*{HN}">errors</div>
     <br> <br>
-    <button href="#" class="btn btn-primary" type="submit" onclick="" id="save-examination">Save Result</button>
+    <button href="#" class="btn btn-primary" type="submit" onclick="saveResult()" id="save-examination">Save Result</button>
     <button href="#" class="btn btn-secondary" onclick="">Print Result</button><br><br>
     <a href="/font2" class="btn btn-secondary" onclick="">Back to setting</a>
 
 </form>
 </body>
 <script th:inline="javascript">
+
+function saveResult() {
+  alert("บันทึกผลการทดสอบ เสร็จสิ้น");
+}
+
     function ShowData() {
         var s_wrong = /*[[${s_wrong}]]*/ 'default';
         var s_acuity = /*[[${s_acuity}]]*/ 'default'; //text=69lenght
