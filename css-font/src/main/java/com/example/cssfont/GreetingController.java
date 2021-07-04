@@ -93,7 +93,68 @@ public class GreetingController {
     @GetMapping("/font2")
     public String font2(@RequestParam(name = "name", required = false, defaultValue = "World") String name, Model model) {
         model.addAttribute("textForm",new TextForm());
+        File f = new File("D:/Accessories/SeniorProject/Visual-Acuity-Measurement-System/test_text_file/default.txt");
+        if(f.exists() && !f.isDirectory()) {
+            try {
+                File myObj = new File("D:/Accessories/SeniorProject/Visual-Acuity-Measurement-System/test_text_file/default.txt");
+                Scanner myReader = new Scanner(myObj);
+                while (myReader.hasNextLine()) {
+                    String data = myReader.nextLine();
+//                    System.out.println(data);
+                    JSONObject jsonData = new JSONObject(data);
+                    String distance = jsonData.getString("distance");
+                    String optotype = jsonData.getString("optotype");
+                    model.addAttribute("optotype",optotype);
+                    model.addAttribute("distance",distance);
+                }
+                myReader.close();
+            } catch (FileNotFoundException | JSONException e) {
+                System.out.println("An error occurred.");
+                e.printStackTrace();
+            }
+        }else{
+            System.out.println("Not have file default");
+        }
+
         return "font2";
+    }
+    @RequestMapping(value = "/setDefault", method = RequestMethod.POST, produces = "application/json")
+    public @ResponseBody TextForm TextForm(@RequestBody TextForm textForm) throws JsonProcessingException, JSONException {
+        String optotype = textForm.getOptotype();
+        String distance = textForm.getDistance();
+        System.out.println("optotype : "+optotype);
+        System.out.println("distance : "+distance);
+        JSONObject jsonObjToFile=new JSONObject();
+        jsonObjToFile.put("optotype", optotype);
+        jsonObjToFile.put("distance", distance);
+        System.out.println("obj : "+jsonObjToFile.toString());
+        String message = jsonObjToFile.toString();
+//        String test = URLDecoder.decode(optotype, "UTF-8");
+
+        //************write text in text file**************
+        try {
+            FileWriter myWriter = new FileWriter("D:/Accessories/SeniorProject/Visual-Acuity-Measurement-System/test_text_file/default.txt",false);
+            myWriter.write(message);
+            myWriter.close();
+            System.out.println("Successfully wrote to the file.");
+        } catch (IOException e) {
+            System.out.println("An error occurred.");
+            e.printStackTrace();
+        }
+        try {
+            BufferedReader br = new BufferedReader(new FileReader("D:/Accessories/SeniorProject/Visual-Acuity-Measurement-System/test_text_file/default.txt"));
+            String line;
+            while ((line = br.readLine()) != null) {
+                System.out.println(line);
+            }
+            br.close();
+        } catch (IOException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+        // ****************************************************************
+
+        return textForm;
     }
 
     @GetMapping("/font3")

@@ -1,6 +1,7 @@
 // var mar = 1.0;
 function myFunction(selectTag) {
         var listValue = selectTag.options[selectTag.selectedIndex].text;
+        document.getElementById('optotype_ajax').value = listValue;
         document.getElementById("demo1").style.fontFamily = listValue;
         document.getElementById("demo2").style.fontFamily = listValue;
         document.getElementById("demo3").style.fontFamily = listValue;
@@ -527,52 +528,7 @@ function download_txt() {
     hiddenElement.download = 'myFile.txt';
     hiddenElement.click();
 }
-function sentText(){
-    var tempId = 123;
-    alert(tempId)
-    console.log(tempId)
-    $.ajax({
-        type : "POST",
-        url : "http://localhost:8081/apisent",
-        data : {id:tempId},
-        timeout : 100000,
-        success : function(id) {
-            console.log("SUCCESS: ", id);
-            display(id);
-            alert(response);
-        },
-        error : function(e) {
-            console.log("ERROR: ", e);
-            display(e);
-        },
-        done : function(e) {
-            console.log("DONE");
-        }
-    });
+function show_modal_ssc_setDefault(){
+    $("#btn_show_ssc_setDefault").click();
 }
-function getFilter() {
-    var text = "hi"
-    alert("hrllp")
-    return {
-        "type" : "GET",
-        "url" : "results",
-        "async" : true,
-        "data" : {
-            "text" : text,
-            success : function() {
-                alert("success ");
-            },
-            error : function() {
-                alert("error");
-            }
-        }
-    };
-}
-function tester() {
-    alert("55")
-    $.ajax({
-        type: "POST",
-        url: "http://localhost:8081/submit.htm",
-        data: { name: "John", location: "Boston" } // parameters
-    })
-}
+
