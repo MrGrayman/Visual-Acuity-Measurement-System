@@ -1436,6 +1436,9 @@ function show_info_left_eye(){
     $("#btn_show_modal2").click();
 
 }
+function show_modal_onload_font4(){
+    $("#btn_show_modal3").click();
+}
 function show_info_left_eye_ph(){
     var right = document.getElementById("right")
     var right_ph = document.getElementById("right_ph")

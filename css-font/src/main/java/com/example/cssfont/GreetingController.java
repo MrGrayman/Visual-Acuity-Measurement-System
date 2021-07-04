@@ -1,5 +1,6 @@
 package com.example.cssfont;
 
+import com.example.cssfont.entities.Doctor;
 import com.example.cssfont.entities.ExaminationResult;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.DeserializationFeature;
@@ -160,8 +161,9 @@ public class GreetingController {
     @GetMapping("/font3")
     public String font3(@RequestParam(name="name", required=false, defaultValue="World") String name, Model model) {
 //        model.addAttribute("textForm",new TextForm());
+        model.addAttribute("doctor", new Doctor());
         try {
-            File myObj = new File("D:/Accessories/SeniorProject/Visual-Acuity-Measurement-System/test_text_file/file.txt");
+            File myObj = new File("C:/Visual-Acuity-Measurement-System/test_text_file/file.txt");
             Scanner myReader = new Scanner(myObj);
             while (myReader.hasNextLine()) {
                 String data = myReader.nextLine();
@@ -186,7 +188,7 @@ public class GreetingController {
     public String selectInputTextLeftEye(@RequestParam(name="name", required=false, defaultValue="World") String name, Model model) {
 //        model.addAttribute("textForm",new TextForm());
         try {
-            File myObj = new File("D:/Accessories/SeniorProject/Visual-Acuity-Measurement-System/test_text_file/file.txt");
+            File myObj = new File("C:/Visual-Acuity-Measurement-System/test_text_file/file.txt");
             Scanner myReader = new Scanner(myObj);
             while (myReader.hasNextLine()) {
                 String data = myReader.nextLine();
@@ -214,7 +216,7 @@ public class GreetingController {
     public String selectInputTextRightEye(@RequestParam(name="name", required=false, defaultValue="World") String name, Model model) {
 //        model.addAttribute("textForm",new TextForm());
         try {
-            File myObj = new File("D:/Accessories/SeniorProject/Visual-Acuity-Measurement-System/test_text_file/file.txt");
+            File myObj = new File("C:/Visual-Acuity-Measurement-System/test_text_file/file.txt");
             Scanner myReader = new Scanner(myObj);
             while (myReader.hasNextLine()) {
                 String data = myReader.nextLine();
@@ -239,7 +241,7 @@ public class GreetingController {
     public String selectInputVoiceRightEye(@RequestParam(name="name", required=false, defaultValue="World") String name, Model model) {
 //        model.addAttribute("textForm",new TextForm());
         try {
-            File myObj = new File("D:/Accessories/SeniorProject/Visual-Acuity-Measurement-System/test_text_file/file.txt");
+            File myObj = new File("C:/Visual-Acuity-Measurement-System/test_text_file/file.txt");
             Scanner myReader = new Scanner(myObj);
             while (myReader.hasNextLine()) {
                 String data = myReader.nextLine();
@@ -264,7 +266,7 @@ public class GreetingController {
     public String selectInputVoiceLeftEye(@RequestParam(name="name", required=false, defaultValue="World") String name, Model model) {
 //        model.addAttribute("textForm",new TextForm());
         try {
-            File myObj = new File("D:/Accessories/SeniorProject/Visual-Acuity-Measurement-System/test_text_file/file.txt");
+            File myObj = new File("C:/Visual-Acuity-Measurement-System/test_text_file/file.txt");
             Scanner myReader = new Scanner(myObj);
             while (myReader.hasNextLine()) {
                 String data = myReader.nextLine();
@@ -359,7 +361,7 @@ public class GreetingController {
     public String showExamination(@RequestParam(name = "name", required = false, defaultValue = "World") String name, Model model) {
         model.addAttribute("textForm",new TextForm());
         try {
-            File myObj = new File("D:/Accessories/SeniorProject/Visual-Acuity-Measurement-System/test_text_file/file.txt");
+            File myObj = new File("C:/Visual-Acuity-Measurement-System/test_text_file/file.txt");
             Scanner myReader = new Scanner(myObj);
             while (myReader.hasNextLine()) {
                 String data = myReader.nextLine();
@@ -416,7 +418,7 @@ public class GreetingController {
 
         //************write text in text file**************
         try {
-            FileWriter myWriter = new FileWriter("D:/Accessories/SeniorProject/Visual-Acuity-Measurement-System/test_text_file/file.txt",false);
+            FileWriter myWriter = new FileWriter("C:/Visual-Acuity-Measurement-System/test_text_file/file.txt",false);
             myWriter.write(message);
             myWriter.close();
             System.out.println("Successfully wrote to the file.");
@@ -425,7 +427,7 @@ public class GreetingController {
             e.printStackTrace();
         }
         try {
-            BufferedReader br = new BufferedReader(new FileReader("D:/Accessories/SeniorProject/Visual-Acuity-Measurement-System/test_text_file/file.txt"));
+            BufferedReader br = new BufferedReader(new FileReader("C:/Visual-Acuity-Measurement-System/test_text_file/file.txt"));
             String line;
             while ((line = br.readLine()) != null) {
                 System.out.println(line);
@@ -463,7 +465,7 @@ public class GreetingController {
     @GetMapping("/speech")
     public String speech(Model model) {
         try {
-            File myObj = new File("D:/Accessories/SeniorProject/Visual-Acuity-Measurement-System/test_text_file/file.txt");
+            File myObj = new File("C:/Visual-Acuity-Measurement-System/test_text_file/file.txt");
             Scanner myReader = new Scanner(myObj);
             while (myReader.hasNextLine()) {
                 String data = myReader.nextLine();
@@ -509,14 +511,14 @@ public class GreetingController {
     @PostMapping("/aiForThai") // //new annotation since 4.3
     public String singleFileUpload(@RequestParam(value = "file", required = false) File file,
                                    RedirectAttributes redirectAttributes) throws IOException {
-        File waveFile = new File("D:/Accessories/SeniorProject/Visual-Acuity-Measurement-System/sound_convert/check/0-10_pang.wav");
+        File waveFile = new File("C:/Visual-Acuity-Measurement-System/sound_convert/check/0-10_pang.wav");
 
         String url = "https://api.aiforthai.in.th/partii-webapi";
         String charset = "UTF-8";
         String boundary = Long.toHexString(System.currentTimeMillis());
         String CRLF = "\r\n"; // Line separator required by multipart/form-data.
 
-        Path path = Paths.get("D:/Accessories/SeniorProject/Visual-Acuity-Measurement-System/sound_convert/check/0-10_pang.wav");
+        Path path = Paths.get("C:/Visual-Acuity-Measurement-System/sound_convert/check/0-10_pang.wav");
         Path fileName = path.getFileName();
 
         // print FileName
@@ -580,7 +582,7 @@ public class GreetingController {
 
             //************write text in text file**************
 //        try {
-//            FileWriter myWriter = new FileWriter("D:/Accessories/SeniorProject/Visual-Acuity-Measurement-System/file.txt");
+//            FileWriter myWriter = new FileWriter("C:/Visual-Acuity-Measurement-System/file.txt");
 //            myWriter.write(URLDecoder.decode(test.substring(1, 138), "UTF-8"));
 //            myWriter.close();
 //            System.out.println("Successfully wrote to the file.");
@@ -589,7 +591,7 @@ public class GreetingController {
 //            e.printStackTrace();
 //        }
 //        try {
-//            BufferedReader br = new BufferedReader(new FileReader("D:/Accessories/SeniorProject/Visual-Acuity-Measurement-System/file.txt"));
+//            BufferedReader br = new BufferedReader(new FileReader("C:/Visual-Acuity-Measurement-System/file.txt"));
 //            String line;
 //            while ((line = br.readLine()) != null) {
 //                System.out.println(line);
@@ -610,7 +612,7 @@ public class GreetingController {
         // Instantiates a client
         try (SpeechClient speech = SpeechClient.create()) {
 
-            Path path = Paths.get("D:/Accessories/SeniorProject/Visual-Acuity-Measurement-System/sound_convert/check/1-10_jame2.wav");
+            Path path = Paths.get("C:/Visual-Acuity-Measurement-System/sound_convert/check/1-10_jame2.wav");
             // call getFileName() and get FileName path object
             Path fileName = path.getFileName();
 
@@ -658,9 +660,9 @@ public class GreetingController {
     public String azure(@RequestParam(value = "file", required = false) File file,
                         RedirectAttributes redirectAttributes) throws IOException, ExecutionException, InterruptedException {
         SpeechConfig speechConfig = SpeechConfig.fromSubscription("550233ccdb3040fdb871a7274eb18f66", "eastasia");
-        AudioConfig audioConfig = AudioConfig.fromWavFileInput("D:/Accessories/SeniorProject/Visual-Acuity-Measurement-System/sound_convert/check/0-10_pang.wav");
+        AudioConfig audioConfig = AudioConfig.fromWavFileInput("C:/Visual-Acuity-Measurement-System/sound_convert/check/0-10_pang.wav");
 
-        Path path = Paths.get("D:/Accessories/SeniorProject/Visual-Acuity-Measurement-System/sound_convert/check/0-10_pang.wav");
+        Path path = Paths.get("C:/Visual-Acuity-Measurement-System/sound_convert/check/0-10_pang.wav");
         Path fileName = path.getFileName();
 
         // print FileName

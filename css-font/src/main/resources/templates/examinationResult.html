@@ -39,6 +39,7 @@
                     <a class="" style="font-size: 20px">Result</a><br>
                     <label style="font-size: 25px"></label><a class="" style="font-size: 24px" id="show_RE" value=""></a>
                     <input class="" style="font-size: 24px" id="RE_s_acuity" th:field="*{re}" value="" hidden >
+                    <div th:if="${#fields.hasErrors('re')}" th:errors="*{re}">errors</div>
                     <br>
 <!--                    <label style="font-size: 25px; text-transform: capitalize"></label><a class="" style="font-size: 24px" id="show_RE_pin" value=""></a>-->
 <!--                    <input class="" style="font-size: 24px" id="RE_s_pin_acuity" th:field="*{re}" value="" hidden>-->
@@ -67,6 +68,7 @@
                     <a class="" style="font-size: 20px">Result</a><br>
                     <label style="font-size: 25px"></label><a class="" style="font-size: 24px" id="show_LE" value=""></a>
                     <input class="" style="font-size: 24px" id="LE_s_acuity" th:field="*{le}" value="" hidden>
+                    <div th:if="${#fields.hasErrors('le')}" th:errors="*{le}">errors</div>
                     <br>
 
                 </div>
