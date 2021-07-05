@@ -51,6 +51,7 @@ function examinationSpeech(){
     Answer.style.display = "none";
     btnNext.style.display = "none";
     btnBack.style.display = "none";
+    show_info_left_eye();
     ReadData();
     }
 function changeFontFamily(optotype) {
