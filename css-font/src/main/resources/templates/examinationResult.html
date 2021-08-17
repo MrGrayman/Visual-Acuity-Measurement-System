@@ -16,6 +16,40 @@
     <script src="https://code.jquery.com/jquery-2.2.0.min.js"></script>
     <!-- Template Main CSS File -->
     <link href="assets/css/style.css" rel="stylesheet">
+    <style type="text/css">
+
+        #printableArea { display: block; }
+
+        @media print
+        {
+            #non-printableArea { display: none; }
+            #printableArea { display: block; }
+            /*body * { visibility: hidden; }*/
+            #printableArea * { visibility: visible; }
+            #printableArea {
+                position: center;
+                top: 10px;
+                left: 30px;
+            }
+            #printable{
+                 display:flex;
+                 justify-content:center;
+                 align-items:center;
+                 height:20%;
+             }
+            html, body{
+                height:100%;
+                width:100%;
+            }
+            @page{
+                size: 57mm 60mm;
+            }
+            @page:left {
+                margin-left: 20mm;
+                margin-right: 30mm;
+            }
+        }
+    </style>
 
 </head>
 <body onload="page_ExamResult_onload()">
@@ -91,13 +125,35 @@
 
     <!--    <input type="image" src="images/PngItem.png" alt="Submit" width="100" height="100" id="save-examination">-->
     <!--    <input type="image" src="images/clipart.png" alt="Submit" width="100" height="100">-->
+    <div id="printable" hidden>
+        <h1 style="color: #000000 ; font-size: 8mm;margin-left: 4% ; margin-top: 2%">Visual acuity results</h1>
+        <br>
+        <table border="1" style="width: 25% ; margin-left: 4% ;color: #000000 ">
+            <tr style="text-align: center;font-size: 5mm">
+                <td>RE</td>
+                <td id="print_RE"></td>
+            </tr>
+            <tr style="text-align: center;font-size: 5mm">
+                <td>REph</td>
+                <td id="print_pin_RE"></td>
+            </tr>
+            <tr style="text-align: center;font-size: 5mm">
+                <td>LE</td>
+                <td id="print_LE"></td>
+            </tr>
+            <tr style="text-align: center;font-size: 5mm">
+                <td>LEph</td>
+                <td id="print_pin_LE"></td>
+            </tr>
+        </table>
+    </div>
 
     <label style="font-size: 18px"> เลขประจำตัวผู้ป่วย :&nbsp; </label>
     <input type="text" id="HN" onchange="" style="height:30px; font-size:20pt; width:200px;" th:field="*{HN}" required>
     <div th:if="${#fields.hasErrors('HN')}" th:errors="*{HN}">errors</div>
     <br> <br>
     <button href="#" class="btn btn-primary" type="submit" onclick="saveResult()" id="save-examination">Save Result</button>
-    <button href="#" class="btn btn-secondary" onclick="">Print Result</button><br><br>
+    <button  class="btn btn-secondary" onclick="sendAjaxToPrint('printable')">Print Result</button><br><br>
     <a href="/font3" class="btn btn-secondary" onclick="">Back </a>
 
 </form>
@@ -106,6 +162,27 @@
 
 function saveResult() {
   alert("บันทึกผลการทดสอบ เสร็จสิ้น");
+}
+function sendAjaxToPrint(divName){
+    var printContents = document.getElementById(divName).innerHTML;
+    var originalContents = document.body.innerHTML;
+
+    document.body.innerHTML = printContents;
+
+    window.print();
+
+    document.body.innerHTML = originalContents;
+    // $.ajax({
+    //     url:"printer",
+    //     success: function(){
+    //
+    //         console.log("send success");
+    //
+    //         return false;
+    //     }
+    //
+    // });
+    // show_modal()
 }
 
     function ShowData() {
@@ -125,14 +202,17 @@ function saveResult() {
         if (!right_s_wrong && !right_s_acuity ){
             document.getElementById('show_RE').innerHTML = " ";
             document.getElementById('RE_s_acuity').value = " ";
+            document.getElementById('print_RE').innerHTML = " ";
         }else{
             document.getElementById('show_RE').innerHTML = right_s_acuity + " " + right_s_wrong;
             document.getElementById('RE_s_acuity').value = right_s_acuity + " " + right_s_wrong;
+            document.getElementById('print_RE').innerHTML = right_s_acuity + " " + right_s_wrong;
         }
 
         if (!right_pin_s_wrong && !right_pin_s_acuity ){
             document.getElementById('show_RE_pin').innerHTML = " ";
             document.getElementById('RE_s_pin_acuity').value = " ";
+            document.getElementById('print_pin_RE').innerHTML = " ";
         }else{
             var split_right_s_acuity = right_s_acuity.split("/");
             var split_right_pin_s_acuity = right_pin_s_acuity.split("/");
@@ -141,24 +221,35 @@ function saveResult() {
             if (num_right_pin_s_acuity < num_right_s_acuity){
                 document.getElementById('show_RE_pin').innerHTML = right_pin_s_acuity + " "  +right_pin_s_wrong;
                 document.getElementById('RE_s_pin_acuity').value = right_pin_s_acuity + " "  +right_pin_s_wrong;
-            }else{
-                document.getElementById('show_RE_pin').innerHTML = "Not Improved";
-                document.getElementById('RE_s_pin_acuity').value = "Not Improved";
+                document.getElementById('print_pin_RE').innerHTML = right_pin_s_acuity + " "  +right_pin_s_wrong;
             }
-
+            else{
+                if (right_pin_s_wrong == "-1" || right_pin_s_wrong == "-2"){
+                    document.getElementById('show_RE_pin').innerHTML = right_pin_s_acuity + " "  +right_pin_s_wrong;
+                    document.getElementById('RE_s_pin_acuity').value = right_pin_s_acuity + " "  +right_pin_s_wrong;
+                    document.getElementById('print_pin_RE').innerHTML = right_pin_s_acuity + " "  +right_pin_s_wrong;
+                }else{
+                    document.getElementById('show_RE_pin').innerHTML = "Not Improved";
+                    document.getElementById('RE_s_pin_acuity').value = "Not Improved";
+                    document.getElementById('print_pin_RE').innerHTML = "Not Improved";
+                }
+            }
         }
 
         if (!left_pin_s_wrong && !left_s_acuity ){
             document.getElementById('show_LE').innerHTML = " ";
             document.getElementById('LE_s_acuity').value = " ";
+            document.getElementById('print_LE').innerHTML = " ";
         }else{
             document.getElementById('show_LE').innerHTML = left_s_acuity + " " + left_s_wrong;
             document.getElementById('LE_s_acuity').value = left_s_acuity + " " + left_s_wrong;
+            document.getElementById('print_LE').innerHTML = left_s_acuity + " " + left_s_wrong;
         }
 
         if (!left_pin_s_wrong && !left_pin_s_acuity){
             document.getElementById('show_LE_pin').innerHTML = " ";
             document.getElementById('LE_s_pin_acuity').value = " ";
+            document.getElementById('print_pin_LE').innerHTML = " ";
         }else{
             var split_left_s_acuity = left_s_acuity.split("/");
             var split_left_pin_s_acuity = left_pin_s_acuity.split("/");
@@ -167,14 +258,19 @@ function saveResult() {
             if (num_left_pin_s_acuity < num_left_s_acuity){
                 document.getElementById('show_LE_pin').innerHTML = left_pin_s_acuity + " "  +  left_pin_s_wrong;
                 document.getElementById('LE_s_pin_acuity').value = left_pin_s_acuity + " "  +  left_pin_s_wrong;
+                document.getElementById('print_pin_LE').innerHTML = left_pin_s_acuity + " "  +  left_pin_s_wrong;
             }else{
-                document.getElementById('show_LE_pin').innerHTML = "Not Improved";
-                document.getElementById('LE_s_pin_acuity').value = "Not Improved";
+                if (left_pin_s_wrong == "-1" || left_pin_s_wrong == "-2"){
+                    document.getElementById('show_LE_pin').innerHTML = left_pin_s_acuity + " "  +  left_pin_s_wrong;
+                    document.getElementById('LE_s_pin_acuity').value = left_pin_s_acuity + " "  +  left_pin_s_wrong;
+                    document.getElementById('print_pin_LE').innerHTML = left_pin_s_acuity + " "  +  left_pin_s_wrong;
+                }else{
+                    document.getElementById('show_LE_pin').innerHTML = "Not Improved";
+                    document.getElementById('LE_s_pin_acuity').value = "Not Improved";
+                    document.getElementById('print_pin_LE').innerHTML = "Not Improved";
+                }
             }
-
         }
-
-
     }
     /*]]>*/
 </script>
