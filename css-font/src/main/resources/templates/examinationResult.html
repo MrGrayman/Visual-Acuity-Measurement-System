@@ -42,7 +42,7 @@
                 width:100%;
             }
             @page{
-                size: 57mm 60mm;
+                size: 80mm 90mm;
             }
             @page:left {
                 margin-left: 20mm;
@@ -148,13 +148,13 @@
         </table>
     </div>
 
-    <label style="font-size: 18px"> เลขประจำตัวผู้ป่วย :&nbsp; </label>
-    <input type="text" id="HN" onchange="" style="height:30px; font-size:20pt; width:200px;" th:field="*{HN}" required>
+    <label style="font-size: 40px"> เลขประจำตัวผู้ป่วย :&nbsp; </label>
+    <input type="text" id="HN" onchange="" style="height:60px; font-size:40pt; width:280px;" th:field="*{HN}" required>
     <div th:if="${#fields.hasErrors('HN')}" th:errors="*{HN}">errors</div>
     <br> <br>
-    <button href="#" class="btn btn-primary" type="submit" onclick="saveResult()" id="save-examination">Save Result</button>
-    <button  class="btn btn-secondary" onclick="sendAjaxToPrint('printable')">Print Result</button><br><br>
-    <a href="/font3" class="btn btn-secondary" onclick="">Back </a>
+    <button href="#" class="btn btn-primary" type="submit" onclick="saveResult()" id="save-examination" style="font-size: 30px">Save Result</button>
+    <button  class="btn btn-secondary" onclick="sendAjaxToPrint('printable')" style="font-size: 30px;">Print Result</button><br><br>
+    <a href="/font3" class="btn btn-secondary" onclick="" style="font-size: 30px">Back</a>
 
 </form>
 </body>
