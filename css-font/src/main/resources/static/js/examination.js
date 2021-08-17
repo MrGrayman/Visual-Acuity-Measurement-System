@@ -1546,18 +1546,24 @@ function runSpeechRecognition() {
     var action = document.getElementById("action");
     var textContent = '';
     // new speech recognition object
+    if ('SpeechRecognition' in window || 'webkitSpeechRecognition' in window) {
+        // support
+    } else {
+        alert("error")
+    }
     try {
         var SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
         var SpeechGrammarList = SpeechGrammarList || webkitSpeechGrammarList;
 
-        var grammar = '#JSGF V1.0;'
+        var colors = [ 'A' , 'B' , 'C', 'D', 'E', 'F', 'G', 'H', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z', '1', '2', '3', '4', '5', '6', '7', '8', '9' , '0'];
+        var grammar = '#JSGF V1.0; grammar colors; public <color> = ' + colors.join(' | ') + ' ;'
         var recognition = new SpeechRecognition();
         var speechRecognitionList = new SpeechGrammarList();
         speechRecognitionList.addFromString(grammar, 1);
         recognition.grammars = speechRecognitionList;
-        recognition.interimResults = true;
-        // recognition.lang = "th-TH"
-        recognition.maxAlternatives = 1;
+        recognition.interimResults = false;
+        recognition.lang = "th-TH"
+        recognition.maxAlternatives = 5;
         // recognition.lang = "en-US"
     }
     catch(e) {
@@ -1589,7 +1595,7 @@ function runSpeechRecognition() {
         // There is no official solution so far so we have to handle an edge case.
         var mobileRepeatBug = (current == 1 && transcript == event.results[0][0].transcript);
         var confidence = event.results[0][0].confidence;
-        console.log("confident : "+confidence)
+        console.log("confidence : "+confidence)
         if(!mobileRepeatBug) {
             tempText = transcript.replace(/\s/g, '');
             document.getElementById('Answer2').value = Answer2 + tempText;
