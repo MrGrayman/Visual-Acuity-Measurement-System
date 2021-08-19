@@ -127,7 +127,14 @@
     <!--    <input type="image" src="images/clipart.png" alt="Submit" width="100" height="100">-->
     <div id="printable" hidden>
         <h1 style="color: #000000 ; font-size: 8mm;margin-left: 4% ; margin-top: 2%">Visual acuity results</h1>
-        <br>
+
+        <table border="0" style="width: 10% ; margin-left: 10% ;color: #000000 ; margin-top: 2% ; margin-bottom: 2% ;">
+            <tr style="text-align: center;font-size: 5mm">
+                <td>HN : </td>
+                <td id="hn_print2"></td>
+            </tr>
+        </table>
+
         <table border="1" style="width: 25% ; margin-left: 4% ;color: #000000 ">
             <tr style="text-align: center;font-size: 5mm">
                 <td>RE</td>
@@ -145,7 +152,10 @@
                 <td>LEph</td>
                 <td id="print_pin_LE"></td>
             </tr>
+
+
         </table>
+
     </div>
 
     <label style="font-size: 40px"> เลขประจำตัวผู้ป่วย :&nbsp; </label>
@@ -184,6 +194,23 @@ function sendAjaxToPrint(divName){
     // });
     // show_modal()
 }
+function call_print(){
+    var input = document.getElementById('HN').value;
+    alert("hn"+input)
+    document.getElementById('hn_print').value = input;
+}
+$(document).ready(function () {
+    $('#HN').keyup(function(e) {
+        let input = $(this).val();
+        if (!input){
+            document.getElementById('hn_print').innerText = " ";
+        }
+        // document.getElementById('hn_print').innerText = input;
+        document.getElementById('hn_print2').innerHTML = input;
+        input = " ";
+
+    })
+});
 
     function ShowData() {
         var s_wrong = /*[[${s_wrong}]]*/ 'default';
