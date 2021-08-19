@@ -504,10 +504,13 @@ $(document).ready(function () {
                              console.log("result save : "+result.s_wrong);
                              if (result.s_wrong >= 5){
                                  console.log("temp_s_wrong : "+temp_s_wrong);
-                                 if (temp_s_wrong <= 1 ){
+                                 if (temp_s_wrong == 1 ){
                                      s_wrong = "-" + "1";
-                                 }else {
+                                 }else if (temp_s_wrong == 2) {
                                      s_wrong = "-" + "2";
+                                 }
+                                 else{
+                                     s_wrong = " ";
                                  }
                                  s_acuity = "6/60";
                              }
@@ -517,15 +520,15 @@ $(document).ready(function () {
                                  }else if (result.s_wrong <= 4){
                                      s_wrong = "+" + "1";
                                  }
-                                 s_acuity = "6/48";
+                                 s_acuity = "6/60";
                              }
                          }
                          else{
                              if (result.s_wrong >= 5){
                                  console.log("temp_s_pin_wrong : "+temp_s_pin_wrong);
-                                 if (temp_s_pin_wrong <= 1 ){
+                                 if (temp_s_pin_wrong == 1 ){
                                      s_wrong = "-" + "1";
-                                 }else if (temp_s_pin_wrong <= 2 ){
+                                 }else if (temp_s_pin_wrong == 2 ){
                                      s_wrong = "-" + "2";
                                  }else{
                                      s_wrong = " ";
@@ -538,7 +541,7 @@ $(document).ready(function () {
                                  }else if (result.s_wrong <= 4){
                                      s_wrong = "+" + "1";
                                  }
-                                 s_acuity = "6/48";
+                                 s_acuity = "6/60";
                              }
                          }
                         save_result_leftEye(s_wrong,s_acuity)
@@ -547,11 +550,14 @@ $(document).ready(function () {
                             console.log("result save : "+result.s_wrong);
                             if (result.s_wrong >= 5){
                                 console.log("temp_s_wrong : "+temp_s_wrong);
-                                if (temp_s_wrong <= 1 ){
-                                    s_wrong = "-" + "1";
-                                }else {
-                                    s_wrong = "-" + "2";
-                                }
+                                if (temp_s_wrong == 1 ){
+                                     s_wrong = "-" + "1";
+                                 }else if (temp_s_wrong == 2) {
+                                     s_wrong = "-" + "2";
+                                 }
+                                 else{
+                                     s_wrong = " ";
+                                 }
                                 s_acuity = "6/48";
                             }
                             else{
@@ -560,19 +566,19 @@ $(document).ready(function () {
                                 }else if (result.s_wrong <= 4){
                                     s_wrong = "+" + "1";
                                 }
-                                s_acuity = "6/38";
+                                s_acuity = "6/48";
                             }
                         }
                         else{
                             if (result.s_wrong >= 5){
                                 console.log("temp_s_pin_wrong : "+temp_s_pin_wrong);
-                                if (temp_s_pin_wrong <= 1 ){
-                                    s_wrong = "-" + "1";
-                                }else if (temp_s_pin_wrong <= 2 ){
-                                    s_wrong = "-" + "2";
-                                }else{
-                                    s_wrong = " ";
-                                }
+                                if (temp_s_pin_wrong == 1 ){
+                                     s_wrong = "-" + "1";
+                                 }else if (temp_s_pin_wrong == 2 ){
+                                     s_wrong = "-" + "2";
+                                 }else{
+                                     s_wrong = " ";
+                                 }
                                 s_acuity = "6/48";
                             }
                             else{
@@ -581,7 +587,7 @@ $(document).ready(function () {
                                 }else if (result.s_wrong <= 4){
                                     s_wrong = "+" + "1";
                                 }
-                                s_acuity = "6/38";
+                                s_acuity = "6/48";
                             }
                         }
                         // s_acuity = "6/38";
@@ -591,11 +597,14 @@ $(document).ready(function () {
                             console.log("result save : "+result.s_wrong);
                             if (result.s_wrong >= 5){
                                 console.log("temp_s_wrong : "+temp_s_wrong);
-                                if (temp_s_wrong <= 1 ){
-                                    s_wrong = "-" + "1";
-                                }else {
-                                    s_wrong = "-" + "2";
-                                }
+                                if (temp_s_wrong == 1 ){
+                                     s_wrong = "-" + "1";
+                                 }else if (temp_s_wrong == 2) {
+                                     s_wrong = "-" + "2";
+                                 }
+                                 else{
+                                     s_wrong = " ";
+                                 }
                                 s_acuity = "6/38";
                             }
                             else{
@@ -604,19 +613,19 @@ $(document).ready(function () {
                                 }else if (result.s_wrong <= 4){
                                     s_wrong = "+" + "1";
                                 }
-                                s_acuity = "6/30";
+                                s_acuity = "6/38";
                             }
                         }
                         else{
                             if (result.s_wrong >= 5){
                                 console.log("temp_s_pin_wrong : "+temp_s_pin_wrong);
-                                if (temp_s_pin_wrong <= 1 ){
-                                    s_wrong = "-" + "1";
-                                }else if (temp_s_pin_wrong <= 2 ){
-                                    s_wrong = "-" + "2";
-                                }else{
-                                    s_wrong = " ";
-                                }
+                                if (temp_s_pin_wrong == 1 ){
+                                     s_wrong = "-" + "1";
+                                 }else if (temp_s_pin_wrong == 2 ){
+                                     s_wrong = "-" + "2";
+                                 }else{
+                                     s_wrong = " ";
+                                 }
                                 s_acuity = "6/38";
                             }
                             else{
@@ -625,7 +634,7 @@ $(document).ready(function () {
                                 }else if (result.s_wrong <= 4){
                                     s_wrong = "+" + "1";
                                 }
-                                s_acuity = "6/30";
+                                s_acuity = "6/38";
                             }
                         }
                         // s_acuity = "6/30";
@@ -635,11 +644,14 @@ $(document).ready(function () {
                             console.log("result save : "+result.s_wrong);
                             if (result.s_wrong >= 5){
                                 console.log("temp_s_wrong : "+temp_s_wrong);
-                                if (temp_s_wrong <= 1 ){
-                                    s_wrong = "-" + "1";
-                                }else {
-                                    s_wrong = "-" + "2";
-                                }
+                                if (temp_s_wrong == 1 ){
+                                     s_wrong = "-" + "1";
+                                 }else if (temp_s_wrong == 2) {
+                                     s_wrong = "-" + "2";
+                                 }
+                                 else{
+                                     s_wrong = " ";
+                                 }
                                 s_acuity = "6/30";
                             }
                             else{
@@ -648,19 +660,19 @@ $(document).ready(function () {
                                 }else if (result.s_wrong <= 4){
                                     s_wrong = "+" + "1";
                                 }
-                                s_acuity = "6/24";
+                                s_acuity = "6/30";
                             }
                         }
                         else{
                             if (result.s_wrong >= 5){
                                 console.log("temp_s_pin_wrong : "+temp_s_pin_wrong);
-                                if (temp_s_pin_wrong <= 1 ){
-                                    s_wrong = "-" + "1";
-                                }else if (temp_s_pin_wrong <= 2 ){
-                                    s_wrong = "-" + "2";
-                                }else{
-                                    s_wrong = " ";
-                                }
+                                if (temp_s_pin_wrong == 1 ){
+                                     s_wrong = "-" + "1";
+                                 }else if (temp_s_pin_wrong == 2 ){
+                                     s_wrong = "-" + "2";
+                                 }else{
+                                     s_wrong = " ";
+                                 }
                                 s_acuity = "6/30";
                             }
                             else{
@@ -669,7 +681,7 @@ $(document).ready(function () {
                                 }else if (result.s_wrong <= 4){
                                     s_wrong = "+" + "1";
                                 }
-                                s_acuity = "6/24";
+                                s_acuity = "6/30";
                             }
                         }
                         // s_acuity = "6/24";
@@ -679,11 +691,14 @@ $(document).ready(function () {
                             console.log("result save : "+result.s_wrong);
                             if (result.s_wrong >= 5){
                                 console.log("temp_s_wrong : "+temp_s_wrong);
-                                if (temp_s_wrong <= 1 ){
-                                    s_wrong = "-" + "1";
-                                }else {
-                                    s_wrong = "-" + "2";
-                                }
+                                if (temp_s_wrong == 1 ){
+                                     s_wrong = "-" + "1";
+                                 }else if (temp_s_wrong == 2) {
+                                     s_wrong = "-" + "2";
+                                 }
+                                 else{
+                                     s_wrong = " ";
+                                 }
                                 s_acuity = "6/24";
                             }
                             else{
@@ -692,19 +707,19 @@ $(document).ready(function () {
                                 }else if (result.s_wrong <= 4){
                                     s_wrong = "+" + "1";
                                 }
-                                s_acuity = "6/20";
+                                s_acuity = "6/24";
                             }
                         }
                         else{
                             if (result.s_wrong >= 5){
                                 console.log("temp_s_pin_wrong : "+temp_s_pin_wrong);
-                                if (temp_s_pin_wrong <= 1 ){
-                                    s_wrong = "-" + "1";
-                                }else if (temp_s_pin_wrong <= 2 ){
-                                    s_wrong = "-" + "2";
-                                }else{
-                                    s_wrong = " ";
-                                }
+                                if (temp_s_pin_wrong == 1 ){
+                                     s_wrong = "-" + "1";
+                                 }else if (temp_s_pin_wrong == 2 ){
+                                     s_wrong = "-" + "2";
+                                 }else{
+                                     s_wrong = " ";
+                                 }
                                 s_acuity = "6/24";
                             }
                             else{
@@ -713,7 +728,7 @@ $(document).ready(function () {
                                 }else if (result.s_wrong <= 4){
                                     s_wrong = "+" + "1";
                                 }
-                                s_acuity = "6/20";
+                                s_acuity = "6/24";
                             }
                         }
                         // s_acuity = "6/20";
@@ -723,11 +738,14 @@ $(document).ready(function () {
                             console.log("result save : "+result.s_wrong);
                             if (result.s_wrong >= 5){
                                 console.log("temp_s_wrong : "+temp_s_wrong);
-                                if (temp_s_wrong <= 1 ){
-                                    s_wrong = "-" + "1";
-                                }else {
-                                    s_wrong = "-" + "2";
-                                }
+                                if (temp_s_wrong == 1 ){
+                                     s_wrong = "-" + "1";
+                                 }else if (temp_s_wrong == 2) {
+                                     s_wrong = "-" + "2";
+                                 }
+                                 else{
+                                     s_wrong = " ";
+                                 }
                                 s_acuity = "6/20";
                             }
                             else{
@@ -736,19 +754,19 @@ $(document).ready(function () {
                                 }else if (result.s_wrong <= 4){
                                     s_wrong = "+" + "1";
                                 }
-                                s_acuity = "6/15";
+                                s_acuity = "6/20";
                             }
                         }
                         else{
                             if (result.s_wrong >= 5){
                                 console.log("temp_s_pin_wrong : "+temp_s_pin_wrong);
-                                if (temp_s_pin_wrong <= 1 ){
-                                    s_wrong = "-" + "1";
-                                }else if (temp_s_pin_wrong <= 2 ){
-                                    s_wrong = "-" + "2";
-                                }else{
-                                    s_wrong = " ";
-                                }
+                                if (temp_s_pin_wrong == 1 ){
+                                     s_wrong = "-" + "1";
+                                 }else if (temp_s_pin_wrong == 2 ){
+                                     s_wrong = "-" + "2";
+                                 }else{
+                                     s_wrong = " ";
+                                 }
                                 s_acuity = "6/20";
                             }
                             else{
@@ -757,7 +775,7 @@ $(document).ready(function () {
                                 }else if (result.s_wrong <= 4){
                                     s_wrong = "+" + "1";
                                 }
-                                s_acuity = "6/15";
+                                s_acuity = "6/20";
                             }
                         }
                         // s_acuity = "6/15";
@@ -767,11 +785,14 @@ $(document).ready(function () {
                             console.log("result save : "+result.s_wrong);
                             if (result.s_wrong >= 5){
                                 console.log("temp_s_wrong : "+temp_s_wrong);
-                                if (temp_s_wrong <= 1 ){
-                                    s_wrong = "-" + "1";
-                                }else {
-                                    s_wrong = "-" + "2";
-                                }
+                                if (temp_s_wrong == 1 ){
+                                     s_wrong = "-" + "1";
+                                 }else if (temp_s_wrong == 2) {
+                                     s_wrong = "-" + "2";
+                                 }
+                                 else{
+                                     s_wrong = " ";
+                                 }
                                 s_acuity = "6/15";
                             }
                             else{
@@ -780,19 +801,19 @@ $(document).ready(function () {
                                 }else if (result.s_wrong <= 4){
                                     s_wrong = "+" + "1";
                                 }
-                                s_acuity = "6/12";
+                                s_acuity = "6/15";
                             }
                         }
                         else{
                             if (result.s_wrong >= 5){
                                 console.log("temp_s_pin_wrong : "+temp_s_pin_wrong);
-                                if (temp_s_pin_wrong <= 1 ){
-                                    s_wrong = "-" + "1";
-                                }else if (temp_s_pin_wrong <= 2 ){
-                                    s_wrong = "-" + "2";
-                                }else{
-                                    s_wrong = " ";
-                                }
+                                if (temp_s_pin_wrong == 1 ){
+                                     s_wrong = "-" + "1";
+                                 }else if (temp_s_pin_wrong == 2 ){
+                                     s_wrong = "-" + "2";
+                                 }else{
+                                     s_wrong = " ";
+                                 }
                                 s_acuity = "6/15";
                             }
                             else{
@@ -801,7 +822,7 @@ $(document).ready(function () {
                                 }else if (result.s_wrong <= 4){
                                     s_wrong = "+" + "1";
                                 }
-                                s_acuity = "6/12";
+                                s_acuity = "6/15";
                             }
                         }
                         // s_acuity = "6/12";
@@ -811,11 +832,14 @@ $(document).ready(function () {
                             console.log("result save : "+result.s_wrong);
                             if (result.s_wrong >= 5){
                                 console.log("temp_s_wrong : "+temp_s_wrong);
-                                if (temp_s_wrong <= 1 ){
-                                    s_wrong = "-" + "1";
-                                }else {
-                                    s_wrong = "-" + "2";
-                                }
+                                if (temp_s_wrong == 1 ){
+                                     s_wrong = "-" + "1";
+                                 }else if (temp_s_wrong == 2) {
+                                     s_wrong = "-" + "2";
+                                 }
+                                 else{
+                                     s_wrong = " ";
+                                 }
                                 s_acuity = "6/12";
                             }
                             else{
@@ -824,19 +848,19 @@ $(document).ready(function () {
                                 }else if (result.s_wrong <= 4){
                                     s_wrong = "+" + "1";
                                 }
-                                s_acuity = "6/10";
+                                s_acuity = "6/12";
                             }
                         }
                         else{
                             if (result.s_wrong >= 5){
                                 console.log("temp_s_pin_wrong : "+temp_s_pin_wrong);
-                                if (temp_s_pin_wrong <= 1 ){
-                                    s_wrong = "-" + "1";
-                                }else if (temp_s_pin_wrong <= 2 ){
-                                    s_wrong = "-" + "2";
-                                }else{
-                                    s_wrong = " ";
-                                }
+                                if (temp_s_pin_wrong == 1 ){
+                                     s_wrong = "-" + "1";
+                                 }else if (temp_s_pin_wrong == 2 ){
+                                     s_wrong = "-" + "2";
+                                 }else{
+                                     s_wrong = " ";
+                                 }
                                 s_acuity = "6/12";
                             }
                             else{
@@ -845,7 +869,7 @@ $(document).ready(function () {
                                 }else if (result.s_wrong <= 4){
                                     s_wrong = "+" + "1";
                                 }
-                                s_acuity = "6/10";
+                                s_acuity = "6/12";
                             }
                         }
                         // s_acuity = "6/10";
@@ -855,11 +879,14 @@ $(document).ready(function () {
                             console.log("result save : "+result.s_wrong);
                             if (result.s_wrong >= 5){
                                 console.log("temp_s_wrong : "+temp_s_wrong);
-                                if (temp_s_wrong <= 1 ){
-                                    s_wrong = "-" + "1";
-                                }else {
-                                    s_wrong = "-" + "2";
-                                }
+                                if (temp_s_wrong == 1 ){
+                                     s_wrong = "-" + "1";
+                                 }else if (temp_s_wrong == 2) {
+                                     s_wrong = "-" + "2";
+                                 }
+                                 else{
+                                     s_wrong = " ";
+                                 }
                                 s_acuity = "6/10";
                             }
                             else{
@@ -868,19 +895,19 @@ $(document).ready(function () {
                                 }else if (result.s_wrong <= 4){
                                     s_wrong = "+" + "1";
                                 }
-                                s_acuity = "6/7.5";
+                                s_acuity = "6/10";
                             }
                         }
                         else{
                             if (result.s_wrong >= 5){
                                 console.log("temp_s_pin_wrong : "+temp_s_pin_wrong);
-                                if (temp_s_pin_wrong <= 1 ){
-                                    s_wrong = "-" + "1";
-                                }else if (temp_s_pin_wrong <= 2 ){
-                                    s_wrong = "-" + "2";
-                                }else{
-                                    s_wrong = " ";
-                                }
+                                if (temp_s_pin_wrong == 1 ){
+                                     s_wrong = "-" + "1";
+                                 }else if (temp_s_pin_wrong == 2 ){
+                                     s_wrong = "-" + "2";
+                                 }else{
+                                     s_wrong = " ";
+                                 }
                                 s_acuity = "6/10";
                             }
                             else{
@@ -889,7 +916,7 @@ $(document).ready(function () {
                                 }else if (result.s_wrong <= 4){
                                     s_wrong = "+" + "1";
                                 }
-                                s_acuity = "6/7.5";
+                                s_acuity = "6/10";
                             }
                         }
                         // s_acuity = "6/7.5";
@@ -900,11 +927,14 @@ $(document).ready(function () {
                             console.log("result save : "+result.s_wrong);
                             if (result.s_wrong >= 5){
                                 console.log("temp_s_wrong : "+temp_s_wrong);
-                                if (temp_s_wrong <= 1 ){
-                                    s_wrong = "-" + "1";
-                                }else {
-                                    s_wrong = "-" + "2";
-                                }
+                                if (temp_s_wrong == 1 ){
+                                     s_wrong = "-" + "1";
+                                 }else if (temp_s_wrong == 2) {
+                                     s_wrong = "-" + "2";
+                                 }
+                                 else{
+                                     s_wrong = " ";
+                                 }
                                 s_acuity = "6/7.5";
                             }
                             else{
@@ -913,19 +943,19 @@ $(document).ready(function () {
                                 }else if (result.s_wrong <= 4){
                                     s_wrong = "+" + "1";
                                 }
-                                s_acuity = "6/6";
+                                s_acuity = "6/7.5";
                             }
                         }
                         else{
                             if (result.s_wrong >= 5){
                                 console.log("temp_s_pin_wrong : "+temp_s_pin_wrong);
-                                if (temp_s_pin_wrong <= 1 ){
-                                    s_wrong = "-" + "1";
-                                }else if (temp_s_pin_wrong <= 2 ){
-                                    s_wrong = "-" + "2";
-                                }else{
-                                    s_wrong = " ";
-                                }
+                                if (temp_s_pin_wrong == 1 ){
+                                     s_wrong = "-" + "1";
+                                 }else if (temp_s_pin_wrong == 2 ){
+                                     s_wrong = "-" + "2";
+                                 }else{
+                                     s_wrong = " ";
+                                 }
                                 s_acuity = "6/7.5";
                             }
                             else{
@@ -934,7 +964,7 @@ $(document).ready(function () {
                                 }else if (result.s_wrong <= 4){
                                     s_wrong = "+" + "1";
                                 }
-                                s_acuity = "6/6";
+                                s_acuity = "6/7.5";
                             }
                         }
                         // s_acuity = "6/6";
@@ -1034,11 +1064,14 @@ function checkSpeechText(){
                         console.log("result save : "+result.s_wrong);
                         if (result.s_wrong >= 5){
                             console.log("temp_s_wrong : "+temp_s_wrong);
-                            if (temp_s_wrong <= 1 ){
-                                s_wrong = "-" + "1";
-                            }else {
-                                s_wrong = "-" + "2";
-                            }
+                            if (temp_s_wrong == 1 ){
+                                     s_wrong = "-" + "1";
+                                 }else if (temp_s_wrong == 2) {
+                                     s_wrong = "-" + "2";
+                                 }
+                                 else{
+                                     s_wrong = " ";
+                                 }
                             s_acuity = "6/60";
                         }
                         else{
@@ -1047,19 +1080,19 @@ function checkSpeechText(){
                             }else if (result.s_wrong <= 4){
                                 s_wrong = "+" + "1";
                             }
-                            s_acuity = "6/48";
+                            s_acuity = "6/60";
                         }
                     }
                     else{
                         if (result.s_wrong >= 5){
                             console.log("temp_s_pin_wrong : "+temp_s_pin_wrong);
-                            if (temp_s_pin_wrong <= 1 ){
-                                s_wrong = "-" + "1";
-                            }else if (temp_s_pin_wrong <= 2 ){
-                                s_wrong = "-" + "2";
-                            }else{
-                                s_wrong = " ";
-                            }
+                            if (temp_s_pin_wrong == 1 ){
+                                     s_wrong = "-" + "1";
+                                 }else if (temp_s_pin_wrong == 2 ){
+                                     s_wrong = "-" + "2";
+                                 }else{
+                                     s_wrong = " ";
+                                 }
                             s_acuity = "6/60";
                         }
                         else{
@@ -1068,7 +1101,7 @@ function checkSpeechText(){
                             }else if (result.s_wrong <= 4){
                                 s_wrong = "+" + "1";
                             }
-                            s_acuity = "6/48";
+                            s_acuity = "6/60";
                         }
                     }
                     // s_acuity = "6/48";
@@ -1078,11 +1111,14 @@ function checkSpeechText(){
                         console.log("result save : "+result.s_wrong);
                         if (result.s_wrong >= 5){
                             console.log("temp_s_wrong : "+temp_s_wrong);
-                            if (temp_s_wrong <= 1 ){
-                                s_wrong = "-" + "1";
-                            }else {
-                                s_wrong = "-" + "2";
-                            }
+                            if (temp_s_wrong == 1 ){
+                                     s_wrong = "-" + "1";
+                                 }else if (temp_s_wrong == 2) {
+                                     s_wrong = "-" + "2";
+                                 }
+                                 else{
+                                     s_wrong = " ";
+                                 }
                             s_acuity = "6/48";
                         }
                         else{
@@ -1091,19 +1127,19 @@ function checkSpeechText(){
                             }else if (result.s_wrong <= 4){
                                 s_wrong = "+" + "1";
                             }
-                            s_acuity = "6/38";
+                            s_acuity = "6/48";
                         }
                     }
                     else{
                         if (result.s_wrong >= 5){
                             console.log("temp_s_pin_wrong : "+temp_s_pin_wrong);
-                            if (temp_s_pin_wrong <= 1 ){
-                                s_wrong = "-" + "1";
-                            }else if (temp_s_pin_wrong <= 2 ){
-                                s_wrong = "-" + "2";
-                            }else{
-                                s_wrong = " ";
-                            }
+                            if (temp_s_pin_wrong == 1 ){
+                                     s_wrong = "-" + "1";
+                                 }else if (temp_s_pin_wrong == 2 ){
+                                     s_wrong = "-" + "2";
+                                 }else{
+                                     s_wrong = " ";
+                                 }
                             s_acuity = "6/48";
                         }
                         else{
@@ -1112,7 +1148,7 @@ function checkSpeechText(){
                             }else if (result.s_wrong <= 4){
                                 s_wrong = "+" + "1";
                             }
-                            s_acuity = "6/38";
+                            s_acuity = "6/48";
                         }
                     }
                     // s_acuity = "6/38";
@@ -1122,11 +1158,14 @@ function checkSpeechText(){
                         console.log("result save : "+result.s_wrong);
                         if (result.s_wrong >= 5){
                             console.log("temp_s_wrong : "+temp_s_wrong);
-                            if (temp_s_wrong <= 1 ){
-                                s_wrong = "-" + "1";
-                            }else {
-                                s_wrong = "-" + "2";
-                            }
+                            if (temp_s_wrong == 1 ){
+                                     s_wrong = "-" + "1";
+                                 }else if (temp_s_wrong == 2) {
+                                     s_wrong = "-" + "2";
+                                 }
+                                 else{
+                                     s_wrong = " ";
+                                 }
                             s_acuity = "6/38";
                         }
                         else{
@@ -1135,19 +1174,19 @@ function checkSpeechText(){
                             }else if (result.s_wrong <= 4){
                                 s_wrong = "+" + "1";
                             }
-                            s_acuity = "6/30";
+                            s_acuity = "6/38";
                         }
                     }
                     else{
                         if (result.s_wrong >= 5){
                             console.log("temp_s_pin_wrong : "+temp_s_pin_wrong);
-                            if (temp_s_pin_wrong <= 1 ){
-                                s_wrong = "-" + "1";
-                            }else if (temp_s_pin_wrong <= 2 ){
-                                s_wrong = "-" + "2";
-                            }else{
-                                s_wrong = " ";
-                            }
+                            if (temp_s_pin_wrong == 1 ){
+                                     s_wrong = "-" + "1";
+                                 }else if (temp_s_pin_wrong == 2 ){
+                                     s_wrong = "-" + "2";
+                                 }else{
+                                     s_wrong = " ";
+                                 }
                             s_acuity = "6/38";
                         }
                         else{
@@ -1156,7 +1195,7 @@ function checkSpeechText(){
                             }else if (result.s_wrong <= 4){
                                 s_wrong = "+" + "1";
                             }
-                            s_acuity = "6/30";
+                            s_acuity = "6/38";
                         }
                     }
                     // s_acuity = "6/30";
@@ -1166,11 +1205,14 @@ function checkSpeechText(){
                         console.log("result save : "+result.s_wrong);
                         if (result.s_wrong >= 5){
                             console.log("temp_s_wrong : "+temp_s_wrong);
-                            if (temp_s_wrong <= 1 ){
-                                s_wrong = "-" + "1";
-                            }else {
-                                s_wrong = "-" + "2";
-                            }
+                            if (temp_s_wrong == 1 ){
+                                     s_wrong = "-" + "1";
+                                 }else if (temp_s_wrong == 2) {
+                                     s_wrong = "-" + "2";
+                                 }
+                                 else{
+                                     s_wrong = " ";
+                                 }
                             s_acuity = "6/30";
                         }
                         else{
@@ -1179,19 +1221,19 @@ function checkSpeechText(){
                             }else if (result.s_wrong <= 4){
                                 s_wrong = "+" + "1";
                             }
-                            s_acuity = "6/24";
+                            s_acuity = "6/30";
                         }
                     }
                     else{
                         if (result.s_wrong >= 5){
                             console.log("temp_s_pin_wrong : "+temp_s_pin_wrong);
-                            if (temp_s_pin_wrong <= 1 ){
-                                s_wrong = "-" + "1";
-                            }else if (temp_s_pin_wrong <= 2 ){
-                                s_wrong = "-" + "2";
-                            }else{
-                                s_wrong = " ";
-                            }
+                            if (temp_s_pin_wrong == 1 ){
+                                     s_wrong = "-" + "1";
+                                 }else if (temp_s_pin_wrong == 2 ){
+                                     s_wrong = "-" + "2";
+                                 }else{
+                                     s_wrong = " ";
+                                 }
                             s_acuity = "6/30";
                         }
                         else{
@@ -1200,7 +1242,7 @@ function checkSpeechText(){
                             }else if (result.s_wrong <= 4){
                                 s_wrong = "+" + "1";
                             }
-                            s_acuity = "6/24";
+                            s_acuity = "6/30";
                         }
                     }
                     // s_acuity = "6/24";
@@ -1210,11 +1252,14 @@ function checkSpeechText(){
                         console.log("result save : "+result.s_wrong);
                         if (result.s_wrong >= 5){
                             console.log("temp_s_wrong : "+temp_s_wrong);
-                            if (temp_s_wrong <= 1 ){
-                                s_wrong = "-" + "1";
-                            }else {
-                                s_wrong = "-" + "2";
-                            }
+                            if (temp_s_wrong == 1 ){
+                                     s_wrong = "-" + "1";
+                                 }else if (temp_s_wrong == 2) {
+                                     s_wrong = "-" + "2";
+                                 }
+                                 else{
+                                     s_wrong = " ";
+                                 }
                             s_acuity = "6/24";
                         }
                         else{
@@ -1223,19 +1268,19 @@ function checkSpeechText(){
                             }else if (result.s_wrong <= 4){
                                 s_wrong = "+" + "1";
                             }
-                            s_acuity = "6/20";
+                            s_acuity = "6/24";
                         }
                     }
                     else{
                         if (result.s_wrong >= 5){
                             console.log("temp_s_pin_wrong : "+temp_s_pin_wrong);
-                            if (temp_s_pin_wrong <= 1 ){
-                                s_wrong = "-" + "1";
-                            }else if (temp_s_pin_wrong <= 2 ){
-                                s_wrong = "-" + "2";
-                            }else{
-                                s_wrong = " ";
-                            }
+                            if (temp_s_pin_wrong == 1 ){
+                                     s_wrong = "-" + "1";
+                                 }else if (temp_s_pin_wrong == 2 ){
+                                     s_wrong = "-" + "2";
+                                 }else{
+                                     s_wrong = " ";
+                                 }
                             s_acuity = "6/24";
                         }
                         else{
@@ -1244,7 +1289,7 @@ function checkSpeechText(){
                             }else if (result.s_wrong <= 4){
                                 s_wrong = "+" + "1";
                             }
-                            s_acuity = "6/20";
+                            s_acuity = "6/24";
                         }
                     }
                     // s_acuity = "6/20";
@@ -1254,11 +1299,14 @@ function checkSpeechText(){
                         console.log("result save : "+result.s_wrong);
                         if (result.s_wrong >= 5){
                             console.log("temp_s_wrong : "+temp_s_wrong);
-                            if (temp_s_wrong <= 1 ){
-                                s_wrong = "-" + "1";
-                            }else {
-                                s_wrong = "-" + "2";
-                            }
+                            if (temp_s_wrong == 1 ){
+                                     s_wrong = "-" + "1";
+                                 }else if (temp_s_wrong == 2) {
+                                     s_wrong = "-" + "2";
+                                 }
+                                 else{
+                                     s_wrong = " ";
+                                 }
                             s_acuity = "6/20";
                         }
                         else{
@@ -1267,19 +1315,19 @@ function checkSpeechText(){
                             }else if (result.s_wrong <= 4){
                                 s_wrong = "+" + "1";
                             }
-                            s_acuity = "6/15";
+                            s_acuity = "6/20";
                         }
                     }
                     else{
                         if (result.s_wrong >= 5){
                             console.log("temp_s_pin_wrong : "+temp_s_pin_wrong);
-                            if (temp_s_pin_wrong <= 1 ){
-                                s_wrong = "-" + "1";
-                            }else if (temp_s_pin_wrong <= 2 ){
-                                s_wrong = "-" + "2";
-                            }else{
-                                s_wrong = " ";
-                            }
+                            if (temp_s_pin_wrong == 1 ){
+                                     s_wrong = "-" + "1";
+                                 }else if (temp_s_pin_wrong == 2 ){
+                                     s_wrong = "-" + "2";
+                                 }else{
+                                     s_wrong = " ";
+                                 }
                             s_acuity = "6/20";
                         }
                         else{
@@ -1288,7 +1336,7 @@ function checkSpeechText(){
                             }else if (result.s_wrong <= 4){
                                 s_wrong = "+" + "1";
                             }
-                            s_acuity = "6/15";
+                            s_acuity = "6/20";
                         }
                     }
                     // s_acuity = "6/15";
@@ -1298,11 +1346,14 @@ function checkSpeechText(){
                         console.log("result save : "+result.s_wrong);
                         if (result.s_wrong >= 5){
                             console.log("temp_s_wrong : "+temp_s_wrong);
-                            if (temp_s_wrong <= 1 ){
-                                s_wrong = "-" + "1";
-                            }else {
-                                s_wrong = "-" + "2";
-                            }
+                            if (temp_s_wrong == 1 ){
+                                     s_wrong = "-" + "1";
+                                 }else if (temp_s_wrong == 2) {
+                                     s_wrong = "-" + "2";
+                                 }
+                                 else{
+                                     s_wrong = " ";
+                                 }
                             s_acuity = "6/15";
                         }
                         else{
@@ -1311,19 +1362,19 @@ function checkSpeechText(){
                             }else if (result.s_wrong <= 4){
                                 s_wrong = "+" + "1";
                             }
-                            s_acuity = "6/12";
+                            s_acuity = "6/15";
                         }
                     }
                     else{
                         if (result.s_wrong >= 5){
                             console.log("temp_s_pin_wrong : "+temp_s_pin_wrong);
-                            if (temp_s_pin_wrong <= 1 ){
-                                s_wrong = "-" + "1";
-                            }else if (temp_s_pin_wrong <= 2 ){
-                                s_wrong = "-" + "2";
-                            }else{
-                                s_wrong = " ";
-                            }
+                            if (temp_s_pin_wrong == 1 ){
+                                     s_wrong = "-" + "1";
+                                 }else if (temp_s_pin_wrong == 2 ){
+                                     s_wrong = "-" + "2";
+                                 }else{
+                                     s_wrong = " ";
+                                 }
                             s_acuity = "6/15";
                         }
                         else{
@@ -1332,7 +1383,7 @@ function checkSpeechText(){
                             }else if (result.s_wrong <= 4){
                                 s_wrong = "+" + "1";
                             }
-                            s_acuity = "6/12";
+                            s_acuity = "6/15";
                         }
                     }
                     // s_acuity = "6/12";
@@ -1342,11 +1393,14 @@ function checkSpeechText(){
                         console.log("result save : "+result.s_wrong);
                         if (result.s_wrong >= 5){
                             console.log("temp_s_wrong : "+temp_s_wrong);
-                            if (temp_s_wrong <= 1 ){
-                                s_wrong = "-" + "1";
-                            }else {
-                                s_wrong = "-" + "2";
-                            }
+                            if (temp_s_wrong == 1 ){
+                                     s_wrong = "-" + "1";
+                                 }else if (temp_s_wrong == 2) {
+                                     s_wrong = "-" + "2";
+                                 }
+                                 else{
+                                     s_wrong = " ";
+                                 }
                             s_acuity = "6/12";
                         }
                         else{
@@ -1355,19 +1409,19 @@ function checkSpeechText(){
                             }else if (result.s_wrong <= 4){
                                 s_wrong = "+" + "1";
                             }
-                            s_acuity = "6/10";
+                            s_acuity = "6/12";
                         }
                     }
                     else{
                         if (result.s_wrong >= 5){
                             console.log("temp_s_pin_wrong : "+temp_s_pin_wrong);
-                            if (temp_s_pin_wrong <= 1 ){
-                                s_wrong = "-" + "1";
-                            }else if (temp_s_pin_wrong <= 2 ){
-                                s_wrong = "-" + "2";
-                            }else{
-                                s_wrong = " ";
-                            }
+                            if (temp_s_pin_wrong == 1 ){
+                                     s_wrong = "-" + "1";
+                                 }else if (temp_s_pin_wrong == 2 ){
+                                     s_wrong = "-" + "2";
+                                 }else{
+                                     s_wrong = " ";
+                                 }
                             s_acuity = "6/12";
                         }
                         else{
@@ -1376,7 +1430,7 @@ function checkSpeechText(){
                             }else if (result.s_wrong <= 4){
                                 s_wrong = "+" + "1";
                             }
-                            s_acuity = "6/10";
+                            s_acuity = "6/12";
                         }
                     }
                     // s_acuity = "6/10";
@@ -1386,11 +1440,14 @@ function checkSpeechText(){
                         console.log("result save : "+result.s_wrong);
                         if (result.s_wrong >= 5){
                             console.log("temp_s_wrong : "+temp_s_wrong);
-                            if (temp_s_wrong <= 1 ){
-                                s_wrong = "-" + "1";
-                            }else {
-                                s_wrong = "-" + "2";
-                            }
+                            if (temp_s_wrong == 1 ){
+                                     s_wrong = "-" + "1";
+                                 }else if (temp_s_wrong == 2) {
+                                     s_wrong = "-" + "2";
+                                 }
+                                 else{
+                                     s_wrong = " ";
+                                 }
                             s_acuity = "6/10";
                         }
                         else{
@@ -1399,19 +1456,19 @@ function checkSpeechText(){
                             }else if (result.s_wrong <= 4){
                                 s_wrong = "+" + "1";
                             }
-                            s_acuity = "6/7.5";
+                            s_acuity = "6/10";
                         }
                     }
                     else{
                         if (result.s_wrong >= 5){
                             console.log("temp_s_pin_wrong : "+temp_s_pin_wrong);
-                            if (temp_s_pin_wrong <= 1 ){
-                                s_wrong = "-" + "1";
-                            }else if (temp_s_pin_wrong <= 2 ){
-                                s_wrong = "-" + "2";
-                            }else{
-                                s_wrong = " ";
-                            }
+                            if (temp_s_pin_wrong == 1 ){
+                                     s_wrong = "-" + "1";
+                                 }else if (temp_s_pin_wrong == 2 ){
+                                     s_wrong = "-" + "2";
+                                 }else{
+                                     s_wrong = " ";
+                                 }
                             s_acuity = "6/10";
                         }
                         else{
@@ -1420,7 +1477,7 @@ function checkSpeechText(){
                             }else if (result.s_wrong <= 4){
                                 s_wrong = "+" + "1";
                             }
-                            s_acuity = "6/7.5";
+                            s_acuity = "6/10";
                         }
                     }
                     // s_acuity = "6/7.5";
@@ -1430,11 +1487,14 @@ function checkSpeechText(){
                         console.log("result save : "+result.s_wrong);
                         if (result.s_wrong >= 5){
                             console.log("temp_s_wrong : "+temp_s_wrong);
-                            if (temp_s_wrong <= 1 ){
-                                s_wrong = "-" + "1";
-                            }else {
-                                s_wrong = "-" + "2";
-                            }
+                            if (temp_s_wrong == 1 ){
+                                     s_wrong = "-" + "1";
+                                 }else if (temp_s_wrong == 2) {
+                                     s_wrong = "-" + "2";
+                                 }
+                                 else{
+                                     s_wrong = " ";
+                                 }
                             s_acuity = "6/7.5";
                         }
                         else{
@@ -1443,19 +1503,19 @@ function checkSpeechText(){
                             }else if (result.s_wrong <= 4){
                                 s_wrong = "+" + "1";
                             }
-                            s_acuity = "6/6";
+                            s_acuity = "6/7.5";
                         }
                     }
                     else{
                         if (result.s_wrong >= 5){
                             console.log("temp_s_pin_wrong : "+temp_s_pin_wrong);
-                            if (temp_s_pin_wrong <= 1 ){
-                                s_wrong = "-" + "1";
-                            }else if (temp_s_pin_wrong <= 2 ){
-                                s_wrong = "-" + "2";
-                            }else{
-                                s_wrong = " ";
-                            }
+                            if (temp_s_pin_wrong == 1 ){
+                                     s_wrong = "-" + "1";
+                                 }else if (temp_s_pin_wrong == 2 ){
+                                     s_wrong = "-" + "2";
+                                 }else{
+                                     s_wrong = " ";
+                                 }
                             s_acuity = "6/7.5";
                         }
                         else{
@@ -1464,7 +1524,7 @@ function checkSpeechText(){
                             }else if (result.s_wrong <= 4){
                                 s_wrong = "+" + "1";
                             }
-                            s_acuity = "6/6";
+                            s_acuity = "6/7.5";
                         }
                     }
                     // s_acuity = "6/6";
